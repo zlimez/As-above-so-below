@@ -37,13 +37,41 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.2}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.455
+    m_Value: 0
   smoothness:
     m_OverrideState: 1
     m_Value: 1
   rounded:
     m_OverrideState: 1
     m_Value: 1
+--- !u!114 &-2076240442810327907
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfee7ec4ca286494fab6acac013eb80d, type: 3}
+  m_Name: GodRaysVolume
+  m_EditorClassIdentifier: 
+  active: 0
+  MainLightIntensity:
+    m_OverrideState: 1
+    m_Value: 4.33
+  AdditionalLightsIntensity:
+    m_OverrideState: 1
+    m_Value: 1
+  MainLightScattering:
+    m_OverrideState: 1
+    m_Value: 0.5
+  AdditionalLightsScattering:
+    m_OverrideState: 1
+    m_Value: 0.5
+  Tint:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &-1477081728039606966
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -140,6 +168,8 @@ MonoBehaviour:
   - {fileID: -6478787558665288360}
   - {fileID: 5363592038083363892}
   - {fileID: 5558170701886752213}
+  - {fileID: -2076240442810327907}
+  - {fileID: 9110146985898902707}
 --- !u!114 &1802224839835870469
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -237,11 +267,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.25
   compareLineAngle:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1.4
   compareLineWidth:
-    m_OverrideState: 0
-    m_Value: 0.002
+    m_OverrideState: 1
+    m_Value: 0.05
   flipY:
     m_OverrideState: 1
     m_Value: 0
@@ -439,7 +469,7 @@ MonoBehaviour:
     dimension: 1
   bloomIntensity:
     m_OverrideState: 1
-    m_Value: 0.466
+    m_Value: 0.2
   bloomThreshold:
     m_OverrideState: 1
     m_Value: 0.75
@@ -554,7 +584,7 @@ MonoBehaviour:
     m_Value: 0
   sunFlaresIntensity:
     m_OverrideState: 0
-    m_Value: 0.085
+    m_Value: 0.277
   sunFlaresTint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -958,3 +988,40 @@ MonoBehaviour:
   gain:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: -0.13686909}
+--- !u!114 &9110146985898902707
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0c9bc5a1911b14db85e866ea3016e3, type: 3}
+  m_Name: LightScatteringPostProcess
+  m_EditorClassIdentifier: 
+  active: 1
+  numberOfSamples:
+    m_OverrideState: 1
+    m_Value: 20
+  fogDensity:
+    m_OverrideState: 1
+    m_Value: 5.12
+  maxRayDistance:
+    m_OverrideState: 0
+    m_Value: 0.2
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  softenScreenEdges:
+    m_OverrideState: 0
+    m_Value: 0
+  animateSamplingOffset:
+    m_OverrideState: 0
+    m_Value: 0
+  lightMustBeOnScreen:
+    m_OverrideState: 0
+    m_Value: 0
+  falloffBasis:
+    m_OverrideState: 0
+    m_Value: 0

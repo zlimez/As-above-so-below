@@ -106,7 +106,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CityTop.unity
     guid: 00eaed7b7a3971c41ad3f49db670c62c
   - enabled: 1
-    path: Assets/Scenes/AkaPlaceRoom.unity
+    path: Assets/Scenes/Room.unity
     guid: a697f87c73135f149afffe57a328ab5f
   - enabled: 1
     path: Assets/Scenes/Cutscenes/AkaMeeting_PolicemanCaughtHector.unity
@@ -120,8 +120,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscenes/Chapter2Start.unity
     guid: ffe93a0ab66cc4a309d7da4ef738bc4f
-    path: Assets/Scenes/Cutscenes/Chapter1Start.unity
-    guid: fbb7471228c2a904e9f001354c6cde24
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
