@@ -70,8 +70,8 @@ Material:
     - _QueueControl: 1
     - _QueueOffset: 0
     - _Smoothness: 0.916
-    - _WaterBottom: 8.91
-    - _WaterClarity: -0.32
+    - _WaterBottom: 12.01
+    - _WaterClarity: 0
     m_Colors:
     - _FoamColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 0.28235295}
     - _FoamData: {r: 0.3, g: 0.3, b: 0.05, a: 0.15}

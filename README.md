@@ -3,26 +3,6 @@
 # Requirements
 Unity 2021.3.14f1
 
-# Directories explained
-## /Audio
-Stores .wav .mp3 
-## /Character 
-Stores Art assets for characters
-## /Enviroment
-Stores Art assets for environments
-## /Materials
-Stores materials
-## /Plugins
-Stores 3rd party assets
-## /Prefabs
-Stores prefabs
-## /Resources
-Assets in here can be referred to using Resources.Load()
-## /Scenes
-Stores scenes
-## /Scripts
-C# code
-## /Settings
-Stores in-game settings, E.g. URP rendering settings
-## /Shaders
-Stores Shaders
+# Credits
+https://sketchfab.com/3d-models/japanese-tatami-room-set-8b5108dde0f24f76bda2313750e80134
+https://sketchfab.com/3d-models/old-japanese-lamp-2d95746c71724633baf24d8066ecf8db

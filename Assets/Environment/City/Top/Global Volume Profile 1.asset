@@ -87,7 +87,7 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.76665425, z: 0.86976725, w: -0.28795815}
+    m_Value: {x: 0.83607984, y: 0.90277064, z: 1, w: -0.19585288}
   midtones:
     m_OverrideState: 1
     m_Value: {x: 1, y: 0.875696, z: 0.9352711, w: 0}
@@ -1006,12 +1006,12 @@ MonoBehaviour:
     m_Value: 20
   fogDensity:
     m_OverrideState: 1
-    m_Value: 5.12
+    m_Value: 0.76
   maxRayDistance:
     m_OverrideState: 0
     m_Value: 0.2
   tint:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   softenScreenEdges:
     m_OverrideState: 0
