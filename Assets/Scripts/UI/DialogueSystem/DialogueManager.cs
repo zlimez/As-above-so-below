@@ -51,10 +51,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
         if (Input.GetKey(KeyCode.LeftShift) && InDialogue)
         {
-            if (CanSkip())
-            {
-                StartCoroutine(Skip());
-            }
+            StartCoroutine(Skip());
         }
 
         if (InputManager.DialogButtonActivated && InDialogue)
@@ -190,7 +187,6 @@ public class DialogueManager : Singleton<DialogueManager>
         dialogueLineCoroutine = StartCoroutine(DisplayLine(currentLine.Dialogue));
 
         UpdateSpeakerUI(currentLine);
-        HandleLineStartEvent(currentLine);
         PlayLineAudio(currentLine);
 
         currentIndex++;
@@ -236,14 +232,6 @@ public class DialogueManager : Singleton<DialogueManager>
         rightSprite.sprite = currentSpeaker.SpeakerSprite;
         leftSprite.color = new Color32(110, 110, 110, 255);
         speakerName.text = currentSpeaker.SpeakerName;
-    }
-
-    private void HandleLineStartEvent(DialogueLine currentLine)
-    {
-        if (currentLine.HasLineStartEvent())
-        {
-            EventLedger.Instance.RecordEvent(currentLine.OnLineStart, false);
-        }
     }
 
     public void PlayLineAudio(DialogueLine currentLine)
@@ -312,18 +300,5 @@ public class DialogueManager : Singleton<DialogueManager>
         Input.ResetInputAxes();
 
         GameEvent dialogCompleteEvent = new GameEvent($"Hector Finished Convo: {currentConversation.name}");
-        EventLedger.Instance.RecordEvent(dialogCompleteEvent, false);
-    }
-
-    private bool CanSkip()
-    {
-#if UNITY_EDITOR
-        if (AllowConvoSkipsForDebug)
-        {
-            return true;
-        }
-#endif
-        GameEvent dialogCompleteEvent = new GameEvent($"Hector Finished Convo: {currentConversation.name}");
-        return EventLedger.Instance.HasEventOccurredInLoopedPast(dialogCompleteEvent);
     }
 }

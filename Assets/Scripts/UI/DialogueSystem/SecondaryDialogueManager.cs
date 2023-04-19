@@ -47,10 +47,7 @@ public class SecondaryDialogueManager : Singleton<SecondaryDialogueManager>
     {
         if (Input.GetKey(KeyCode.LeftShift) && InDialogue)
         {
-            if (CanSkip())
-            {
-                StartCoroutine(Skip());
-            }
+            StartCoroutine(Skip());
         }
     }
 
@@ -233,7 +230,6 @@ public class SecondaryDialogueManager : Singleton<SecondaryDialogueManager>
         hideTimeline.SetActive(true);
 
         GameEvent dialogCompleteEvent = new GameEvent($"Hector Finished Convo: {currentConversation.name}");
-        EventLedger.Instance.RecordEvent(dialogCompleteEvent, false);
     }
 
     private void ForceCloseDialogueUI(object o = null)
@@ -248,24 +244,11 @@ public class SecondaryDialogueManager : Singleton<SecondaryDialogueManager>
         // Event is still recorded to prevent unexpected behaviour when the player
         // cuts the dialog off through scene transition
         GameEvent dialogCompleteEvent = new GameEvent($"Hector Finished Convo: {currentConversation.name}");
-        EventLedger.Instance.RecordEvent(dialogCompleteEvent, false);
     }
 
     private IEnumerator Skip()
     {
         ReadNext();
         yield return new WaitForSeconds(10 * Time.deltaTime);
-    }
-
-    private bool CanSkip()
-    {
-#if UNITY_EDITOR
-        if (AllowConvoSkipsForDebug)
-        {
-            return true;
-        }
-#endif
-        GameEvent dialogCompleteEvent = new GameEvent($"Hector Finished Convo: {currentConversation.name}");
-        return EventLedger.Instance.HasEventOccurredInLoopedPast(dialogCompleteEvent);
     }
 }

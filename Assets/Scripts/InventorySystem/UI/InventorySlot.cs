@@ -52,7 +52,6 @@ public class InventorySlot : MonoBehaviour
             GameEvent specificItemUseEvent = new GameEvent(Item.itemUsedPrefix + itemStack.Data.itemName);
             // Debug.Log($"Using {itemStack.Data.itemName}");
             referencedCollection.UseItem(itemStack.Data);
-            EventLedger.Instance.RecordEvent(specificItemUseEvent);
             EventManager.InvokeEvent(CommonEventCollection.ItemUsed);
             EventManager.InvokeEvent(specificItemUseEvent);
         }

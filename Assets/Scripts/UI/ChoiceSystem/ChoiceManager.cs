@@ -130,7 +130,6 @@ public class ChoiceManager : Singleton<ChoiceManager>
         {
             onChoiceSelected = new GameEvent("No Choice Selected");
         }
-        EventLedger.Instance.RecordEvent(onChoiceSelected, false);
 
         Close();
     }
