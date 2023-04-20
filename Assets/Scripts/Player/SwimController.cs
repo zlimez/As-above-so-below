@@ -48,6 +48,9 @@ public class SwimController : MonoBehaviour
                 playerSprite.flipX = !isRight;
                 lastFacingRight = isRight;
             }
+        } else if (rb.velocity.sqrMagnitude < 0.0025) {
+            rb.velocity = Vector3.zero;
+            return;
         }
 
         Vector3 netForce = rb.velocity.sqrMagnitude < Mathf.Pow(maxSpeed, 2) ? currDirection * propulsionStrength - drag * rb.velocity : -drag * rb.velocity;
