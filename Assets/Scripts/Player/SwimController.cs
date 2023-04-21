@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Chronellium.EventSystem;
 
 public class SwimController : MonoBehaviour
 {
@@ -22,12 +23,24 @@ public class SwimController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = playerSprite.gameObject.GetComponent<Animator>();
     }
 
     void OnEnable()
     {
         mainCamera.SetFollowTransform(cameraFollowPoint);
+        EventManager.StartListening(CommonEventCollection.ObjectPickedUp, 
+            (o) => animator.SetBool("isHolding", true));
+        EventManager.StartListening(CommonEventCollection.ObjectPutDown, 
+            (o) => animator.SetBool("isHolding", false));
+    }
+
+    void OnDisable() 
+    {
+        EventManager.StopListening(CommonEventCollection.ObjectPickedUp, 
+            (o) => animator.SetBool("isHolding", true));
+        EventManager.StopListening(CommonEventCollection.ObjectPutDown, 
+            (o) => animator.SetBool("isHolding", false));
     }
 
     void LateUpdate()

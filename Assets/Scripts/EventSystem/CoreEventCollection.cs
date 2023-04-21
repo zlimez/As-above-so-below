@@ -46,6 +46,8 @@ namespace Chronellium.EventSystem
         public static readonly StaticEvent ForcedRewind;
         public static readonly StaticEvent DialogStarted;
         public static readonly StaticEvent PlayerMoved;
+        public static readonly StaticEvent ObjectPickedUp;
+        public static readonly StaticEvent ObjectPutDown;
 
         static CommonEventCollection()
         {
@@ -57,6 +59,8 @@ namespace Chronellium.EventSystem
             ForcedRewind = StaticEvent.Common_ForcedRewind;
             DialogStarted = StaticEvent.Common_DialogStarted;
             PlayerMoved = StaticEvent.Common_PlayerPositionMoved;
+            ObjectPickedUp = StaticEvent.Common_ObjectPickedUp;
+            ObjectPutDown = StaticEvent.Common_ObjectPutDown;
 
             UtilityEvents = new HashSet<StaticEvent>
             {
