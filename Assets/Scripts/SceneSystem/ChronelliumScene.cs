@@ -4,5 +4,10 @@ namespace Chronellium.SceneSystem
     {
         None,
         Master,
+        CityFloor,
+        Room,
+        Puzzle1,
+        Puzzle2,
+        Credits,
     }
 }

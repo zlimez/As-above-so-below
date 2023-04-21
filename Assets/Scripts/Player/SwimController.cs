@@ -10,10 +10,7 @@ public class SwimController : MonoBehaviour
     [SerializeField] private float drag = 1f;
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private float RotationSharpness = 10f;
-    [SerializeField] private float straightenInterval = 0.2f, straightenDelay = 0.1f;
     [SerializeField] private Transform cameraFollowPoint;
-    private float idleTime = 0f;
-    private IEnumerator straightenRoutine;
     private Animator animator;
     private Rigidbody rb;
     private Vector3 currDirection;
