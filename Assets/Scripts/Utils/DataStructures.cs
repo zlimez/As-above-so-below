@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 // FIXME: Possible issue with implementation? 
@@ -150,5 +151,100 @@ namespace DataStructures {
             index = index % Items.Count;
             return Items[index];
         }
-    } 
+    }
+
+    public class PriorityQueue<T>
+    {
+        private List<T> heap;
+        private IComparer<T> comparer;
+
+        public PriorityQueue() : this(Comparer<T>.Default)
+        {
+        }
+
+        public PriorityQueue(IComparer<T> comparer)
+        {
+            this.heap = new List<T>();
+            this.comparer = comparer;
+        }
+
+        public void Enqueue(T item)
+        {
+            this.heap.Add(item);
+            int i = this.heap.Count - 1;
+
+            while (i > 0)
+            {
+                int parentIndex = (i - 1) / 2;
+
+                if (this.comparer.Compare(this.heap[parentIndex], this.heap[i]) <= 0)
+                {
+                    break;
+                }
+
+                T temp = this.heap[i];
+                this.heap[i] = this.heap[parentIndex];
+                this.heap[parentIndex] = temp;
+                i = parentIndex;
+            }
+        }
+
+        public T Dequeue()
+        {
+            int lastIndex = this.heap.Count - 1;
+            T frontItem = this.heap[0];
+            this.heap[0] = this.heap[lastIndex];
+            this.heap.RemoveAt(lastIndex);
+            lastIndex--;
+
+            int i = 0;
+
+            while (true)
+            {
+                int leftChild = i * 2 + 1;
+                int rightChild = i * 2 + 2;
+                int smallestChild = i;
+
+                if (leftChild <= lastIndex && this.comparer.Compare(this.heap[leftChild], this.heap[smallestChild]) < 0)
+                {
+                    smallestChild = leftChild;
+                }
+
+                if (rightChild <= lastIndex && this.comparer.Compare(this.heap[rightChild], this.heap[smallestChild]) < 0)
+                {
+                    smallestChild = rightChild;
+                }
+
+                if (smallestChild == i)
+                {
+                    break;
+                }
+
+                T temp = this.heap[i];
+                this.heap[i] = this.heap[smallestChild];
+                this.heap[smallestChild] = temp;
+                i = smallestChild;
+            }
+
+            return frontItem;
+        }
+
+        public T Peek()
+        {
+            if (this.heap.Count == 0)
+            {
+                throw new InvalidOperationException("The priority queue is empty.");
+            }
+
+            return this.heap[0];
+        }
+
+
+        public int Count
+        {
+            get { return this.heap.Count; }
+        }
+
+        public bool IsEmpty => Count == 0;
+    }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Chronellium.EventSystem;
+using DeepBreath.Environment;
 
 public class ControllerPair : MonoBehaviour
 {
@@ -19,7 +20,14 @@ public class ControllerPair : MonoBehaviour
     }
 
     private void ChangeToReal(object input = null) {
-        normalController.transform.position = swimController.transform.position;
+        bool isForced = (bool)input;
+        if (isForced) {
+            StateManager.SwitchRealm();
+            normalController.transform.position = Puddle.LastUsedPuddle.ForceSpawnPosition.position;
+        } else {
+            normalController.transform.position = swimController.transform.position;
+        }
+
         normalController.gameObject.SetActive(true);
         swimController.gameObject.SetActive(false);
     }
@@ -28,5 +36,11 @@ public class ControllerPair : MonoBehaviour
         swimController.transform.position = normalController.transform.position;
         normalController.gameObject.SetActive(false);
         swimController.gameObject.SetActive(true);
+    }
+
+    private void ForceChangeToReal(object input = null) {
+
+        normalController.gameObject.SetActive(true);
+        swimController.gameObject.SetActive(false);
     }
 }
