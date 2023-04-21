@@ -78,7 +78,6 @@ public class Curtain : MonoBehaviour
             blackCurtain.color = Color.LerpUnclamped(ColorUtils.transparent, Color.black, timeElapsed / fadeInDuration);
             yield return null;
         }
-        EventLedger.Instance.AddToRecent(CommonEventCollection.CurtainFullyDrawn);
         EventManager.InvokeEvent(CommonEventCollection.CurtainFullyDrawn);
     }
 
@@ -105,7 +104,6 @@ public class Curtain : MonoBehaviour
             blackCurtain.color = Color.LerpUnclamped(ColorUtils.transparent, Color.black, timeElapsed / fadeInDuration);
             yield return null;
         }
-        EventLedger.Instance.AddToRecent(CommonEventCollection.CurtainFullyDrawn);
         EventManager.InvokeEvent(CommonEventCollection.CurtainFullyDrawn);
         timeElapsed = 0;
         while (timeElapsed < closedInterval)

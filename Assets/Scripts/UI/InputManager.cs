@@ -82,12 +82,6 @@ public class InputManager : MonoBehaviour
             return;
         }
 
-        if (InventoryUI.Instance.isItemSelectMode)
-        {
-            InventoryButtonActivated = true;
-            return;
-        }
-
         if (DialogueManager.Instance.InDialogue)
         {
             DialogButtonActivated = true;

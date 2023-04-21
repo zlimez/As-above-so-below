@@ -130,7 +130,6 @@ public class ChoiceManager : Singleton<ChoiceManager>
         {
             onChoiceSelected = new GameEvent("No Choice Selected");
         }
-        EventLedger.Instance.RecordEvent(onChoiceSelected, false);
 
         Close();
     }
@@ -142,7 +141,7 @@ public class ChoiceManager : Singleton<ChoiceManager>
     public void Close(object parameter = null)
     {
         // Don't change UiStatus to !isOpen if the choice is followed by Dialogue or Item Selection
-        if (!DialogueManager.Instance.InDialogue && !InventoryUI.Instance.isItemSelectMode)
+        if (!DialogueManager.Instance.InDialogue)
             UiStatus.CloseUI();
 
         choiceIndex = -1;

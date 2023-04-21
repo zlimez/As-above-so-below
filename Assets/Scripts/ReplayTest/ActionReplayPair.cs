@@ -9,7 +9,7 @@ public class ActionReplayPair : MonoBehaviour
     public GameObject spiritualObject;
     public GameObject realObject;
 
-    private bool isInReplayMode;
+    private bool isInReplayMode = true;
     private int currentReplayIndex;
     private List<ActionReplayRecord> actionReplayRecords = new List<ActionReplayRecord>();
 

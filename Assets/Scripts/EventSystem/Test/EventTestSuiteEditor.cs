@@ -48,23 +48,9 @@ namespace Chronellium.EventSystem
             DrawSection("Dynamic Events:", ref _dynamicEventSearchString, ref _dynamicEventScrollPosition, DrawDynamicEvents);
             DrawCustomGameEventsSection();
 
-            GUI.enabled = EventLedger.Instance != null;
-
-            if (GUILayout.Button("Record Events"))
-            {
-                RecordSelectedEvents();
-                EditorUtility.DisplayDialog("Success", "Events recorded successfully!", "OK");
-            }
-
             if (GUILayout.Button("Reload Current Scene"))
             {
                 SceneLoader.Instance.ReloadCurrentSceneWithMaster();
-            }
-
-            if (EventLedger.Instance != null)
-            {
-                DrawSection("Looped Past Events:", EventLedger.Instance.LoopedPastEvents);
-                DrawSection("Normal Past Events:", EventLedger.Instance.NormalPastEvents);
             }
 
             DrawSaveLoadEventSetsSection();
@@ -113,18 +99,6 @@ namespace Chronellium.EventSystem
 
             EventSetAsset newEventSet = ScriptableObject.CreateInstance<EventSetAsset>();
 
-            newEventSet.LoopedPastEvents = new List<Pair<GameEvent, int>>();
-            foreach (var entry in EventLedger.Instance.LoopedPastEvents)
-            {
-                newEventSet.LoopedPastEvents.Add(new Pair<GameEvent, int>(entry.Key, entry.Value));
-            }
-
-            newEventSet.NormalPastEvents = new List<Pair<GameEvent, int>>();
-            foreach (var entry in EventLedger.Instance.NormalPastEvents)
-            {
-                newEventSet.NormalPastEvents.Add(new Pair<GameEvent, int>(entry.Key, entry.Value));
-            }
-
             Debug.Log("Saving past events:");
             Debug.Log(newEventSet.LoopedPastEvents);
             Debug.Log(newEventSet.NormalPastEvents);
@@ -161,7 +135,6 @@ namespace Chronellium.EventSystem
                     normalPastEvents.Add(entry.head, entry.tail);
                 }
 
-                EventLedger.Instance.LoadEvents(loopedPastEvents, normalPastEvents, true);
             }
             else
             {
@@ -300,32 +273,6 @@ namespace Chronellium.EventSystem
         private bool FilterEvents(string eventName, string searchString)
         {
             return string.IsNullOrEmpty(searchString) || eventName.IndexOf(searchString, StringComparison.OrdinalIgnoreCase) >= 0;
-        }
-
-        private void RecordSelectedEvents()
-        {
-            RecordSelectedStaticEvents();
-            RecordCustomGameEvents();
-        }
-
-        private void RecordSelectedStaticEvents()
-        {
-            foreach (StaticEvent staticEvent in _staticEventIndices.Keys)
-            {
-                int index = _staticEventIndices[staticEvent];
-                if (_selectedStaticEvents[index])
-                {
-                    EventLedger.Instance.RecordEvent(staticEvent);
-                }
-            }
-        }
-
-        private void RecordCustomGameEvents()
-        {
-            foreach (string customEvent in _customGameEvents)
-            {
-                EventLedger.Instance.RecordEvent(new GameEvent(customEvent));
-            }
         }
     }
 }
