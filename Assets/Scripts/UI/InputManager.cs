@@ -19,11 +19,6 @@ public class InputManager : MonoBehaviour
     /// <summary>
     /// Indicates if the choice button has been activated.
     /// </summary>
-    public static bool ChoiceButtonActivated;
-
-    /// <summary>
-    /// Indicates if the choice button has been activated.
-    /// </summary>
     public static bool InventoryButtonActivated;
 
     private void Awake()
@@ -43,8 +38,6 @@ public class InputManager : MonoBehaviour
     {
         InteractButtonActivated = false;
         DialogButtonActivated = false;
-        ChoiceButtonActivated = false;
-        InventoryButtonActivated = false;
     }
 
     /// <summary>
@@ -76,17 +69,12 @@ public class InputManager : MonoBehaviour
     /// </summary>
     private void ProcessSubmitButton()
     {
-        if (ChoiceManager.Instance.InChoice)
-        {
-            ChoiceButtonActivated = true;
-            return;
-        }
 
-        if (InventoryUI.Instance.isItemSelectMode)
-        {
-            InventoryButtonActivated = true;
-            return;
-        }
+        // if (InventoryUI.Instance.isItemSelectMode)
+        // {
+        //     InventoryButtonActivated = true;
+        //     return;
+        // }
 
         if (DialogueManager.Instance.InDialogue)
         {
