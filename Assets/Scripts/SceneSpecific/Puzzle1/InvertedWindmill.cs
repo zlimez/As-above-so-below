@@ -60,8 +60,8 @@ public class InvertedWindmill : Interactable
     {
         while (true)
         {
-            rotationZ += 1;
-            windmillBlades.transform.rotation = Quaternion.Euler(windmillBlades.transform.rotation.x, windmillBlades.transform.rotation.y, rotationZ);
+            rotationZ += 1f;
+            windmillBlades.transform.eulerAngles = new Vector3(windmillBlades.transform.eulerAngles.x, windmillBlades.transform.eulerAngles.y, rotationZ);
             yield return null;
         }
     }
@@ -70,8 +70,8 @@ public class InvertedWindmill : Interactable
     {
         while (true)
         {
-            rotationZ -= 1;
-            windmillBlades.transform.rotation = Quaternion.Euler(windmillBlades.transform.rotation.x, windmillBlades.transform.rotation.y, rotationZ);
+            rotationZ -= 1f;
+            windmillBlades.transform.eulerAngles = new Vector3(windmillBlades.transform.eulerAngles.x, windmillBlades.transform.eulerAngles.y, rotationZ);
             yield return null;
         }
     }
