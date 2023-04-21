@@ -1,93 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9012397932878772644
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfee7ec4ca286494fab6acac013eb80d, type: 3}
-  m_Name: GodRaysVolume
-  m_EditorClassIdentifier: 
-  active: 0
-  MainLightIntensity:
-    m_OverrideState: 1
-    m_Value: 4.33
-  AdditionalLightsIntensity:
-    m_OverrideState: 1
-    m_Value: 1
-  MainLightScattering:
-    m_OverrideState: 1
-    m_Value: 0.5
-  AdditionalLightsScattering:
-    m_OverrideState: 1
-    m_Value: 0.5
-  Tint:
-    m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
---- !u!114 &-6128512529449207564
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af0c9bc5a1911b14db85e866ea3016e3, type: 3}
-  m_Name: LightScatteringPostProcess
-  m_EditorClassIdentifier: 
-  active: 1
-  numberOfSamples:
-    m_OverrideState: 1
-    m_Value: 20
-  fogDensity:
-    m_OverrideState: 1
-    m_Value: 0.76
-  maxRayDistance:
-    m_OverrideState: 0
-    m_Value: 0.2
-  tint:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  softenScreenEdges:
-    m_OverrideState: 0
-    m_Value: 0
-  animateSamplingOffset:
-    m_OverrideState: 0
-    m_Value: 0
-  lightMustBeOnScreen:
-    m_OverrideState: 0
-    m_Value: 0
-  falloffBasis:
-    m_OverrideState: 0
-    m_Value: 0
---- !u!114 &-4748756636012345735
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
-  m_Name: LiftGammaGain
-  m_EditorClassIdentifier: 
-  active: 1
-  lift:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
-  gamma:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
-  gain:
-    m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.13686909}
---- !u!114 &-4303777405227864406
+--- !u!114 &-7999828008417106532
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +41,7 @@ MonoBehaviour:
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-3799928210650574529
+--- !u!114 &-4695569059378799384
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,14 +62,39 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.2}
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.196
   smoothness:
     m_OverrideState: 1
     m_Value: 1
   rounded:
     m_OverrideState: 1
     m_Value: 1
---- !u!114 &-3759746094242383103
+--- !u!114 &-3986219504349946437
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fa0085f50d5e54f8144f766051a691, type: 3}
+  m_Name: FilmGrain
+  m_EditorClassIdentifier: 
+  active: 1
+  type:
+    m_OverrideState: 1
+    m_Value: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.356
+  response:
+    m_OverrideState: 0
+    m_Value: 0.8
+  texture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+--- !u!114 &-3210847783036005322
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +140,30 @@ MonoBehaviour:
   bladeRotation:
     m_OverrideState: 0
     m_Value: 160
---- !u!114 &-1902987718839845982
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: Global Volume Profile StartScenee
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: -7999828008417106532}
+  - {fileID: -3986219504349946437}
+  - {fileID: -4695569059378799384}
+  - {fileID: 718381257881497640}
+  - {fileID: -3210847783036005322}
+  - {fileID: 5694839151013572786}
+  - {fileID: 2121641566622172186}
+  - {fileID: 1212737344288777830}
+  - {fileID: 8245783853058576534}
+  - {fileID: 926113267271520337}
+--- !u!114 &718381257881497640
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,7 +197,7 @@ MonoBehaviour:
   highlightsEnd:
     m_OverrideState: 0
     m_Value: 1
---- !u!114 &-1338769794495807691
+--- !u!114 &926113267271520337
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,46 +206,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29fa0085f50d5e54f8144f766051a691, type: 3}
-  m_Name: FilmGrain
+  m_Script: {fileID: 11500000, guid: af0c9bc5a1911b14db85e866ea3016e3, type: 3}
+  m_Name: LightScatteringPostProcess
   m_EditorClassIdentifier: 
   active: 1
-  type:
+  numberOfSamples:
     m_OverrideState: 1
+    m_Value: 20
+  fogDensity:
+    m_OverrideState: 1
+    m_Value: 0.76
+  maxRayDistance:
+    m_OverrideState: 0
+    m_Value: 0.2
+  tint:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  softenScreenEdges:
+    m_OverrideState: 0
     m_Value: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.356
-  response:
+  animateSamplingOffset:
     m_OverrideState: 0
-    m_Value: 0.8
-  texture:
+    m_Value: 0
+  lightMustBeOnScreen:
     m_OverrideState: 0
-    m_Value: {fileID: 0}
---- !u!114 &11400000
+    m_Value: 0
+  falloffBasis:
+    m_OverrideState: 0
+    m_Value: 0
+--- !u!114 &1212737344288777830
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Global Volume Profile 2
+  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
+  m_Name: LiftGammaGain
   m_EditorClassIdentifier: 
-  components:
-  - {fileID: -4303777405227864406}
-  - {fileID: -1338769794495807691}
-  - {fileID: -3799928210650574529}
-  - {fileID: -1902987718839845982}
-  - {fileID: -3759746094242383103}
-  - {fileID: 5101123286327869613}
-  - {fileID: 1099360999801325971}
-  - {fileID: -4748756636012345735}
-  - {fileID: -9012397932878772644}
-  - {fileID: -6128512529449207564}
---- !u!114 &1099360999801325971
+  active: 1
+  lift:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  gamma:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  gain:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: -0.13686909}
+--- !u!114 &2121641566622172186
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -762,7 +734,7 @@ MonoBehaviour:
     m_Value: 1
   depthOfFieldFocusMode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 2
   depthOfFieldAutofocusMinDistance:
     m_OverrideState: 0
     m_Value: 0
@@ -1009,7 +981,7 @@ MonoBehaviour:
   blurSourceEdgeBlendStrength:
     m_OverrideState: 0
     m_Value: 20
---- !u!114 &5101123286327869613
+--- !u!114 &5694839151013572786
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1025,3 +997,31 @@ MonoBehaviour:
   mode:
     m_OverrideState: 1
     m_Value: 2
+--- !u!114 &8245783853058576534
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfee7ec4ca286494fab6acac013eb80d, type: 3}
+  m_Name: GodRaysVolume
+  m_EditorClassIdentifier: 
+  active: 0
+  MainLightIntensity:
+    m_OverrideState: 1
+    m_Value: 4.33
+  AdditionalLightsIntensity:
+    m_OverrideState: 1
+    m_Value: 1
+  MainLightScattering:
+    m_OverrideState: 1
+    m_Value: 0.5
+  AdditionalLightsScattering:
+    m_OverrideState: 1
+    m_Value: 0.5
+  Tint:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
