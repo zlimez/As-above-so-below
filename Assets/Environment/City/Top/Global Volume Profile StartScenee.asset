@@ -215,7 +215,7 @@ MonoBehaviour:
     m_Value: 20
   fogDensity:
     m_OverrideState: 1
-    m_Value: 0.76
+    m_Value: 0.08
   maxRayDistance:
     m_OverrideState: 0
     m_Value: 0.2
@@ -230,7 +230,7 @@ MonoBehaviour:
     m_Value: 0
   lightMustBeOnScreen:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   falloffBasis:
     m_OverrideState: 0
     m_Value: 0
@@ -734,7 +734,7 @@ MonoBehaviour:
     m_Value: 1
   depthOfFieldFocusMode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   depthOfFieldAutofocusMinDistance:
     m_OverrideState: 0
     m_Value: 0
@@ -754,13 +754,13 @@ MonoBehaviour:
       m_Bits: 4294967295
   depthOfFieldDistance:
     m_OverrideState: 1
-    m_Value: 3.7
+    m_Value: 52.1
   depthOfFieldCameraSettings:
     m_OverrideState: 1
     m_Value: 0
   depthOfFieldFocalLength:
     m_OverrideState: 1
-    m_Value: 0.013
+    m_Value: 0.01
   depthOfFieldAperture:
     m_OverrideState: 1
     m_Value: 99
@@ -951,7 +951,7 @@ MonoBehaviour:
     m_Value: 0.222
   frameBandVerticalSize:
     m_OverrideState: 1
-    m_Value: 0.099996805
+    m_Value: 0
   frameBandVerticalSmoothness:
     m_OverrideState: 0
     m_Value: 0
