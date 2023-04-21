@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DeepBreath.Environment;
 
 public class Grabbable : Interactable
 {
-    private bool isGrabbing = false;
+    private bool isGrabbed = false;
     private Follower follower;
 
 
@@ -17,8 +18,12 @@ public class Grabbable : Interactable
 
     public override void Interact()
     {
-        isGrabbing = !isGrabbing;
+        isGrabbed = !isGrabbed;
         follower.target = Player;
-        follower.enabled = isGrabbing;
+        follower.enabled = isGrabbed;
+        
+        if (StateManager.realm == Realm.otherWorld) {
+            Player.GetComponent<SwimController>().IsRotationFrozen = isGrabbed;
+        }
     }
 }

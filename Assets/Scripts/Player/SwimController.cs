@@ -15,6 +15,7 @@ public class SwimController : MonoBehaviour
     private Rigidbody rb;
     private Vector3 currDirection;
     private bool lastFacingRight = true;
+    public bool IsRotationFrozen = false;
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -28,6 +29,7 @@ public class SwimController : MonoBehaviour
     void LateUpdate() {
         mainCamera.Move(Time.smoothDeltaTime);
 
+        if (IsRotationFrozen) return;
         float zAngle = lastFacingRight ? Vector2.SignedAngle(Vector2.right, currDirection) : Vector2.SignedAngle(Vector2.left, currDirection);
         playerSprite.gameObject.transform.rotation = Quaternion.Slerp(playerSprite.gameObject.transform.rotation, Quaternion.Euler(0, 0, zAngle), 1 - Mathf.Exp(-RotationSharpness * Time.fixedDeltaTime));
     }
