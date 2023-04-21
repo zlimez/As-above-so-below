@@ -186,7 +186,6 @@ MonoBehaviour:
   cameraFollowPoint: {fileID: 759577066370240626}
   playerSprite: {fileID: 759577065223773187}
   moveSpeed: 5
-  jumpForce: 10
 --- !u!136 &1675568116
 CapsuleCollider:
   m_ObjectHideFlags: 0
