@@ -229,8 +229,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   lightMustBeOnScreen:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   falloffBasis:
     m_OverrideState: 0
     m_Value: 0
@@ -754,7 +754,7 @@ MonoBehaviour:
       m_Bits: 4294967295
   depthOfFieldDistance:
     m_OverrideState: 1
-    m_Value: 10.53
+    m_Value: 3.7
   depthOfFieldCameraSettings:
     m_OverrideState: 1
     m_Value: 0
@@ -774,13 +774,13 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 24
   depthOfFieldFocusSpeed:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0.14
   depthOfFieldTransparentSupport:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   depthOfFieldTransparentLayerMask:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value:
       serializedVersion: 2
       m_Bits: 1
@@ -853,14 +853,14 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.2
   purkinje:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0
   purkinjeAmount:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 2.37
   purkinjeLuminanceThreshold:
-    m_OverrideState: 0
-    m_Value: 0.15
+    m_OverrideState: 1
+    m_Value: 1
   vignettingOuterRing:
     m_OverrideState: 0
     m_Value: 0
