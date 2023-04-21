@@ -19,16 +19,19 @@ public class SwimController : MonoBehaviour
     private Vector3 currDirection;
     private bool lastFacingRight = true;
 
-    void Awake() {
+    void Awake()
+    {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 
-    void OnEnable() {
+    void OnEnable()
+    {
         mainCamera.SetFollowTransform(cameraFollowPoint);
     }
 
-    void LateUpdate() {
+    void LateUpdate()
+    {
         mainCamera.Move(Time.smoothDeltaTime);
 
         float zAngle = lastFacingRight ? Vector2.SignedAngle(Vector2.right, currDirection) : Vector2.SignedAngle(Vector2.left, currDirection);
@@ -42,13 +45,17 @@ public class SwimController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         currDirection = new Vector3(horizontalInput, verticalInput, 0f).normalized;
 
-        if (currDirection.sqrMagnitude > 0) {
-            if (Mathf.Abs(horizontalInput) > 0) {
+        if (currDirection.sqrMagnitude > 0)
+        {
+            if (Mathf.Abs(horizontalInput) > 0)
+            {
                 bool isRight = Mathf.Sign(horizontalInput) == 1;
                 playerSprite.flipX = !isRight;
                 lastFacingRight = isRight;
             }
-        } else if (rb.velocity.sqrMagnitude < 0.0025) {
+        }
+        else if (rb.velocity.sqrMagnitude < 0.0025)
+        {
             rb.velocity = Vector3.zero;
             return;
         }

@@ -55,7 +55,7 @@ public class Puzzle1Puddle : Interactable
     {
         while (swimCharacter.transform.position != swimCharacterEndingPosition.transform.position)
         {
-            Debug.Log("Moving in water");
+            //Debug.Log("Moving in water");
             swimCharacter.transform.position = Vector3.MoveTowards(swimCharacter.transform.position, swimCharacterEndingPosition.transform.position, 2f);
             yield return null;
         }
@@ -65,7 +65,7 @@ public class Puzzle1Puddle : Interactable
     {
         while (normCharacter.transform.position != normCharacterEndingPosition.transform.position)
         {
-            Debug.Log("Moving in air");
+            //Debug.Log("Moving in air");
             normCharacter.transform.position = Vector3.MoveTowards(normCharacter.transform.position, normCharacterEndingPosition.transform.position, 0.05f);
             yield return null;
         }

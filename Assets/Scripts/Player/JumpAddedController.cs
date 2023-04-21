@@ -11,19 +11,24 @@ public class JumpAddedController : MonoBehaviour
     public float jumpForce = 10f;
 
     private Rigidbody rb;
+    private Animator animator;
     private bool isGrounded = false;
 
-    void OnEnable() {
+    void OnEnable()
+    {
         mainCamera.SetFollowTransform(cameraFollowPoint);
     }
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        animator = playerSprite.gameObject.GetComponent<Animator>();
     }
 
-    void LateUpdate() {
-        if (rb.velocity.sqrMagnitude > 0) {
+    void LateUpdate()
+    {
+        if (Mathf.Abs(rb.velocity.x) > 0)
+        {
             bool isRight = rb.velocity.x > 0;
             playerSprite.flipX = !isRight;
         }
@@ -34,16 +39,23 @@ public class JumpAddedController : MonoBehaviour
     void FixedUpdate()
     {
         if (!isGrounded) return;
-        
-        float hInput = Input.GetAxis("Horizontal");
 
+        float hInput = Input.GetAxis("Horizontal");
         Vector2 vel = rb.velocity;
         vel.x = hInput * moveSpeed;
-
         rb.velocity = vel;
+        if (rb.velocity.x == 0)
+        {
+            animator.SetBool("isMoving", false);
+        }
+        else
+        {
+            animator.SetBool("isMoving", true);
+        }
 
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
+            animator.SetBool("isMoving", false);
             rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
@@ -51,6 +63,7 @@ public class JumpAddedController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Player collided with " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
