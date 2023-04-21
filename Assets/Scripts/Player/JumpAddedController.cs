@@ -15,7 +15,7 @@ public class JumpAddedController : MonoBehaviour
     private bool isGrounded = false;
 
     void OnEnable() {
-        mainCamera.SetFollowTransform(cameraFollowPoint);
+        mainCamera.SetFollowTransform(cameraFollowPoint, mainCamera.DefaultDistance);
     }
 
     void Awake()
@@ -25,11 +25,6 @@ public class JumpAddedController : MonoBehaviour
     }
 
     void LateUpdate() {
-        if (Mathf.Abs(rb.velocity.x) > 0) {
-            bool isRight = rb.velocity.x > 0;
-            playerSprite.flipX = !isRight;
-        }
-
         mainCamera.Move(Time.smoothDeltaTime);
     }
 
@@ -41,9 +36,11 @@ public class JumpAddedController : MonoBehaviour
         Vector2 vel = rb.velocity;
         vel.x = hInput * moveSpeed;
         rb.velocity = vel;
-        if (rb.velocity.x == 0) {
+        if (hInput == 0) {
             animator.SetBool("isMoving", false);
         } else {
+            bool isRight = hInput > 0;
+            playerSprite.flipX = !isRight;
             animator.SetBool("isMoving", true);
         }
 
