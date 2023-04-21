@@ -45,6 +45,7 @@ public class CableSeats : Interactable
 
     private void FixedUpdate()
     {
+        //Debug.Log("Is Moving: " + isMoving);
         if (isSeated)
         {
             Debug.Log("Set player transform");

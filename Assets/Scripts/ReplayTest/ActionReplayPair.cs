@@ -60,8 +60,7 @@ public class ActionReplayPair : MonoBehaviour
             else
             {
                 Debug.Log("Replay complete");
-                actionReplayRecords.Clear();
-                currentReplayIndex = 0;
+                ResetReplayRecords();
             }
         }
     }
@@ -76,5 +75,11 @@ public class ActionReplayPair : MonoBehaviour
 
         realObject.transform.position += actionReplayRecord.position;
         realObject.transform.rotation = actionReplayRecord.rotation;
+    }
+
+    public void ResetReplayRecords()
+    {
+        actionReplayRecords.Clear();
+        currentReplayIndex = 0;
     }
 }

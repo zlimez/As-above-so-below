@@ -9,8 +9,9 @@ public class Worm : MonoBehaviour
     public CableSeats cableSeats;
     private GameEvent EnterRealWorld = new GameEvent("Enter Real World");
     private GameEvent EnterSpiritWorld = new GameEvent("Enter Spirit World");
-    private SpriteRenderer wormSprite;
+    public SpriteRenderer wormSprite;
     private bool isPlayerStillInAttackRange;
+    public ResetPuzzle resetPuzzle;
 
 
     // Start is called before the first frame update
@@ -24,22 +25,27 @@ public class Worm : MonoBehaviour
     private void Attack()
     {
         wormSprite.enabled = true;
-        // Move worm up
+        Debug.Log("PlayerInRange: " + isPlayerStillInAttackRange);
+        // TODO: Move worm sprite up
         if (isPlayerStillInAttackRange && cableSeats.isSeated)
         {
             // Apply force to cable car to make it shake
-            // Teleport player back to start
+            StartCoroutine(WaitBeforeReset());
         }
+        StartCoroutine(WaitBeforeDisappear());
     }
 
     private void OnTriggerEnter(Collider collision)
     {
+        Debug.Log(collision.gameObject);
         if (IsCableSeats(collision.gameObject))
         {
             isPlayerStillInAttackRange = true;
             if (!hasAttacked)
             {
-                Attack();
+                //Attack();
+                StartCoroutine(WaitBeforeAttack());
+                hasAttacked = true;
             }
         }
     }
@@ -52,7 +58,7 @@ public class Worm : MonoBehaviour
         }
     }
 
-    private void ResetAttack(object input = null)
+    public void ResetAttack(object input = null)
     {
         hasAttacked = false;
     }
@@ -60,5 +66,23 @@ public class Worm : MonoBehaviour
     private bool IsCableSeats(GameObject otherObject)
     {
         return otherObject.CompareTag("CableSeats");
+    }
+
+    private IEnumerator WaitBeforeReset(object input = null)
+    {
+        yield return new WaitForSeconds(1);
+        resetPuzzle.ResetPuzzle1();
+    }
+
+    private IEnumerator WaitBeforeAttack(object input = null)
+    {
+        yield return new WaitForSeconds(1);
+        Attack();
+    }
+
+    private IEnumerator WaitBeforeDisappear(object input = null)
+    {
+        yield return new WaitForSeconds(1);
+        wormSprite.enabled = false;
     }
 }

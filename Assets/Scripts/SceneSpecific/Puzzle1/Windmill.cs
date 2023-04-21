@@ -14,7 +14,7 @@ public class Windmill : MonoBehaviour
         //float currentRotationZ = WindmillBlades.transform.rotation.z;
         float currentRotationZ = WindmillBlades.transform.eulerAngles.z;
         currentRotationZ = Mathf.Round(currentRotationZ * 100f) / 100f;
-        Debug.Log("Is Rotating Clockwise: " + isRotatingClockwise + currentRotationZ);
+        //Debug.Log("Is Rotating Clockwise: " + isRotatingClockwise + currentRotationZ);
         if (currentRotationZ == prevRotationZ)
         {
             isRotating = false;
