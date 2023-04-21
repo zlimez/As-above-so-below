@@ -40,7 +40,8 @@ public class Puzzle1Puddle : Interactable
         swimCharacter.transform.position = swimCharacterAppearPosition.transform.position;
         swimCharacter.SetActive(true);
         normCharacter.SetActive(false);
-        StartCoroutine(DropIntoWaterMovement());
+        // TODO: Disabled until fixed
+        //StartCoroutine(DropIntoWaterMovement());
     }
 
     private void JumpOutOfWater()
@@ -48,7 +49,8 @@ public class Puzzle1Puddle : Interactable
         normCharacter.transform.position = normCharacterAppearPosition.transform.position;
         normCharacter.SetActive(true);
         swimCharacter.SetActive(false);
-        StartCoroutine(JumpOutOfWaterMovement());
+        // TODO: Disabled until fixed
+        //StartCoroutine(JumpOutOfWaterMovement());
     }
 
     public IEnumerator DropIntoWaterMovement()
