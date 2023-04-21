@@ -7,9 +7,12 @@ namespace DeepBreath.Environment {
     public enum Realm { otherWorld, realWorld }
     public static class StateManager {
         public static Realm realm  = Realm.realWorld;
+        public static float OtherWorldMomentEntered { get; private set; }
+        public static float TimeSinceOtherWorldEntered => Time.timeSinceLevelLoad - OtherWorldMomentEntered;
         public static void SwitchRealm() {
             if (realm == Realm.realWorld) {
                 realm = Realm.otherWorld;
+                OtherWorldMomentEntered = Time.timeSinceLevelLoad;
                 EventManager.InvokeEvent(StaticEvent.Core_SwitchToOtherWorld);
             } else {
                 realm = Realm.realWorld;

@@ -9,7 +9,7 @@ public class ActionReplayPairTest : MonoBehaviour
 
     private bool isInReplayMode;
     private int currentReplayIndex;
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
     private List<ActionReplayRecord> actionReplayRecords = new List<ActionReplayRecord>();
 
     private Vector3 initialObjectLastPosition;
@@ -17,7 +17,7 @@ public class ActionReplayPairTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = copyObject.GetComponent<Rigidbody>();
+        rb = copyObject.GetComponent<Rigidbody>();
         initialObjectLastPosition = initialObject.transform.position;
     }
 
@@ -47,7 +47,7 @@ public class ActionReplayPairTest : MonoBehaviour
     {
         if (isInReplayMode == false)
         {
-            actionReplayRecords.Add(new ActionReplayRecord { position = initialObject.transform.position - initialObjectLastPosition, rotation = initialObject.transform.rotation });
+            actionReplayRecords.Add(new ActionReplayRecord { deltaPosition = initialObject.transform.position - initialObjectLastPosition, rotation = initialObject.transform.rotation });
             initialObjectLastPosition = initialObject.transform.position;
         }
         else
@@ -73,9 +73,9 @@ public class ActionReplayPairTest : MonoBehaviour
 
         ActionReplayRecord actionReplayRecord = actionReplayRecords[index];
 
-        Debug.Log(actionReplayRecord.position);
+        Debug.Log(actionReplayRecord.deltaPosition);
 
-        copyObject.transform.position += actionReplayRecord.position;
+        copyObject.transform.position += actionReplayRecord.deltaPosition;
         copyObject.transform.rotation = actionReplayRecord.rotation;
     }
 }
