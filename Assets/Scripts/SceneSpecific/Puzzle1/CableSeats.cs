@@ -15,7 +15,7 @@ public class CableSeats : Interactable
     private IEnumerator moveLeft;
     float lerpSpeed = 10; // Move speed
 
-    private bool isSeated;
+    public bool isSeated;
 
     private void Start()
     {
