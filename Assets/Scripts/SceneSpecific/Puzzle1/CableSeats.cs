@@ -10,6 +10,7 @@ public class CableSeats : Interactable
     public bool isTurning;
     public Waypoints waypoints;
     public GameObject player;
+    public GameObject seatPosition;
 
     private IEnumerator moveRight;
     private IEnumerator moveLeft;
@@ -43,8 +44,7 @@ public class CableSeats : Interactable
         if (isSeated)
         {
             Debug.Log("Set player transform");
-            player.transform.position = transform.position;
-            player.transform.rotation = transform.rotation;
+            player.transform.position = seatPosition.transform.position;
         }
 
         if (windmillBlades.isRotating)
