@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BackgroundCamera
   - Ground
+  - CableSeats
   layers:
   - Default
   - TransparentFX

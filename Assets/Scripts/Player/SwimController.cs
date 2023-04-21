@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
+using Chronellium.EventSystem;
 
 public class SwimController : MonoBehaviour
 {
@@ -17,16 +19,18 @@ public class SwimController : MonoBehaviour
     private bool lastFacingRight = true;
     public bool IsRotationFrozen = false;
 
-    void Awake() {
+    void Awake()
+    {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = playerSprite.gameObject.GetComponent<Animator>();
     }
 
     void OnEnable() {
         mainCamera.SetFollowTransform(cameraFollowPoint, mainCamera.DefaultDistance);
     }
 
-    void LateUpdate() {
+    void LateUpdate()
+    {
         mainCamera.Move(Time.smoothDeltaTime);
 
         if (IsRotationFrozen) return;

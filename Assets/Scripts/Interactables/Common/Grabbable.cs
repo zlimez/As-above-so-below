@@ -12,12 +12,13 @@ public class Grabbable : Interactable
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log("Assigning follower " + GetComponent<Follower>());
         follower = GetComponent<Follower>();
     }
 
     public override void Interact()
     {
+        if (!Player.GetComponent<Grabber>().ToggleGrabState(gameObject)) return;
+
         isGrabbed = !isGrabbed;
         follower.target = Player;
         follower.enabled = isGrabbed;

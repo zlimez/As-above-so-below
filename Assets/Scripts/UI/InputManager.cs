@@ -70,12 +70,6 @@ public class InputManager : MonoBehaviour
     private void ProcessSubmitButton()
     {
 
-        // if (InventoryUI.Instance.isItemSelectMode)
-        // {
-        //     InventoryButtonActivated = true;
-        //     return;
-        // }
-
         if (DialogueManager.Instance.InDialogue)
         {
             DialogButtonActivated = true;
