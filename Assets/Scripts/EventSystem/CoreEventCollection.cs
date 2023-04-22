@@ -6,10 +6,7 @@ namespace Chronellium.EventSystem
     {
         public static readonly HashSet<StaticEvent> UtilityEvents;
 
-        public static readonly StaticEvent SnapshotManagerReady;
         public static readonly StaticEvent GameManagerReady;
-        public static readonly StaticEvent SnapshotTaken;
-        public static readonly StaticEvent SnapshotLoaded;
         public static readonly StaticEvent TransitionWithMaster;
         public static readonly StaticEvent TransitionWithMasterCompleted;
         public static readonly StaticEvent Transition;
@@ -17,10 +14,7 @@ namespace Chronellium.EventSystem
 
         static CoreEventCollection()
         {
-            SnapshotManagerReady = StaticEvent.Core_SnapshotManagerReady;
             GameManagerReady = StaticEvent.Core_GameManagerReady;
-            SnapshotTaken = StaticEvent.Core_SnapshotTaken;
-            SnapshotLoaded = StaticEvent.Core_SnapshotLoaded;
             TransitionWithMaster = StaticEvent.Core_TransitionWithMaster;
             TransitionWithMasterCompleted = StaticEvent.Core_TransitionWithMasterCompleted;
             Transition = StaticEvent.Core_Transition;
@@ -28,8 +22,7 @@ namespace Chronellium.EventSystem
 
             UtilityEvents = new HashSet<StaticEvent>
             {
-                SnapshotManagerReady, GameManagerReady, SnapshotLoaded,
-                TransitionWithMasterCompleted, Transition, TransitionWithMaster
+                GameManagerReady, TransitionWithMasterCompleted, Transition, TransitionWithMaster
             };
         }
     }
@@ -46,8 +39,6 @@ namespace Chronellium.EventSystem
         public static readonly StaticEvent ForcedRewind;
         public static readonly StaticEvent DialogStarted;
         public static readonly StaticEvent PlayerMoved;
-        public static readonly StaticEvent ObjectPickedUp;
-        public static readonly StaticEvent ObjectPutDown;
 
         static CommonEventCollection()
         {
@@ -56,11 +47,8 @@ namespace Chronellium.EventSystem
             OpenInventory = StaticEvent.Common_OpenInventory;
             CurtainFullyOpen = StaticEvent.Common_CurtainFullyOpen;
             ItemUsed = StaticEvent.Common_ItemUsed;
-            ForcedRewind = StaticEvent.Common_ForcedRewind;
             DialogStarted = StaticEvent.Common_DialogStarted;
             PlayerMoved = StaticEvent.Common_PlayerPositionMoved;
-            ObjectPickedUp = StaticEvent.Common_ObjectPickedUp;
-            ObjectPutDown = StaticEvent.Common_ObjectPutDown;
 
             UtilityEvents = new HashSet<StaticEvent>
             {

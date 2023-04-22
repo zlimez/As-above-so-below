@@ -7,20 +7,20 @@ namespace Chronellium.EventSystem
     public enum StaticEvent
     {
         NoEvent = 0,
-        Core_SnapshotManagerReady = 1,
-        Core_GameManagerReady = 2,
-        Core_SnapshotTaken = 3,
-        Core_SnapshotLoaded = 4,
-        Core_TransitionWithMaster = 5,
-        Core_TransitionWithMasterCompleted = 6,
-        Core_Transition = 7,
-        Core_InteractableEntered = 8,
-        Common_CurtainFullyDrawn = 9,
-        Common_PrepToTeleport = 10,
-        Common_OpenInventory = 11,
-        Common_CurtainFullyOpen = 12,
-        Common_ItemUsed = 13,
-        Common_ForcedRewind = 14,
+        Core_SwitchToOtherWorld = 1,
+        Core_SwitchToRealWorld = 2,
+        Core_OutOfBreath = 3,
+        Core_LowBreath = 4,
+        Core_GameManagerReady = 5,
+        Core_TransitionWithMaster = 6,
+        Core_TransitionWithMasterCompleted = 7,
+        Core_Transition = 8,
+        Core_InteractableEntered = 9,
+        Common_CurtainFullyDrawn = 10,
+        Common_PrepToTeleport = 11,
+        Common_OpenInventory = 12,
+        Common_CurtainFullyOpen = 13,
+        Common_ItemUsed = 14,
         Common_DialogStarted = 15,
         Common_PlayerPositionMoved = 56,
         Common_ObjectPickedUp = 63,
@@ -32,5 +32,4 @@ namespace Chronellium.EventSystem
     {
         
     }
-
 }

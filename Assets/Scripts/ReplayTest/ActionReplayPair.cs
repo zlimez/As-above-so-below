@@ -1,80 +1,76 @@
 using Chronellium.EventSystem;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class ActionReplayPair : MonoBehaviour
-{
-    public GameObject spiritualObject;
-    public GameObject realObject;
-
-    private bool isInReplayMode = true;
-    private int currentReplayIndex;
-    private List<ActionReplayRecord> actionReplayRecords = new List<ActionReplayRecord>();
-
-    private Vector3 spiritualObjectLastPosition;
-    private GameEvent EnterRealWorld = new GameEvent("Enter Real World");
-    private GameEvent EnterSpiritWorld = new GameEvent("Enter Spirit World");
-
-    // Note: Assumes Real object rigidbody isKinematic is set to true.
-
-    // Start is called before the first frame update
-    void Start()
+namespace DeepBreath.ReplaySystem {
+    public class ActionReplayPair : MonoBehaviour
     {
-        spiritualObjectLastPosition = spiritualObject.transform.position;
-        EventManager.StartListening(EnterRealWorld, Replay);
-        EventManager.StartListening(EnterSpiritWorld, Record);
-    }
+        public GameObject spiritualObject;
+        public GameObject realObject;
+        private bool isInReplayMode;
+        private Queue<ActionReplayRecord> actionReplayRecords = new Queue<ActionReplayRecord>();
 
-    private void Record(object input = null)
-    {
-        //EventManager.StopListening(EnterRealWorld, Replay);
-        isInReplayMode = false;
-    }
+        private Vector3 spiritualObjectLastPosition;
 
-    private void Replay(object input = null)
-    {
-        //EventManager.StopListening(EnterRealWorld, Replay);
-        isInReplayMode = true;
-    }
+        void OnEnable() {
+            EventManager.StartListening(StaticEvent.Core_SwitchToRealWorld, Replay);
+            EventManager.StartListening(StaticEvent.Core_SwitchToOtherWorld, Record);
+        }
 
-    private void FixedUpdate()
-    {
-        if (isInReplayMode == false)
+        void OnDisable() {
+            EventManager.StopListening(StaticEvent.Core_SwitchToRealWorld, Replay);
+            EventManager.StopListening(StaticEvent.Core_SwitchToOtherWorld, Record);
+        }
+
+        // Note: Assumes Real object rigidbody isKinematic is set to true.
+        void Start()
         {
-            Vector3 positionShifted = spiritualObject.transform.position - spiritualObjectLastPosition;
-            positionShifted.y = -positionShifted.y;
-
-            actionReplayRecords.Add(new ActionReplayRecord { position = positionShifted, rotation = spiritualObject.transform.rotation });
             spiritualObjectLastPosition = spiritualObject.transform.position;
         }
-        else
-        {
-            int nextIndex = currentReplayIndex + 1;
 
-            if (nextIndex < actionReplayRecords.Count)
+        private void Record(object input = null)
+        {
+            realObject.SetActive(false);
+            spiritualObject.SetActive(true);
+            isInReplayMode = false;
+        }
+
+        private void Replay(object input = null)
+        {
+            realObject.SetActive(true);
+            spiritualObject.SetActive(false);
+            isInReplayMode = true;
+        }
+
+        private void FixedUpdate()
+        {
+            if (isInReplayMode == false)
             {
-                SetrealObjectTransform(nextIndex);
+                Vector3 positionShifted = spiritualObject.transform.position - spiritualObjectLastPosition;
+
+                actionReplayRecords.Enqueue(new ActionReplayRecord { deltaPosition = positionShifted, rotation = spiritualObject.transform.rotation });
+                spiritualObjectLastPosition = spiritualObject.transform.position;
             }
             else
             {
-                Debug.Log("Replay complete");
-                actionReplayRecords.Clear();
-                currentReplayIndex = 0;
+
+                if (actionReplayRecords.Count > 0)
+                {
+                    SetrealObjectTransform();
+                } else
+                {
+                    Debug.Log("Replay complete");
+                }
             }
         }
-    }
 
-    private void SetrealObjectTransform(int index)
-    {
-        currentReplayIndex = index;
+        private void SetrealObjectTransform()
+        {
+            ActionReplayRecord actionReplayRecord = actionReplayRecords.Dequeue();
 
-        ActionReplayRecord actionReplayRecord = actionReplayRecords[index];
-
-        Debug.Log(actionReplayRecord.position);
-
-        realObject.transform.position += actionReplayRecord.position;
-        realObject.transform.rotation = actionReplayRecord.rotation;
+            realObject.transform.position += actionReplayRecord.deltaPosition;
+            realObject.transform.rotation = actionReplayRecord.rotation;
+        }
     }
 }

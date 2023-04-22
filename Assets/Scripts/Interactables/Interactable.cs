@@ -17,7 +17,7 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField] protected Conversation wrongItem;
     [SerializeField] string useItemText = "Use Item", interactText = "Interact", leaveText = "Leave";
     
-    protected GameObject player;
+    public GameObject Player { get; private set; }
     protected Choice useItem, interact, leave;
     private bool playerInRange;
     private GameObject hint;
@@ -116,7 +116,7 @@ public abstract class Interactable : MonoBehaviour
         if (IsPlayer(collision.gameObject))
         {
             playerInRange = true;
-
+            Player = collision.gameObject;
             SpawnHint();
         }
 

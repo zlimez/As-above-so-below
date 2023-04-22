@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionReplayRecord
-{
-    public Vector3 position;
+namespace DeepBreath.ReplaySystem {
+    public struct ActionReplayRecord {
+    public Vector3 deltaPosition;
 
     public Quaternion rotation;
+}
+
 }
