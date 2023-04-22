@@ -967,7 +967,7 @@ MonoBehaviour:
     m_Value: 0.02
   frame:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   frameStyle:
     m_OverrideState: 1
     m_Value: 1
@@ -979,7 +979,7 @@ MonoBehaviour:
     m_Value: 0.222
   frameBandVerticalSize:
     m_OverrideState: 1
-    m_Value: 0.099996805
+    m_Value: 0.09716163
   frameBandVerticalSmoothness:
     m_OverrideState: 0
     m_Value: 0

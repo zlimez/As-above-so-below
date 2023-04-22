@@ -16,7 +16,7 @@ public abstract class Interactable : MonoBehaviour
     // WrongItem is the default dialog when a wrong item is chosen.
     [SerializeField] protected Conversation wrongItem;
     [SerializeField] string useItemText = "Use Item", interactText = "Interact", leaveText = "Leave";
-    
+
     public GameObject Player { get; private set; }
     protected Choice useItem, interact, leave;
     private bool playerInRange;
@@ -47,25 +47,25 @@ public abstract class Interactable : MonoBehaviour
                 ChoiceManager.Instance.StartChoice(interact, useItem, leave);
                 return;
             }
-            
+
             Interact();
         }
     }
 
-    protected void InitialiseItemChoice() 
+    protected void InitialiseItemChoice()
     {
         useItem = new Choice(useItemText, UseItemChoice);
         interact = new Choice(interactText, InteractChoice);
         leave = new Choice(leaveText, LeaveChoice);
     }
 
-    public virtual void UseItemChoice(object o = null) 
+    public virtual void UseItemChoice(object o = null)
     {
         EventManager.InvokeEvent(CommonEventCollection.OpenInventory);
         InventoryUI.Instance.StartItemSelect(OnSelectItem);
     }
 
-    public virtual bool OnSelectItem(Item item) 
+    public virtual bool OnSelectItem(Item item)
     {
         // Wrong item selected
         DialogueManager.Instance.StartConversation(wrongItem);
@@ -73,12 +73,12 @@ public abstract class Interactable : MonoBehaviour
         return false;
     }
 
-    public virtual void InteractChoice(object o = null) 
+    public virtual void InteractChoice(object o = null)
     {
         Interact();
     }
 
-    public virtual void LeaveChoice(object o = null){}
+    public virtual void LeaveChoice(object o = null) { }
 
     void SpawnHint()
     {
@@ -111,7 +111,7 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void Interact();
 
-    private void OnTriggerEnter(Collider collision)
+    protected void OnTriggerEnter(Collider collision)
     {
         if (IsPlayer(collision.gameObject))
         {
@@ -122,7 +122,7 @@ public abstract class Interactable : MonoBehaviour
 
     }
 
-    private void OnTriggerExit(Collider collision)
+    protected void OnTriggerExit(Collider collision)
     {
         if (IsPlayer(collision.gameObject))
         {
