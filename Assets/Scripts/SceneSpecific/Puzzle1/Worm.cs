@@ -7,8 +7,6 @@ public class Worm : MonoBehaviour
 {
     public bool hasAttacked;
     public CableSeats cableSeats;
-    private GameEvent EnterRealWorld = new GameEvent("Enter Real World");
-    private GameEvent EnterSpiritWorld = new GameEvent("Enter Spirit World");
     public SpriteRenderer wormSprite;
     private bool isPlayerStillInAttackRange;
     public ResetPuzzle resetPuzzle;
@@ -17,7 +15,7 @@ public class Worm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.StartListening(EnterSpiritWorld, ResetAttack);
+        EventManager.StartListening(StaticEvent.Core_SwitchToOtherWorld, ResetAttack);
         wormSprite = GetComponent<SpriteRenderer>();
         wormSprite.enabled = false;
     }

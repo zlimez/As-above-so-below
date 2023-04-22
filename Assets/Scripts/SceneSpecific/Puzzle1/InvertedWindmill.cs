@@ -14,9 +14,6 @@ public class InvertedWindmill : Interactable
     private IEnumerator turnAntiClockwise;
     private float rotationZ;
 
-    private GameEvent EnterRealWorld = new GameEvent("Enter Real World");
-    private GameEvent EnterSpiritWorld = new GameEvent("Enter Spirit World");
-
 
     void Awake()
     {
@@ -24,7 +21,7 @@ public class InvertedWindmill : Interactable
         turnClockwise = TurnClockwise();
         turnAntiClockwise = TurnAntiClockwise();
         rotationZ = windmillBlades.transform.rotation.z;
-        EventManager.StartListening(EnterRealWorld, ResetBlades);
+        EventManager.StartListening(StaticEvent.Core_SwitchToRealWorld, ResetBlades);
     }
 
     private void InitialiseChoice()

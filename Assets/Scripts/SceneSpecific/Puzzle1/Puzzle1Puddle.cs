@@ -16,20 +16,17 @@ public class Puzzle1Puddle : Interactable
     public float waterLerpSpeed = 200;
 
     private bool isInRealWorld = true;
-    private GameEvent EnterRealWorld = new GameEvent("Enter Real World");
-    private GameEvent EnterSpiritWorld = new GameEvent("Enter Spirit World");
-
     public override void Interact()
     {
         if (isInRealWorld)
         {
-            EventManager.InvokeEvent(EnterSpiritWorld);
+            EventManager.InvokeEvent(StaticEvent.Core_SwitchToOtherWorld);
             isInRealWorld = false;
             DropIntoWater();
         }
         else
         {
-            EventManager.InvokeEvent(EnterRealWorld);
+            EventManager.InvokeEvent(StaticEvent.Core_SwitchToRealWorld);
             isInRealWorld = true;
             JumpOutOfWater();
         }

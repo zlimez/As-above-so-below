@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DeepBreath.ReplaySystem {
+namespace DeepBreath.ReplaySystem
+{
     public class ActionReplayPair : MonoBehaviour
     {
         public GameObject spiritualObject;
@@ -13,12 +14,14 @@ namespace DeepBreath.ReplaySystem {
 
         private Vector3 spiritualObjectLastPosition;
 
-        void OnEnable() {
+        void OnEnable()
+        {
             EventManager.StartListening(StaticEvent.Core_SwitchToRealWorld, Replay);
             EventManager.StartListening(StaticEvent.Core_SwitchToOtherWorld, Record);
         }
 
-        void OnDisable() {
+        void OnDisable()
+        {
             EventManager.StopListening(StaticEvent.Core_SwitchToRealWorld, Replay);
             EventManager.StopListening(StaticEvent.Core_SwitchToOtherWorld, Record);
         }
@@ -58,7 +61,8 @@ namespace DeepBreath.ReplaySystem {
                 if (actionReplayRecords.Count > 0)
                 {
                     SetrealObjectTransform();
-                } else
+                }
+                else
                 {
                     Debug.Log("Replay complete");
                 }
@@ -71,6 +75,11 @@ namespace DeepBreath.ReplaySystem {
 
             realObject.transform.position += actionReplayRecord.deltaPosition;
             realObject.transform.rotation = actionReplayRecord.rotation;
+        }
+
+        public void ResetReplayRecords()
+        {
+            actionReplayRecords.Clear();
         }
     }
 }
