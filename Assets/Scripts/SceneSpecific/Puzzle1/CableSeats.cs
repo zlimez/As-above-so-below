@@ -9,19 +9,22 @@ public class CableSeats : Interactable
     public bool isMovingRight;
     public bool isTurning;
     public Waypoints waypoints;
-    public GameObject player;
+    public GameObject normPlayer;
     public GameObject seatPosition;
 
     private IEnumerator moveRight;
     private IEnumerator moveLeft;
-    float lerpSpeed = 10; // Move speed
+    private float moveSpeed = 0.1f;
+    private float playerMoveSpeed = 0.2f;
 
     public bool isSeated;
+    private float rotationY;
 
     private void Start()
     {
         moveRight = MoveRight();
         moveLeft = MoveLeft();
+        rotationY = transform.rotation.y;
     }
 
     public override void Interact()
@@ -30,12 +33,12 @@ public class CableSeats : Interactable
         if (isSeated)
         {
             isSeated = false;
-            player.GetComponent<Rigidbody>().useGravity = true;
+            normPlayer.GetComponent<Rigidbody>().useGravity = true;
         }
         else
         {
             isSeated = true;
-            player.GetComponent<Rigidbody>().useGravity = false;
+            normPlayer.GetComponent<Rigidbody>().useGravity = false;
         }
     }
 
@@ -43,13 +46,23 @@ public class CableSeats : Interactable
     {
         if (isSeated)
         {
-            Debug.Log("Set player transform");
-            player.transform.position = seatPosition.transform.position;
+            //Debug.Log("Set player transform");
+            //player.transform.position = seatPosition.transform.position;
+            normPlayer.transform.position = Vector3.MoveTowards(normPlayer.transform.position, seatPosition.transform.position, playerMoveSpeed);
         }
 
         if (windmillBlades.isRotating)
         {
+            Debug.Log("Windmill rotating");
             isMoving = true;
+            if (windmillBlades.isRotatingClockwise)
+            {
+                isMovingRight = true;
+            }
+            else
+            {
+                isMovingRight = false;
+            }
         }
         else
         {
@@ -60,30 +73,35 @@ public class CableSeats : Interactable
         {
             if (isMovingRight)
             {
-                if (transform.rotation.y == 180)
+                if (rotationY == 180)
                 {
                     isTurning = false;
                 }
                 else
                 {
-                    transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y + 20, transform.rotation.z);
+                    rotationY += 20;
+                    transform.rotation = Quaternion.Euler(transform.rotation.x, rotationY, transform.rotation.z);
                 }
             }
             else
             {
-                if (transform.rotation.y == 0)
+                if (rotationY == 0)
                 {
                     isTurning = false;
                 }
                 else
                 {
-                    transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y - 20, transform.rotation.z);
+                    rotationY -= 20;
+                    transform.rotation = Quaternion.Euler(transform.rotation.x, rotationY, transform.rotation.z);
                 }
             }
         }
 
         if (!isMoving)
         {
+            // Comment out these stopCoroutines if we want it to continue moving after windmill stops rotating.
+            //StopCoroutine(moveRight);
+            //StopCoroutine(moveLeft);
             return;
         }
         else
@@ -109,12 +127,12 @@ public class CableSeats : Interactable
         {
             if (transform.position != waypoints.currentWaypoint.position)
             {
-                transform.position = Vector3.Lerp(transform.position, waypoints.currentWaypoint.position, Time.deltaTime * lerpSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, waypoints.currentWaypoint.position, moveSpeed);
             }
             else
             {
                 waypoints.GetNextWaypoint();
-                transform.position = Vector3.Lerp(transform.position, waypoints.currentWaypoint.position, Time.deltaTime * lerpSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, waypoints.currentWaypoint.position, moveSpeed);
             }
             yield return null;
         }
@@ -126,12 +144,12 @@ public class CableSeats : Interactable
         {
             if (transform.position != waypoints.currentWaypoint.position)
             {
-                transform.position = Vector3.Lerp(transform.position, waypoints.currentWaypoint.position, Time.deltaTime * lerpSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, waypoints.currentWaypoint.position, moveSpeed);
             }
             else
             {
                 waypoints.GetPrevWaypoint();
-                transform.position = Vector3.Lerp(transform.position, waypoints.currentWaypoint.position, Time.deltaTime * lerpSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, waypoints.currentWaypoint.position, moveSpeed);
             }
             yield return null;
         }
