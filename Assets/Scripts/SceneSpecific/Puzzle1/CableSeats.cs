@@ -14,8 +14,8 @@ public class CableSeats : Interactable
 
     private IEnumerator moveRight;
     private IEnumerator moveLeft;
-    private float moveSpeed = 0.15f;
-    private float playerMoveSpeed = 0.3f;
+    private float moveSpeed = 0.1f;
+    private float playerMoveSpeed = 0.2f;
 
     public bool isSeated;
     private float rotationY;
