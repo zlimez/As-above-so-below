@@ -84,27 +84,6 @@ namespace Chronellium.EventSystem
 
                 GUILayout.EndHorizontal();
             }
-
-            if (GUILayout.Button("Record Events"))
-            {
-                RecordSelectedEvents();
-            }
-        }
-
-        private void RecordSelectedEvents()
-        {
-            for (int i = 0; i < _selectedStaticEvents.Count; i++)
-            {
-                if (_selectedStaticEvents[i])
-                {
-                    EventLedger.Instance.RecordEvent((StaticEvent)i);
-                }
-            }
-
-            if (!string.IsNullOrEmpty(_customEventName))
-            {
-                EventLedger.Instance.RecordEvent(new GameEvent(_customEventName));
-            }
         }
     }
 }

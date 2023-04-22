@@ -1,6 +1,5 @@
 using UnityEngine;
 using Chronellium.EventSystem;
-using Chronellium.Hacking;
 
 /* This file handles all inputs and delegates the handling of these inputs into the appropriate components
  * Current sends the inputs to:
@@ -10,7 +9,7 @@ using Chronellium.Hacking;
 
 namespace KinematicCharacterController.PlayerCameraCharacterSetup
 {
-    public class PlayerInputHandler : HackedBehaviour
+    public class PlayerInputHandler : MonoBehaviour
     {
         public MainCamera mainCamera;
         public Transform CameraFollowPoint;
@@ -38,7 +37,7 @@ namespace KinematicCharacterController.PlayerCameraCharacterSetup
         void OnEnable()
         {
             // Tell camera to always be at this specified position
-            mainCamera.SetFollowTransform(CameraFollowPoint);
+            mainCamera.SetFollowTransform(CameraFollowPoint, mainCamera.DefaultDistance);
             EventManager.StartListening(CommonEventCollection.PlayerMoved, SetMainCamera);
         }
 
@@ -49,13 +48,11 @@ namespace KinematicCharacterController.PlayerCameraCharacterSetup
 
         private void Update()
         {
-            if (HackedBehaviour.IsFrozen) return;
             HandleCharacterInput();
         }
 
         private void LateUpdate()
         {
-            if (HackedBehaviour.IsFrozen) return;
             HandleCameraInput();
         }
 

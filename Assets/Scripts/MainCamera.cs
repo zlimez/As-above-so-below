@@ -79,17 +79,8 @@ public class MainCamera : MonoBehaviour
         PlanarDirection = Vector3.forward;
     }
 
-    // Set the transform that the camera will orbit around
-    public void SetFollowTransform(Transform t, float fitWidth = 0, float fitHeight = 0)
-    {
-        if (fitWidth > 0 || fitHeight > 0)
-        {
-            targetViewDistance = Mathf.Max(ZoomDistanceToFit(new Pair<float, float>(fitWidth, fitHeight)), DefaultDistance);
-        }
-        else
-        {
-            targetViewDistance = _currentDistance;
-        }
+    public void SetFollowTransform(Transform t, float newDistance = -1) {
+        targetViewDistance = newDistance == -1 ? _currentDistance : newDistance;
         // Debug.Log("Current distance is " + _currentDistance + " Target view distance is " + targetViewDistance);
         // The first camera binded object will be focused immediately instead of going through transition
         if (FollowTransform != null) isInTransition = true;
@@ -110,6 +101,19 @@ public class MainCamera : MonoBehaviour
         else
         {
             _currentFollowPosition = FollowTransform.position;
+        }
+    }
+
+    // Set the transform that the camera will orbit around
+    public void SetFollowTransform(Transform t, float fitWidth = 0, float fitHeight = 0)
+    {
+        if (fitWidth > 0 || fitHeight > 0)
+        {
+            SetFollowTransform(t, Mathf.Max(ZoomDistanceToFit(new Pair<float, float>(fitWidth, fitHeight)), DefaultDistance));
+        }
+        else
+        {
+            SetFollowTransform(t, -1);
         }
     }
 

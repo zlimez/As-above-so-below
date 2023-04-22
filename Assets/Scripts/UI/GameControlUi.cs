@@ -54,16 +54,7 @@ public class GameControlUi : MonoBehaviour
     {
         if (UiStatus.IsOpen)
             return;
-        if (EventLedger.Instance.HasEventOccurredInLoopedPast(StaticEvent.CommonEvents_SkipTutorialTriggered))
-        {
-            // Instructions on skipping dialog and speed up only
-            // shown after the first iteration
-            text.text = skipInstruction;
-        }
-        else
-        {
-            text.text = startingInstruction;
-        }
+        text.text = startingInstruction;
 
         UiStatus.OpenUI();
         gameControl.SetActive(true);

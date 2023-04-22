@@ -18,6 +18,7 @@ public class ChoiceManager : Singleton<ChoiceManager>
     private Choice[] choices;
     private int choiceIndex = -1;
     private bool isActive;
+    private bool justSelected;
 
     private void OnEnable()
     {
@@ -44,6 +45,11 @@ public class ChoiceManager : Singleton<ChoiceManager>
     public void StartChoice(params Choice[] choices)
     {
         if (UiStatus.IsDisabled()) return;
+        if (justSelected)
+        {
+            justSelected = false;
+            return;
+        }
         isActive = true;
         this.choices = choices;
     }
@@ -106,9 +112,16 @@ public class ChoiceManager : Singleton<ChoiceManager>
     /// </summary>
     private void HandleChoiceSelection()
     {
-        if (InputManager.ChoiceButtonActivated && choiceIndex != -1)
+        /*if (InputManager.ChoiceButtonActivated && choiceIndex != -1)
         {
             InputManager.ChoiceButtonActivated = false;
+            choices[choiceIndex].ChoiceSelectedEvent.Invoke(null);
+
+            EndChoices();
+        }*/
+
+        if ((Input.GetButtonDown("Submit") || Input.GetMouseButtonDown(0)) && choiceIndex != -1)
+        {
             choices[choiceIndex].ChoiceSelectedEvent.Invoke(null);
 
             EndChoices();
@@ -130,7 +143,6 @@ public class ChoiceManager : Singleton<ChoiceManager>
         {
             onChoiceSelected = new GameEvent("No Choice Selected");
         }
-        EventLedger.Instance.RecordEvent(onChoiceSelected, false);
 
         Close();
     }
@@ -142,7 +154,7 @@ public class ChoiceManager : Singleton<ChoiceManager>
     public void Close(object parameter = null)
     {
         // Don't change UiStatus to !isOpen if the choice is followed by Dialogue or Item Selection
-        if (!DialogueManager.Instance.InDialogue && !InventoryUI.Instance.isItemSelectMode)
+        if (!DialogueManager.Instance.InDialogue)
             UiStatus.CloseUI();
 
         choiceIndex = -1;
@@ -152,5 +164,6 @@ public class ChoiceManager : Singleton<ChoiceManager>
             choiceButtons[i].SetActive(false);
         }
         InChoice = false;
+        justSelected = true;
     }
 }

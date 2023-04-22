@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
-
+using System;
+using DataStructures;
 namespace Chronellium.TimeManagers
 {
     /// <summary>
@@ -9,26 +10,30 @@ namespace Chronellium.TimeManagers
     /// </summary>
     public class CountdownTimer : MonoBehaviour
     {
+        public static CountdownTimer Instance;
         public float TimeLeft;
 
         /// <summary>
         /// Total duration of the timer in seconds.
         /// </summary>
-        [SerializeField] public float TotalDuration = 30;
-
+        [SerializeField] public float TotalDuration = 60f;
+        
         [System.NonSerialized] public UnityEvent<float> OnTimerChange = new UnityEvent<float>();
         [System.NonSerialized] public UnityEvent OnTimerStart = new UnityEvent();
         [System.NonSerialized] public UnityEvent OnTimerExpire = new UnityEvent();
+        private PriorityQueue<TimeSensitiveAction> scheduledActions = new PriorityQueue<TimeSensitiveAction>();
 
         private IEnumerator _timerCoroutine;
 
-        /// <summary>
-        /// Called when the timer component is enabled.
-        /// </summary>
-        private void OnEnable()
-        {
-            Debug.Log("Timer Enable");
+        void Awake() {
             TimeLeft = TotalDuration;
+        }
+
+        public void ScheduleAction(float time, Action action) {
+            // Not enough time left already
+            if (time > TimeLeft) return;
+            Debug.Log("Action scheduled at " + time);
+            scheduledActions.Enqueue(new TimeSensitiveAction(time, action));
         }
 
         /// <summary>
@@ -36,6 +41,7 @@ namespace Chronellium.TimeManagers
         /// </summary>
         public void StartTimer()
         {
+            TimeLeft = TotalDuration;
             OnTimerStart.Invoke();
             if (_timerCoroutine != null)
             {
@@ -97,6 +103,10 @@ namespace Chronellium.TimeManagers
                 yield return new WaitForSeconds(Time.deltaTime);
                 TimeLeft -= Time.deltaTime;
                 OnTimerChange.Invoke(TimeLeft);
+                while (!scheduledActions.IsEmpty && scheduledActions.Peek().ScheduledTime > TimeLeft) {
+                    Debug.Log("Executing scheduled action");
+                    scheduledActions.Dequeue().Execute();
+                }
 
                 if (TimeLeft <= 0)
                 {

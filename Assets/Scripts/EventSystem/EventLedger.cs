@@ -14,12 +14,7 @@ namespace Chronellium.EventSystem
         /// <summary>
         /// A dictionary of normal past events with their occurrence count.
         /// </summary>
-        public Dictionary<GameEvent, int> NormalPastEvents { get; private set; }
-
-        /// <summary>
-        /// A dictionary of looped past events with their occurrence count.
-        /// </summary>
-        public Dictionary<GameEvent, int> LoopedPastEvents { get; private set; }
+        public Dictionary<GameEvent, int> PastEvents { get; private set; }
 
         /// <summary>
         /// A dictionary containing the recency of events.
@@ -45,8 +40,7 @@ namespace Chronellium.EventSystem
         protected override void Awake()
         {
             base.Awake();
-            NormalPastEvents = new Dictionary<GameEvent, int>();
-            LoopedPastEvents = new Dictionary<GameEvent, int>();
+            PastEvents = new Dictionary<GameEvent, int>();
             EventRecencyTable = new Dictionary<GameEvent, int>();
             recentEvents = new MyQueue<GameEvent>();
             Counter = 0;
@@ -143,8 +137,7 @@ namespace Chronellium.EventSystem
         /// <param name="isSilent">Set to False to invoke the event after recording.</param>
         public void RecordEvent(GameEvent gameEvent, bool isSilent = true)
         {
-            IncrementEventCount(NormalPastEvents, gameEvent);
-            IncrementEventCount(LoopedPastEvents, gameEvent);
+            IncrementEventCount(PastEvents, gameEvent);
 
             AddToRecent(gameEvent);
             EventRecencyTable[gameEvent] = Counter;
@@ -162,33 +155,12 @@ namespace Chronellium.EventSystem
         }
 
         /// <summary>
-        /// Reset the NormalPastEvents and LoopedPastEvents to the given event.
-        /// </summary>
-        /// <param name="normalPastEvents">The normal past events to set.</param>
-        /// <param name="loopedPastEvents">The looped past events to set.</param>
-        /// <param name="forceReload">Set to True to force reload looped past events.</param>
-        public void LoadEvents(Dictionary<GameEvent, int> normalPastEvents, Dictionary<GameEvent, int> loopedPastEvents, bool forceReload = false)
-        {
-            EventLedger.Instance.Counter = 0;
-            EventLedger.Instance.EventRecencyTable.Clear();
-
-            EventLedger.Instance.NormalPastEvents = normalPastEvents;
-
-            if (forceReload || SnapshotManager.Instance.IsForInit)
-            {
-                // In the rewind case, loopedPastEvents should be strictly increasing, hence only assignment on init.
-                EventLedger.Instance.LoopedPastEvents = loopedPastEvents;
-            }
-        }
-
-        /// <summary>
         /// Removes a game event from all data structures.
         /// </summary>
         /// <param name="gameEvent">The game event to remove.</param>
         public void RemoveEvent(GameEvent gameEvent)
         {
-            NormalPastEvents.Remove(gameEvent);
-            LoopedPastEvents.Remove(gameEvent);
+            PastEvents.Remove(gameEvent);
             EventRecencyTable.Remove(gameEvent);
             recentEvents.Remove(gameEvent);
         }
@@ -205,27 +177,12 @@ namespace Chronellium.EventSystem
         /// <returns>The occurrence count of the game event.</returns>
         public int GetEventCountInPast(GameEvent gameEvent)
         {
-            return GetEventCount(NormalPastEvents, gameEvent);
+            return GetEventCount(PastEvents, gameEvent);
         }
 
         public int GetEventCountInPast(StaticEvent gameEvent)
         {
             return GetEventCountInPast(new GameEvent(gameEvent.ToString()));
-        }
-
-        /// <summary>
-        /// Returns the number of times a game event has occurred in the looped past.
-        /// </summary>
-        /// <param name="gameEvent">The game event to check.</param>
-        /// <returns>The occurrence count of the game event.</returns>
-        public int GetEventCountInLoopedPast(GameEvent gameEvent)
-        {
-            return GetEventCount(LoopedPastEvents, gameEvent);
-        }
-
-        public int GetEventCountInLoopedPast(StaticEvent gameEvent)
-        {
-            return GetEventCountInLoopedPast(new GameEvent(gameEvent.ToString()));
         }
 
         /// <summary>
@@ -241,21 +198,6 @@ namespace Chronellium.EventSystem
         public bool HasEventOccurredInPast(StaticEvent gameEvent)
         {
             return HasEventOccurredInPast(new GameEvent(gameEvent.ToString()));
-        }
-
-        /// <summary>
-        /// Checks if a game event has occurred in the looped past.
-        /// </summary>
-        /// <param name="gameEvent">The game event to check.</param>
-        /// <returns>True if the game event has occurred in the looped past, otherwise false.</returns>
-        public bool HasEventOccurredInLoopedPast(GameEvent gameEvent)
-        {
-            return GetEventCountInLoopedPast(gameEvent) > 0;
-        }
-
-        public bool HasEventOccurredInLoopedPast(StaticEvent gameEvent)
-        {
-            return HasEventOccurredInLoopedPast(new GameEvent(gameEvent.ToString()));
         }
 
 

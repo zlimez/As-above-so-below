@@ -11,19 +11,14 @@ namespace Chronellium.TimeManagers
         [SerializeField]
         private Slider slider;
         [SerializeField]
-        private GameObject timerSliderObject;
+        protected GameObject timerSliderObject;
         [SerializeField]
         private PlayableDirector timeline;
         [SerializeField]
         private Image fillColor;
         private Vector3 startColor, endColor, currColor, gradient;
 
-        private void Start()
-        {
-            timerSliderObject.SetActive(false);
-        }
-
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             // Debug.Log("Timer Slider Manager Enable");
             // Subscribe to the timeLeftChangedEvent
@@ -32,7 +27,7 @@ namespace Chronellium.TimeManagers
             timer.OnTimerExpire.AddListener(OnTimerExpire);
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             // Debug.Log("Timer Slider Manager Disable");
             // Unsubscribe from the timeLeftChangedEvent
