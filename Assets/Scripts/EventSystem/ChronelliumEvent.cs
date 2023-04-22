@@ -1,3 +1,5 @@
+using DeepBreath.ReplaySystem;
+
 namespace Chronellium.EventSystem
 {
     // WARNING: Do not change the order of the enum values or their assigned integer values
@@ -23,13 +25,16 @@ namespace Chronellium.EventSystem
         Common_ItemUsed = 14,
         Common_DialogStarted = 15,
         Common_PlayerPositionMoved = 56,
+        Common_PlayerChangeDirection = 57,
         Common_ObjectPickedUp = 63,
-        Common_ObjectPutDown = 64
+        Common_ObjectPutDown = 64,
+        Common_GrabStateChanged = 65,
     }
 
 
     public static class DynamicEvent
     {
-        
+        public readonly static string ReplayCompleteEventPrefix = "Replay completed for ";
+        public readonly static GameEvent GhostReplayCompleted = new GameEvent(ReplayCompleteEventPrefix + "SwimCharacter (Ghost)");
     }
 }
