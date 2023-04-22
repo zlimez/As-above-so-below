@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 759577065223773184}
   - component: {fileID: 759577065223773187}
-  - component: {fileID: 759577065223773186}
   - component: {fileID: 759577065223773188}
   m_Layer: 0
   m_Name: CharSprite
@@ -86,19 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &759577065223773186
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 759577065223773215}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.8477294, y: 8.726002, z: 0.2}
-  m_Center: {x: -0.42913732, y: 0.3029192, z: 0}
 --- !u!95 &759577065223773188
 Animator:
   serializedVersion: 4
