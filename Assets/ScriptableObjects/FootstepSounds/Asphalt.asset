@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FootStepMapping
   materials:
   - {fileID: 2100000, guid: 4b355fb689fe447d1ae10172c428b05c, type: 2}
+  - {fileID: 2100000, guid: a398c3c5fc65e4645966749a9fc7c21f, type: 2}
+  - {fileID: 2100000, guid: 7b48372108d08314d8943a74d9646c90, type: 2}
+  - {fileID: 2100000, guid: 11f8cc5e7f578414aa4ef58d91821f78, type: 2}
   sounds:
   - {fileID: 8300000, guid: 8beb6a965d2464242956f3798f011459, type: 3}
   - {fileID: 8300000, guid: 6382cc592ae19f24fb132ab35b4144d0, type: 3}
