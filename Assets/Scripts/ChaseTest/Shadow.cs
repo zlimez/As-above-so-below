@@ -47,6 +47,7 @@ public class Shadow : MonoBehaviour
 
     private void ShadowsAppear(object input = null)
     {
+        Debug.Log("Shadow appears");
         shadowSprite.SetActive(true);
         isIdle = false;
     }
