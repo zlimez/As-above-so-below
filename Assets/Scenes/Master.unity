@@ -737,7 +737,7 @@ PrefabInstance:
     - target: {fileID: 3249469490615214194, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4068425722148292631, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -787,7 +787,7 @@ PrefabInstance:
     - target: {fileID: 4068425722165066754, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 164.005
+      value: 149.005
       objectReference: {fileID: 0}
     - target: {fileID: 4068425722165066754, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -837,7 +837,7 @@ PrefabInstance:
     - target: {fileID: 4068425722336752121, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 216.215
+      value: 261
       objectReference: {fileID: 0}
     - target: {fileID: 4068425722336752121, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -892,7 +892,7 @@ PrefabInstance:
     - target: {fileID: 4068425723007729849, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 46.129997
+      value: 31.13
       objectReference: {fileID: 0}
     - target: {fileID: 4068425723007729849, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -917,7 +917,7 @@ PrefabInstance:
     - target: {fileID: 4068425723017816806, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 76.524994
+      value: 53.395
       objectReference: {fileID: 0}
     - target: {fileID: 4068425723017816806, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -942,7 +942,7 @@ PrefabInstance:
     - target: {fileID: 4068425723026807766, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 117.845
+      value: 313
       objectReference: {fileID: 0}
     - target: {fileID: 4068425723026807766, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -1017,7 +1017,7 @@ PrefabInstance:
     - target: {fileID: 4068425723444474567, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60.16
+      value: 45.16
       objectReference: {fileID: 0}
     - target: {fileID: 4068425723444474567, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -1097,7 +1097,7 @@ PrefabInstance:
     - target: {fileID: 4068425723814872571, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 112.655
+      value: 97.655
       objectReference: {fileID: 0}
     - target: {fileID: 4068425723814872571, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -1122,7 +1122,7 @@ PrefabInstance:
     - target: {fileID: 4068425723942224908, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 113.845
+      value: 76.685
       objectReference: {fileID: 0}
     - target: {fileID: 4068425723942224908, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -4246,6 +4246,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1382945105}
     m_Modifications:
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closedInterval
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: fadeInDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: fadeOutDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: openTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closeTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: openTriggers.Array.data[0].eventName
+      value: Scene change with master completed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closeTriggers.Array.data[0].eventName
+      value: Changing Scene With Master
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: openTriggers.Array.data[0].RelatedStaticEvent
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closeTriggers.Array.data[0].RelatedStaticEvent
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772835821656790281, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964294634262947567, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588282633848576129, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 1388479890615246717, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4965,66 +5025,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closedInterval
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: fadeInDuration
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: fadeOutDuration
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: openTriggers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closeTriggers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: openTriggers.Array.data[0].eventName
-      value: Scene change with master completed
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closeTriggers.Array.data[0].eventName
-      value: Changing Scene With Master
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: openTriggers.Array.data[0].RelatedStaticEvent
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closeTriggers.Array.data[0].RelatedStaticEvent
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5772835821656790281, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5964294634262947567, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7588282633848576129, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851869269d9a64ea3ac5b0c04db0447e, type: 3}
