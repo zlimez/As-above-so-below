@@ -106,13 +106,13 @@ public class ChoiceManager : Singleton<ChoiceManager>
     /// </summary>
     private void HandleChoiceSelection()
     {
-        if (InputManager.ChoiceButtonActivated && choiceIndex != -1)
-        {
-            InputManager.ChoiceButtonActivated = false;
-            choices[choiceIndex].ChoiceSelectedEvent.Invoke(null);
+        // if (InputManager.ChoiceButtonActivated && choiceIndex != -1)
+        // {
+        //     InputManager.ChoiceButtonActivated = false;
+        //     choices[choiceIndex].ChoiceSelectedEvent.Invoke(null);
 
-            EndChoices();
-        }
+        //     EndChoices();
+        // }
     }
 
     /// <summary>

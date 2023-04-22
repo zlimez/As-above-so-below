@@ -37,7 +37,7 @@ namespace KinematicCharacterController.PlayerCameraCharacterSetup
         void OnEnable()
         {
             // Tell camera to always be at this specified position
-            mainCamera.SetFollowTransform(CameraFollowPoint);
+            mainCamera.SetFollowTransform(CameraFollowPoint, mainCamera.DefaultDistance);
             EventManager.StartListening(CommonEventCollection.PlayerMoved, SetMainCamera);
         }
 

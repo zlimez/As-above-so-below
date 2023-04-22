@@ -13,7 +13,7 @@ public class TriggerRealWorld : Interactable
 
     public override void Interact()
     {
-        EventManager.InvokeEvent(new GameEvent("Enter Real World"));
+        EventManager.InvokeEvent(StaticEvent.Core_SwitchToRealWorld);
         Debug.Log("Real World Entered");
     }
 }
