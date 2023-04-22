@@ -38,7 +38,15 @@ public class JumpAddedController : MonoBehaviour
 
         float hInput = Input.GetAxis("Horizontal");
         Vector2 vel = rb.velocity;
-        vel.x = hInput * moveSpeed;
+        if (isJumping)
+        {
+            // restrict the horizontal velocity when jumping
+            vel.x = 0.4f * hInput * moveSpeed;
+        }
+        else
+        {
+            vel.x = hInput * moveSpeed;
+        }
         rb.velocity = vel;
         if (hInput == 0) {
             animator.SetBool("isMoving", false);
@@ -62,17 +70,24 @@ public class JumpAddedController : MonoBehaviour
 
     void Update() 
     {
+        // This is to prevent the player being stuck when
+        // performign jumping too close to a collider
+        if (isJumping)
+        {
+            StartCoroutine(CheckForStuck());
+        }
 
         // increase the jump impulse with longer hold 
         if (isJumping && Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("jumping");
             if (totalJumpForce < maxJumpForce)
             {
                 totalJumpForce += jumpForce; 
                 rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
             }
         }
+
+            
     }
 
     void OnCollisionEnter(Collision collision)
@@ -80,10 +95,26 @@ public class JumpAddedController : MonoBehaviour
         // Debug.Log("Player collided with " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
-            isJumping = false;
-            animator.SetBool("isJumping", false);
-            totalJumpForce = 0f;
+            StopJumping();
         }
+    }
+
+    IEnumerator CheckForStuck()
+    {
+        float yPos = this.transform.position.y;
+        yield return new WaitForSeconds(Time.smoothDeltaTime * 2);
+        if (this.transform.position.y == yPos)
+        {
+            // Player is stucked
+            StopJumping();
+        }
+    }
+
+    void StopJumping()
+    {
+        isGrounded = true;
+        isJumping = false;
+        animator.SetBool("isJumping", false);
+        totalJumpForce = 0f;
     }
 }

@@ -29,6 +29,7 @@ namespace Chronellium.EventSystem
         Common_ObjectPickedUp = 63,
         Common_ObjectPutDown = 64,
         Common_GrabStateChanged = 65,
+        Core_ResetPuzzle = 99,
     }
 
 

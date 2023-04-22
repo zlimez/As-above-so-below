@@ -14,9 +14,6 @@ public class InvertedWindmill : Interactable
     private IEnumerator turnAntiClockwise;
     private float rotationZ;
 
-    private GameEvent EnterRealWorld = new GameEvent("Enter Real World");
-    private GameEvent EnterSpiritWorld = new GameEvent("Enter Spirit World");
-
 
     void Awake()
     {
@@ -24,7 +21,7 @@ public class InvertedWindmill : Interactable
         turnClockwise = TurnClockwise();
         turnAntiClockwise = TurnAntiClockwise();
         rotationZ = windmillBlades.transform.rotation.z;
-        EventManager.StartListening(EnterRealWorld, ResetBlades);
+        EventManager.StartListening(StaticEvent.Core_SwitchToRealWorld, ResetBlades);
     }
 
     private void InitialiseChoice()
@@ -60,8 +57,8 @@ public class InvertedWindmill : Interactable
     {
         while (true)
         {
-            rotationZ += 1;
-            windmillBlades.transform.rotation = Quaternion.Euler(windmillBlades.transform.rotation.x, windmillBlades.transform.rotation.y, rotationZ);
+            rotationZ += 1f;
+            windmillBlades.transform.eulerAngles = new Vector3(windmillBlades.transform.eulerAngles.x, windmillBlades.transform.eulerAngles.y, rotationZ);
             yield return null;
         }
     }
@@ -70,8 +67,8 @@ public class InvertedWindmill : Interactable
     {
         while (true)
         {
-            rotationZ -= 1;
-            windmillBlades.transform.rotation = Quaternion.Euler(windmillBlades.transform.rotation.x, windmillBlades.transform.rotation.y, rotationZ);
+            rotationZ -= 1f;
+            windmillBlades.transform.eulerAngles = new Vector3(windmillBlades.transform.eulerAngles.x, windmillBlades.transform.eulerAngles.y, rotationZ);
             yield return null;
         }
     }

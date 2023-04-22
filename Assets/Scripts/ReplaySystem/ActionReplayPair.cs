@@ -47,5 +47,9 @@ namespace DeepBreath.ReplaySystem {
                 if (actionReplayRecords.Count == 0) EventManager.InvokeEvent(new GameEvent(DynamicEvent.ReplayCompleteEventPrefix + realComponent.name));
             }
         }
+
+        public void ResetReplayRecords() {
+            actionReplayRecords.Clear();
+        }
     }
 }

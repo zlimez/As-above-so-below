@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Waypoints : MonoBehaviour
 {
-    int currentIndex = 0;
+    public int currentIndex = 34;
     public bool reachedEnd = false;
     public bool reachedStart = false;
     public Transform currentWaypoint;
@@ -22,6 +22,7 @@ public class Waypoints : MonoBehaviour
 
     public Transform GetNextWaypoint()
     {
+        Debug.Log("Current waypoint: " + currentIndex);
         currentIndex += 1;
         reachedStart = false;
         if (currentIndex >= transform.childCount)
