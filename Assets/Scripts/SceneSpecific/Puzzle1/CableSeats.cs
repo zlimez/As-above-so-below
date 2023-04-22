@@ -46,7 +46,7 @@ public class CableSeats : Interactable
     {
         if (isSeated)
         {
-            Debug.Log("Set player transform");
+            //Debug.Log("Set player transform");
             //player.transform.position = seatPosition.transform.position;
             normPlayer.transform.position = Vector3.MoveTowards(normPlayer.transform.position, seatPosition.transform.position, playerMoveSpeed);
         }
