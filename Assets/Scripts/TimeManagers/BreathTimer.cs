@@ -8,36 +8,42 @@ using DeepBreath.Environment;
 public class BreathTimer : CountdownTimer
 {
     [SerializeField] private float lowBreathLevel = 20f;
-    private void OnEnable() {
+    private void OnEnable()
+    {
         OnTimerExpire.AddListener(SignalBreathout);
-        ScheduleAction(lowBreathLevel, SignalLowBreath);
 
         EventManager.StartListening(StaticEvent.Core_SwitchToOtherWorld, StartBreathTimer);
         EventManager.StartListening(StaticEvent.Core_SwitchToRealWorld, ResetBreathTimer);
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         OnTimerExpire.RemoveListener(SignalBreathout);
 
         EventManager.StopListening(StaticEvent.Core_SwitchToOtherWorld, StartBreathTimer);
         EventManager.StopListening(StaticEvent.Core_SwitchToRealWorld, ResetBreathTimer);
     }
 
-    private void SignalBreathout() {
+    private void SignalBreathout()
+    {
         EventManager.InvokeEvent(StaticEvent.Core_OutOfBreath);
         StateManager.SwitchRealm(true);
     }
 
-    private void SignalLowBreath() {
+    private void SignalLowBreath()
+    {
         Debug.Log("Low breath signalled with " + TimeLeft + " left");
         EventManager.InvokeEvent(StaticEvent.Core_LowBreath);
     }
-    
-    private void StartBreathTimer(object input = null) {
+
+    private void StartBreathTimer(object input = null)
+    {
         StartTimer();
+        ScheduleAction(lowBreathLevel, SignalLowBreath);
     }
 
-    private void ResetBreathTimer(object input = null) {
+    private void ResetBreathTimer(object input = null)
+    {
         ResetTimer();
     }
 }

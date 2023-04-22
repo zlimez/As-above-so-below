@@ -2,20 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DeepBreath.ReplaySystem;
+using Chronellium.EventSystem;
 
 public class ResetPuzzle : MonoBehaviour
 {
     public GameObject normPlayer;
+    public GameObject swimPlayer;
     public GameObject cableSeatsInitialPosition;
     public GameObject normPlayerInitialPosition;
+    public GameObject swimPlayerInitialPosition;
     public ActionReplayPair windmillActionReplayPair;
     public CableSeats cableSeats;
     public GameObject windmillBlades;
     public Windmill windmill;
     public Worm worm;
 
-    public void ResetPuzzle1()
+    private void Start()
     {
+        EventManager.StartListening(StaticEvent.Core_ResetPuzzle, ResetPuzzle1);
+    }
+
+    public void ResetPuzzle1(object input = null)
+    {
+        //EventManager.InvokeEvent(StaticEvent.Core_SwitchToRealWorld, true); //bool isForced = true
         //StopAllCoroutines();
         windmillActionReplayPair.ResetReplayRecords();
         windmillBlades.transform.eulerAngles = Vector3.zero;
@@ -28,6 +37,7 @@ public class ResetPuzzle : MonoBehaviour
         // Teleport player back to start
         cableSeats.isSeated = false;
         normPlayer.transform.position = normPlayerInitialPosition.transform.position;
+        swimPlayer.transform.position = swimPlayerInitialPosition.transform.position;
         Rigidbody rb = normPlayer.GetComponent<Rigidbody>();
         rb.useGravity = true;
         rb.velocity = Vector3.zero;

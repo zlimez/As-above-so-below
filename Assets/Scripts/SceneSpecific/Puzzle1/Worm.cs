@@ -9,7 +9,6 @@ public class Worm : MonoBehaviour
     public CableSeats cableSeats;
     public SpriteRenderer wormSprite;
     private bool isPlayerStillInAttackRange;
-    public ResetPuzzle resetPuzzle;
 
 
     // Start is called before the first frame update
@@ -69,7 +68,7 @@ public class Worm : MonoBehaviour
     private IEnumerator WaitBeforeReset(object input = null)
     {
         yield return new WaitForSeconds(1);
-        resetPuzzle.ResetPuzzle1();
+        EventManager.InvokeEvent(StaticEvent.Core_ResetPuzzle);
     }
 
     private IEnumerator WaitBeforeAttack(object input = null)

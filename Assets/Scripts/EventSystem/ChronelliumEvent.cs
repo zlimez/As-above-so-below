@@ -24,12 +24,13 @@ namespace Chronellium.EventSystem
         Common_DialogStarted = 15,
         Common_PlayerPositionMoved = 56,
         Common_ObjectPickedUp = 63,
-        Common_ObjectPutDown = 64
+        Common_ObjectPutDown = 64,
+        Core_ResetPuzzle = 99,
     }
 
 
     public static class DynamicEvent
     {
-        
+
     }
 }
