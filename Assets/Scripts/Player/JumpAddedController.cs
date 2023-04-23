@@ -20,7 +20,6 @@ public class JumpAddedController : MonoBehaviour
     private Animator animator;
     private bool isGrounded = false;
     private bool isJumping = false;
-    private bool isHittingWall = false;
     public float jumpInputBufferTime = 0.15f;
     private bool jumpInputBuffered = false;
     private float jumpInputBufferTimer = 0f;
@@ -49,17 +48,14 @@ public class JumpAddedController : MonoBehaviour
         float hInput = Input.GetAxis("Horizontal");
         Vector2 vel = rb.velocity;
 
-        if (!isHittingWall)
+        if (isJumping)
         {
-            if (isJumping)
-            {
-                // restrict the horizontal velocity when jumping
-                // vel.x = 0.4f * hInput * moveSpeed;
-            }
-            else
-            {
-                vel.x = hInput * moveSpeed;
-            }
+            // restrict the horizontal velocity when jumping
+            vel.x = 0.4f * hInput * moveSpeed;
+        }
+        else
+        {
+            vel.x = hInput * moveSpeed;
         }
         rb.velocity = vel;
 
@@ -115,7 +111,7 @@ public class JumpAddedController : MonoBehaviour
     {
         if (jumpInputBuffered)
         {
-            jumpInputBufferTimer -= Time.fixedDeltaTime;
+            jumpInputBufferTimer -= Time.deltaTime;
 
             if (jumpInputBufferTimer <= 0f)
             {
@@ -127,7 +123,6 @@ public class JumpAddedController : MonoBehaviour
         // performign jumping too close to a collider
         if (isJumping)
         {
-            //
             StartCoroutine(CheckForStuck());
         }
 
@@ -135,29 +130,18 @@ public class JumpAddedController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpInputBuffered = true;
+            jumpInputBufferTimer = jumpInputBufferTime;
         }
 
     }
 
 
-    void OnCollisionExit(Collision collision)
-    {
-        // Debug.Log("Player collided with " + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isHittingWall = false;
-        }
-    }
     void OnCollisionEnter(Collision collision)
     {
         // Debug.Log("Player collided with " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Ground"))
         {
             StopJumping();
-        }
-        else
-        {
-            isHittingWall = true;
         }
     }
 
