@@ -66,15 +66,15 @@ Material:
     m_Floats:
     - Vector1_DA47F82B: -0.03
     - Vector1_EF8DA9C1: 0
-    - _FoamWidth: 0.046
+    - _FoamWidth: 0
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _Smoothness: 0.916
+    - _Smoothness: 1
     - _WaterBottom: 15
-    - _WaterClarity: -2.82
+    - _WaterClarity: -2.63
     m_Colors:
     - _FoamColor: {r: 0.69268423, g: 0.8113208, b: 0.7717753, a: 1}
     - _FoamData: {r: 0.3, g: 0.3, b: 0.05, a: 0.15}
-    - _WaveData0: {r: 0.66, g: 0.66, b: 0.15, a: -0.15}
-    - _WaveData1: {r: 0.33, g: 0.33, b: -0.05, a: 0}
+    - _WaveData0: {r: 0.01, g: 0.01, b: 0, a: 0.05}
+    - _WaveData1: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

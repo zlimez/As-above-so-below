@@ -25,7 +25,8 @@ public class SwimController : MonoBehaviour
         animator = playerSprite.gameObject.GetComponent<Animator>();
     }
 
-    void OnEnable() {
+    void OnEnable()
+    {
         mainCamera.SetFollowTransform(cameraFollowPoint, mainCamera.DefaultDistance);
     }
 
@@ -45,14 +46,18 @@ public class SwimController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         currDirection = new Vector3(horizontalInput, verticalInput, 0f).normalized;
 
-        if (!IsRotationFrozen && currDirection.sqrMagnitude > 0) {
-            if (Mathf.Abs(horizontalInput) > 0) {
+        if (!IsRotationFrozen && currDirection.sqrMagnitude > 0)
+        {
+            if (Mathf.Abs(horizontalInput) > 0)
+            {
                 bool isRight = Mathf.Sign(horizontalInput) == 1;
                 playerSprite.flipX = !isRight;
                 if (lastFacingRight != isRight) EventManager.InvokeEvent(StaticEvent.Common_PlayerChangeDirection, playerSprite.flipX);
                 lastFacingRight = isRight;
             }
-        } else if (currDirection.sqrMagnitude == 0 && rb.velocity.sqrMagnitude < 0.0025) {
+        }
+        else if (currDirection.sqrMagnitude == 0 && rb.velocity.sqrMagnitude < 0.0025)
+        {
             rb.velocity = Vector3.zero;
             return;
         }
