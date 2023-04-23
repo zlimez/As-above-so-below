@@ -13,6 +13,8 @@ public class ResetPuzzle : MonoBehaviour
     public GameObject normPlayerInitialPosition;
     public GameObject swimPlayerInitialPosition;
     public ActionReplayPair<TransformRecorder, TransformReplayer, Pair<Vector3, Quaternion>> windmillActionReplayPair;
+    public ActionReplayPair<TransformRecorder, TransformReplayer, Pair<Vector3, Quaternion>> cableSeatsActionReplayPair;
+    public CableSeatsOW cableSeatsOW;
     public CableSeats cableSeats;
     public GameObject windmillBlades;
     public Windmill windmill;
@@ -31,12 +33,14 @@ public class ResetPuzzle : MonoBehaviour
         windmillBlades.transform.eulerAngles = Vector3.zero;
         windmill.prevRotationZ = 0;
         windmill.isRotating = false;
-        cableSeats.StopAllCoroutines();
-        cableSeats.isMoving = false;
-        cableSeats.transform.position = cableSeatsInitialPosition.transform.position;
-        cableSeats.StopAllCoroutines();
+        cableSeatsActionReplayPair.ResetReplayRecords();
+        cableSeatsOW.StopAllCoroutines();
+        cableSeatsOW.isMoving = false;
+        cableSeatsOW.transform.position = cableSeatsInitialPosition.transform.position;
+        cableSeatsOW.StopAllCoroutines();
         // Teleport player back to start
         cableSeats.isSeated = false;
+        cableSeats.transform.position = cableSeatsInitialPosition.transform.position;
         normPlayer.transform.position = normPlayerInitialPosition.transform.position;
         swimPlayer.transform.position = swimPlayerInitialPosition.transform.position;
         Rigidbody rb = normPlayer.GetComponent<Rigidbody>();
