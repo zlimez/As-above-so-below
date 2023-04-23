@@ -17,7 +17,8 @@ public class JumpAddedController : MonoBehaviour
     private bool isGrounded = false;
     private bool isJumping = false;
 
-    void OnEnable() {
+    void OnEnable()
+    {
         mainCamera.SetFollowTransform(cameraFollowPoint, mainCamera.DefaultDistance);
     }
 
@@ -27,7 +28,8 @@ public class JumpAddedController : MonoBehaviour
         animator = playerSprite.gameObject.GetComponent<Animator>();
     }
 
-    void LateUpdate() {
+    void LateUpdate()
+    {
         mainCamera.Move(Time.smoothDeltaTime);
     }
 
@@ -48,27 +50,19 @@ public class JumpAddedController : MonoBehaviour
             vel.x = hInput * moveSpeed;
         }
         rb.velocity = vel;
-        if (hInput == 0) {
+        if (hInput == 0)
+        {
             animator.SetBool("isMoving", false);
-        } else {
+        }
+        else
+        {
             bool isRight = hInput > 0;
             playerSprite.flipX = !isRight;
             animator.SetBool("isMoving", true);
         }
-
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            animator.SetBool("isMoving", false);
-            animator.SetBool("isJumping", true);
-            totalJumpForce += jumpForce;
-            rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-            isJumping = true;
-        }
-
     }
 
-    void Update() 
+    void Update()
     {
         // This is to prevent the player being stuck when
         // performign jumping too close to a collider
@@ -82,12 +76,22 @@ public class JumpAddedController : MonoBehaviour
         {
             if (totalJumpForce < maxJumpForce)
             {
-                totalJumpForce += jumpForce; 
+                totalJumpForce += jumpForce;
                 rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
             }
         }
 
-            
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("start jump");
+            animator.SetBool("isMoving", false);
+            animator.SetBool("isJumping", true);
+            totalJumpForce += jumpForce;
+            rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+            isJumping = true;
+        }
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -112,6 +116,7 @@ public class JumpAddedController : MonoBehaviour
 
     void StopJumping()
     {
+        Debug.Log("Stop jump");
         isGrounded = true;
         isJumping = false;
         animator.SetBool("isJumping", false);
