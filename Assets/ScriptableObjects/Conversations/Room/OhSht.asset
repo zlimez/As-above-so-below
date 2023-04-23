@@ -47,5 +47,5 @@ MonoBehaviour:
     audio: {fileID: 0}
     dialogue: Shit! I need to get out of here!
     onLineStart:
-      RelatedStaticEvent: 0
+      RelatedStaticEvent: 4
       _eventName: 
