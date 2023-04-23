@@ -8,6 +8,8 @@ public class ControllerPair : MonoBehaviour
 {
     [SerializeField] private JumpAddedController normalController;
     [SerializeField] private SwimController swimController;
+    [SerializeField] private GhostFader ghost;
+    private Vector3 swimCharacterStartPosition;
 
     void OnEnable()
     {
@@ -32,6 +34,7 @@ public class ControllerPair : MonoBehaviour
         else
         {
             normalController.transform.position = swimController.transform.position;
+            ghost.transform.position = swimCharacterStartPosition;
         }
 
         normalController.gameObject.SetActive(true);
@@ -41,6 +44,7 @@ public class ControllerPair : MonoBehaviour
     private void ChangeToOther(object input = null)
     {
         swimController.transform.position = normalController.transform.position;
+        swimCharacterStartPosition = swimController.transform.position;
         normalController.gameObject.SetActive(false);
         swimController.gameObject.SetActive(true);
     }

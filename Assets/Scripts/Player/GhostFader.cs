@@ -13,6 +13,7 @@ public class GhostFader : MonoBehaviour
     // private IEnumerator fadeInRoutine;
 
     void OnEnable() {
+
         EventManager.StartListening(DynamicEvent.GhostReplayCompleted, Dismiss);
     }
 
