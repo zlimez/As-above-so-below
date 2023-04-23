@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.0028
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0003564873, g: 0.00037561165, b: 0.00033901952, a: 0.0028}
+  m_IndirectSpecularColor: {r: 0.00035648895, g: 0.0003756132, b: 0.00033902033, a: 0.0028}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3152,7 +3152,7 @@ RectTransform:
   m_Children:
   - {fileID: 624376782785032579}
   m_Father: {fileID: 7831476319313924685}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4257,66 +4257,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1382945105}
     m_Modifications:
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closedInterval
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: fadeInDuration
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: fadeOutDuration
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: openTriggers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closeTriggers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: openTriggers.Array.data[0].eventName
-      value: Scene change with master completed
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closeTriggers.Array.data[0].eventName
-      value: Changing Scene With Master
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: openTriggers.Array.data[0].RelatedStaticEvent
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closeTriggers.Array.data[0].RelatedStaticEvent
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5772835821656790281, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5964294634262947567, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7588282633848576129, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
     - target: {fileID: 1388479890615246717, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5036,6 +4976,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closedInterval
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: fadeInDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: fadeOutDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: openTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closeTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: openTriggers.Array.data[0].eventName
+      value: Scene change with master completed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closeTriggers.Array.data[0].eventName
+      value: Changing Scene With Master
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: openTriggers.Array.data[0].RelatedStaticEvent
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closeTriggers.Array.data[0].RelatedStaticEvent
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772835821656790281, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964294634262947567, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588282633848576129, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851869269d9a64ea3ac5b0c04db0447e, type: 3}
@@ -6937,21 +6937,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!4 &7147921935461923561
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7886513478707993375}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0215592, y: 0.6283958, z: 0.055256214}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7831476319313924685}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7281870531525294910
 GameObject:
   m_ObjectHideFlags: 0
@@ -7154,24 +7139,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7886513478707993375
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7147921935461923561}
-  - component: {fileID: 6385995298246798763}
-  - component: {fileID: 8824669317933676751}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!114 &7916517953675297648
 MonoBehaviour:
   m_ObjectHideFlags: 0
