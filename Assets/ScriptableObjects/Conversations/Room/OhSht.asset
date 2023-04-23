@@ -44,7 +44,7 @@ MonoBehaviour:
     name: 
     isCentered: 1
     textSpeed: 0
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: dbb09382f4ba9274282d89eedeb217ea, type: 3}
     dialogue: Shit! I need to get out of here!
     onLineStart:
       RelatedStaticEvent: 4
