@@ -32,9 +32,19 @@ namespace DeepBreath.Environment
     {
         public static Puddle LastUsedPuddle { get; private set; }
         public Transform ForceSpawnPosition;
+        public AudioSource SubmergeSound;
+        public AudioSource ExitWaterSound;
 
         public override void Interact()
         {
+            if (StateManager.realm == Realm.realWorld)
+            {
+                SubmergeSound.Play();
+            }
+            else
+            {
+                ExitWaterSound.Play();
+            }
             LastUsedPuddle = this;
             StateManager.SwitchRealm();
         }

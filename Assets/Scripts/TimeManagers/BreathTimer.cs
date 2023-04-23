@@ -7,6 +7,12 @@ using DeepBreath.Environment;
 
 public class BreathTimer : CountdownTimer
 {
+    public static BreathTimer Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     [SerializeField] private float lowBreathLevel = 20f;
     private void OnEnable()
     {

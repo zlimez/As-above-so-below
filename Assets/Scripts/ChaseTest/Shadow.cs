@@ -12,6 +12,7 @@ public class Shadow : MonoBehaviour
     public GameObject shadowInitialPosition;
     private bool isIdle = true;
     private BoxCollider cd;
+    public AudioSource ShadowSound;
 
     // Update is called once per frame
     void Update()
@@ -54,12 +55,14 @@ public class Shadow : MonoBehaviour
         Debug.Log("Shadow appears");
         shadowSprite.SetActive(true);
         isIdle = false;
+        ShadowSound.Play();
     }
 
     private void HideShadow(object input = null)
     {
         shadowSprite.SetActive(false);
         isIdle = true;
+        ShadowSound.Stop();
     }
 
     private void ResetShadow(object input = null)
@@ -67,6 +70,7 @@ public class Shadow : MonoBehaviour
         transform.position = shadowInitialPosition.transform.position;
         shadowSprite.SetActive(false);
         isIdle = true;
+        ShadowSound.Stop();
     }
 
     private void OnTriggerEnter(Collider collision)

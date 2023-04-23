@@ -78,8 +78,9 @@ namespace KinematicCharacterController.PlayerCameraCharacterSetup
         {
 
             PlayerCharacterInputs characterInputs = new PlayerCharacterInputs();
-            
-            if (preventPlayerMovement) {
+
+            if (preventPlayerMovement)
+            {
                 Character.SetInputs(ref characterInputs);
                 return;
             }
@@ -89,7 +90,7 @@ namespace KinematicCharacterController.PlayerCameraCharacterSetup
             { // Hacky to make player not move, TODO intergrate into one giant Input manager
                 characterInputs.MoveAxisForward = Input.GetAxisRaw(VerticalInput);
                 characterInputs.MoveAxisRight = Input.GetAxisRaw(HorizontalInput);
-                characterInputs.CameraRotation = mainCamera.Transform.rotation;
+                // characterInputs.CameraRotation = mainCamera.Transform.rotation;
             }
 
             // Apply inputs to character

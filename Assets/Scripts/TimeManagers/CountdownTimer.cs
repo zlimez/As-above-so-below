@@ -10,14 +10,13 @@ namespace Chronellium.TimeManagers
     /// </summary>
     public class CountdownTimer : MonoBehaviour
     {
-        public static CountdownTimer Instance;
         public float TimeLeft;
 
         /// <summary>
         /// Total duration of the timer in seconds.
         /// </summary>
         [SerializeField] public float TotalDuration = 60f;
-        
+
         [System.NonSerialized] public UnityEvent<float> OnTimerChange = new UnityEvent<float>();
         [System.NonSerialized] public UnityEvent OnTimerStart = new UnityEvent();
         [System.NonSerialized] public UnityEvent OnTimerExpire = new UnityEvent();
@@ -25,11 +24,13 @@ namespace Chronellium.TimeManagers
 
         private IEnumerator _timerCoroutine;
 
-        void Awake() {
+        void Awake()
+        {
             TimeLeft = TotalDuration;
         }
 
-        public void ScheduleAction(float time, Action action) {
+        public void ScheduleAction(float time, Action action)
+        {
             // Not enough time left already
             if (time > TimeLeft) return;
             Debug.Log("Action scheduled at " + time);
@@ -103,7 +104,8 @@ namespace Chronellium.TimeManagers
                 yield return new WaitForSeconds(Time.deltaTime);
                 TimeLeft -= Time.deltaTime;
                 OnTimerChange.Invoke(TimeLeft);
-                while (!scheduledActions.IsEmpty && scheduledActions.Peek().ScheduledTime > TimeLeft) {
+                while (!scheduledActions.IsEmpty && scheduledActions.Peek().ScheduledTime > TimeLeft)
+                {
                     Debug.Log("Executing scheduled action");
                     scheduledActions.Dequeue().Execute();
                 }
