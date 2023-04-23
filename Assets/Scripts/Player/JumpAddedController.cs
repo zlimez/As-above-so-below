@@ -63,9 +63,9 @@ public class JumpAddedController : MonoBehaviour
         bool sideWallHit = Physics.Raycast(transform.position + Vector3.up * 1, hInput * Vector3.right, out hitInfo, 0.5f);
         Debug.DrawRay(transform.position + Vector3.up * 5, hInput * Vector3.right, Color.green, 1f);
         // Sometimes the player get's stuck when moving towards a wall while jumpign
-        if (!hasTouchedWall && (!sideWallHit || (hitInfo.collider != null && hitInfo.collider.isTrigger)))
+        if (!sideWallHit || (hitInfo.collider != null && hitInfo.collider.isTrigger))
         {
-            if (isJumping)
+            if (!hasTouchedWall && isJumping)
             {
 
                 // restrict the horizontal velocity when jumping
