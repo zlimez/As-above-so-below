@@ -12,7 +12,7 @@ public class FootStepController : MonoBehaviour
     {
         // Cast a ray downwards from the player's position
         RaycastHit[] hits = Physics.RaycastAll(transform.position, Vector3.down, 2f);
-        Debug.DrawRay(transform.position, Vector3.down, Color.red, 1.5f);
+        // Debug.DrawRay(transform.position, Vector3.down, Color.red, 1.5f);
 
         if (hits != null)
         {
@@ -40,12 +40,12 @@ public class FootStepController : MonoBehaviour
                     AudioClip footstepSound = GetFootstepSoundByMaterial(actualMaterialName);
 
                     // Do something with the material information (e.g. print it to the console)
-                    Debug.Log("Player is standing on object with material: " + actualMaterialName);
+                    // Debug.Log("Player is standing on object with material: " + actualMaterialName);
 
                     // Play the footstep sound using the AudioSource component
                     if (footstepSound != null)
                     {
-                        Debug.Log("Playing sound");
+                        // Debug.Log("Playing sound");
                         audioSource.PlayOneShot(footstepSound);
                     }
 

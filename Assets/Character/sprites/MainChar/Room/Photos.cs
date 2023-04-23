@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Photos : Interactable
 {
+
     public SpriteRenderer buttonPressHint;
     [SerializeField] Conversation inquiry1;
     void Update()

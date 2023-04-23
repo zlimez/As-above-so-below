@@ -7,10 +7,16 @@ public class RoomCutsceneTrigger : MonoBehaviour
     public CinemachineVirtualCamera exitCamera;
     private void OnTriggerEnter(Collider other)
     {
-        CameraSwitcher.instance.SwitchCamera(newCamera);
+        if (newCamera)
+        {
+            CameraSwitcher.instance.SwitchCamera(newCamera);
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        CameraSwitcher.instance.SwitchCamera(exitCamera);
+        if (exitCamera)
+        {
+            CameraSwitcher.instance.SwitchCamera(exitCamera);
+        }
     }
 }
