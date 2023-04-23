@@ -25,7 +25,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: Leah?
+    dialogue: Leia?
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 

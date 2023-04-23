@@ -87,7 +87,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: Whatever i do in the spirit world happens in the real world too?
+    dialogue: Whatever i do in the other world happens in the real world too?
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 

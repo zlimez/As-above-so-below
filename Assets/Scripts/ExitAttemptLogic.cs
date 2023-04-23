@@ -10,6 +10,8 @@ public class ExitAttemptLogic : MonoBehaviour
 {
     public CinemachineVirtualCamera vcam;
 
+    public AudioClip rubbleBGM;
+    public AudioSource bgm;
     private CinemachineBasicMultiChannelPerlin noise;
     public GameObject player;
     public GameObject finalExit;
@@ -38,6 +40,12 @@ public class ExitAttemptLogic : MonoBehaviour
         // // // completion defaults to null if not passed in
         // gameObject.Tween("Remove camera shake", noise.m_AmplitudeGain, 0.0f, 2.0f, TweenScaleFunctions.CubicEaseInOut, BandInCallBack);
     }
+    public void StartRumbleBGM()
+    {
+        bgm.clip = rubbleBGM;
+        bgm.Play();
+    }
+
     public void StartChase()
     {
         finalExit.SetActive(true);
