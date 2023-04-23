@@ -25,6 +25,7 @@ public class JumpAddedController : MonoBehaviour
     private float jumpInputBufferTimer = 0f;
     private float timeSinceLastJump = 0f;
     private bool hasPlayerReleaseJump = false;
+    private bool hasTouchedWall = false;
 
     void OnEnable()
     {
@@ -59,10 +60,10 @@ public class JumpAddedController : MonoBehaviour
         float hInput = Input.GetAxis("Horizontal");
         Vector2 vel = rb.velocity;
 
-        bool sideWallHit = Physics.Raycast(transform.position + Vector3.up * 2, hInput * Vector3.right, out hitInfo, 0.5f);
+        bool sideWallHit = Physics.Raycast(transform.position + Vector3.up * 1, hInput * Vector3.right, out hitInfo, 0.5f);
         Debug.DrawRay(transform.position + Vector3.up * 5, hInput * Vector3.right, Color.green, 1f);
         // Sometimes the player get's stuck when moving towards a wall while jumpign
-        if (!sideWallHit || (hitInfo.collider != null && hitInfo.collider.isTrigger))
+        if (!hasTouchedWall && (!sideWallHit || (hitInfo.collider != null && hitInfo.collider.isTrigger)))
         {
             if (isJumping)
             {
@@ -112,6 +113,8 @@ public class JumpAddedController : MonoBehaviour
             jumpInputBuffered = false;
             isGrounded = false;
             isJumping = true;
+
+            hasTouchedWall = false;
 
             hasPlayerReleaseJump = false;
             timeSinceLastJump = 0;
@@ -174,6 +177,21 @@ public class JumpAddedController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             StopJumping();
+        }
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            Vector3 contactPoint = contact.point;
+            Vector3 contactNormal = contact.normal;
+
+            // Get the direction of the collision by multiplying the contact normal with -1
+            Vector3 collisionDirection = -1 * contactNormal;
+
+            // Do something with the collision direction
+            Debug.Log("Collision direction: " + collisionDirection);
+            if (Mathf.Abs(collisionDirection.x) > 0.8)
+            {
+                hasTouchedWall = true;
+            }
         }
     }
 
