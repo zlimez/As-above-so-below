@@ -17,14 +17,19 @@ public class Grabbable : Interactable
 
     public override void Interact()
     {
-        if (!Player.GetComponent<Grabber>().ToggleGrabState(gameObject)) return;
-
-        isGrabbed = !isGrabbed;
+        if (Player.GetComponent<Grabber>().IsGrabbing()) return;
+        Player.GetComponent<Grabber>().Grab(this);
+        isGrabbed = true;
         follower.target = Player;
-        follower.enabled = isGrabbed;
+        follower.enabled = true;
         
         if (StateManager.realm == Realm.otherWorld) {
             Player.GetComponent<SwimController>().IsRotationFrozen = isGrabbed;
         }
+    }
+
+    public void Released()
+    {
+        follower.enabled = false;
     }
 }
