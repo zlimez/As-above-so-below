@@ -23,6 +23,7 @@ public class JumpAddedController : MonoBehaviour
     public float jumpInputBufferTime = 0.15f;
     private bool jumpInputBuffered = false;
     private float jumpInputBufferTimer = 0f;
+    private float timeSinceLastJump = 0f;
 
     void OnEnable()
     {
@@ -68,15 +69,18 @@ public class JumpAddedController : MonoBehaviour
                 rb.AddForce(Vector2.up * continiousJumpForce, ForceMode.Impulse);
             }
         }
-        if (isGrounded && jumpInputBuffered)
+        if (isGrounded && jumpInputBuffered && timeSinceLastJump > 0.1f)
         {
             Debug.Log("start jump");
             animator.SetBool("isMoving", false);
             animator.SetBool("isJumping", true);
             totalJumpForce += initialJumpForce;
             rb.AddForce(Vector2.up * initialJumpForce, ForceMode.Impulse);
+            jumpInputBuffered = false;
             isGrounded = false;
             isJumping = true;
+
+            timeSinceLastJump = 0;
         }
 
 
@@ -109,6 +113,7 @@ public class JumpAddedController : MonoBehaviour
 
     void Update()
     {
+        timeSinceLastJump += Time.deltaTime;
         if (jumpInputBuffered)
         {
             jumpInputBufferTimer -= Time.deltaTime;
