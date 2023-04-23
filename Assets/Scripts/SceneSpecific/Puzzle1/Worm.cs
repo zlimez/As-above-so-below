@@ -5,59 +5,62 @@ using UnityEngine;
 
 public class Worm : MonoBehaviour
 {
-    public bool hasAttacked;
     public CableSeats cableSeats;
     public SpriteRenderer wormSprite;
-    private bool isPlayerStillInAttackRange;
-
+    private bool attackFinished;
+    private bool isAttacking;
+    public GameObject initialWormPosition;
+    public GameObject attackFinalWormPosition;
+    public float attackSpeed = 0.4f;
 
     // Start is called before the first frame update
     void Start()
     {
         EventManager.StartListening(StaticEvent.Core_SwitchToOtherWorld, ResetAttack);
+        EventManager.StartListening(StaticEvent.Core_ResetPuzzle, ResetAttack);
         wormSprite = GetComponent<SpriteRenderer>();
         wormSprite.enabled = false;
     }
 
-    private void Attack()
+    private void Update()
+    {
+        if (attackFinished)
+        {
+            wormSprite.enabled = false;
+        }
+
+        if (isAttacking)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, attackFinalWormPosition.transform.position, attackSpeed);
+        }
+    }
+
+    public void Attack()
     {
         wormSprite.enabled = true;
-        Debug.Log("PlayerInRange: " + isPlayerStillInAttackRange);
-        // TODO: Move worm sprite up
-        if (isPlayerStillInAttackRange && cableSeats.isSeated)
-        {
-            // Apply force to cable car to make it shake
-            StartCoroutine(WaitBeforeReset());
-        }
-        StartCoroutine(WaitBeforeDisappear());
+        // Move worm towards left in Update
+        isAttacking = true;
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(collision.gameObject);
         if (IsCableSeats(collision.gameObject))
         {
-            isPlayerStillInAttackRange = true;
-            if (!hasAttacked)
-            {
-                //Attack();
-                StartCoroutine(WaitBeforeAttack());
-                hasAttacked = true;
-            }
-        }
-    }
+            // Apply force to cable car to make it shake
 
-    private void OnTriggerExit(Collider collision)
-    {
-        if (IsCableSeats(collision.gameObject))
-        {
-            isPlayerStillInAttackRange = false;
+            if (cableSeats.isSeated)
+            {
+                StartCoroutine(WaitBeforeReset());
+            }
         }
     }
 
     public void ResetAttack(object input = null)
     {
-        hasAttacked = false;
+        attackFinished = false;
+        wormSprite.enabled = false;
+        isAttacking = false;
+        transform.position = initialWormPosition.transform.position;
     }
 
     private bool IsCableSeats(GameObject otherObject)
@@ -67,19 +70,7 @@ public class Worm : MonoBehaviour
 
     private IEnumerator WaitBeforeReset(object input = null)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         EventManager.InvokeEvent(StaticEvent.Core_ResetPuzzle);
-    }
-
-    private IEnumerator WaitBeforeAttack(object input = null)
-    {
-        yield return new WaitForSeconds(1);
-        Attack();
-    }
-
-    private IEnumerator WaitBeforeDisappear(object input = null)
-    {
-        yield return new WaitForSeconds(1);
-        wormSprite.enabled = false;
     }
 }

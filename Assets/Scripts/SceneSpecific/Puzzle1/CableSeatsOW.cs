@@ -11,7 +11,7 @@ public class CableSeatsOW : MonoBehaviour
 
     private IEnumerator moveRight;
     private IEnumerator moveLeft;
-    private float moveSpeed = 0.1f;
+    public float moveSpeed = 0.3f;
 
     private void Start()
     {
