@@ -8,7 +8,7 @@ namespace DeepBreath.ReplaySystem {
     {
         public U spiritualComponent;
         public T realComponent;
-        private bool isInReplayMode;
+        private bool isInReplayMode = true;
         private Queue<ActionReplayRecord<V>> actionReplayRecords = new Queue<ActionReplayRecord<V>>();
 
         void OnEnable() {

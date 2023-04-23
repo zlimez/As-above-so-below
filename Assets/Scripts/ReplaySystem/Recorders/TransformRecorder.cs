@@ -8,6 +8,7 @@ namespace DeepBreath.ReplaySystem {
     {
         public ActionReplayRecord<Pair<Vector3, Quaternion>> ProduceRecord() {
             var record = new TransformReplayRecord(transform.position, transform.rotation);
+            if (name.Equals("SwimCharacter")) Debug.Log(transform.position + " of " + name);
             return record;
         }
     }
