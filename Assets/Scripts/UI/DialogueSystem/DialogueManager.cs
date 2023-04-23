@@ -294,7 +294,7 @@ public class DialogueManager : Singleton<DialogueManager>
     private void CloseDialogueUI()
     {
         // Don't change UiStatus to !isOpen if the Dialogue is followed by Inventory opening or Choice
-        if (!ChoiceManager.Instance.InChoice && !InventoryUI.Instance.isItemSelectMode)
+        if (!ChoiceManager.Instance.InChoice)
             UiStatus.CloseUI();
         dialogBox.SetActive(false);
         Input.ResetInputAxes();
