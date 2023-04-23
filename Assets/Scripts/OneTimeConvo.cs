@@ -15,6 +15,7 @@ namespace Chronellium.EventSystem
             if (optionalInvokeEvent != null) EventManager.InvokeEvent(optionalInvokeEvent);
             DialogueManager.Instance.StartConversation(convo);
             hasTriggered = true;
+
         }
     }
 }

@@ -29,14 +29,12 @@ public class Letter : Interactable
         }
         else
         {
-            BreathTimer.Instance.gameObject.SetActive(true);
             DialogueManager.Instance.StartConversation(inquiry2);
         }
     }
     public void StartSadPiano(object input = null)
     {
 
-        Debug.Log("HERE");
         audioSource2.clip = sadPianoBGM;
         audioSource2.Play();
     }
