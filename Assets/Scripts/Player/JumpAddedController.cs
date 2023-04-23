@@ -24,6 +24,7 @@ public class JumpAddedController : MonoBehaviour
     private bool jumpInputBuffered = false;
     private float jumpInputBufferTimer = 0f;
     private float timeSinceLastJump = 0f;
+    private bool hasPlayerReleaseJump = false;
 
     void OnEnable()
     {
@@ -45,31 +46,63 @@ public class JumpAddedController : MonoBehaviour
     {
         // Allow moving while jumping
         //if (!isGrounded) return;
+        // Check if grounded, because sometimes it still think that the character is jumping
+        RaycastHit hitInfo;
+        bool hit = Physics.Raycast(transform.position, Vector3.down, out hitInfo, 1f);
+        Debug.DrawRay(transform.position, Vector3.down, Color.red, 2f);
+        if (hitInfo.collider != null && hitInfo.collider.gameObject.CompareTag("Ground") && timeSinceLastJump > 0.2f)
+        {
+            isGrounded = hit;
+        }
+
 
         float hInput = Input.GetAxis("Horizontal");
         Vector2 vel = rb.velocity;
 
-        if (isJumping)
+        bool sideWallHit = Physics.Raycast(transform.position + Vector3.up * 2, hInput * Vector3.right, out hitInfo, 0.5f);
+        Debug.DrawRay(transform.position + Vector3.up * 5, hInput * Vector3.right, Color.green, 1f);
+        // Sometimes the player get's stuck when moving towards a wall while jumpign
+        if (!sideWallHit || (hitInfo.collider != null && hitInfo.collider.isTrigger))
         {
-            // restrict the horizontal velocity when jumping
-            vel.x = 0.4f * hInput * moveSpeed;
+            if (isJumping)
+            {
+
+                // restrict the horizontal velocity when jumping
+                vel.x = 0.7f * hInput * moveSpeed;
+                if (hInput != 0)
+                {
+                    vel.y -= 0.01f; // Hack for some reason gravity is reduced when we are jump moving. this adds it back
+                }
+
+            }
+            else
+            {
+                vel.x = hInput * moveSpeed;
+            }
         }
-        else
-        {
-            vel.x = hInput * moveSpeed;
-        }
+
         rb.velocity = vel;
 
-        // increase the jump impulse with longer hold 
-        if (isJumping && Input.GetKey(KeyCode.Space))
+        rb.velocity = Vector3.Lerp(rb.velocity, vel, 0.4f);
+
+        if (Input.GetKeyUp(KeyCode.Space))
         {
+            Debug.Log("Released Jump!!");
+            hasPlayerReleaseJump = true;
+        }
+
+        // increase the jump impulse with longer hold 
+        if (!hasPlayerReleaseJump && isJumping && Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("Retry jump");
             if (totalJumpForce < maxJumpForce)
             {
                 totalJumpForce += continiousJumpForce;
                 rb.AddForce(Vector2.up * continiousJumpForce, ForceMode.Impulse);
             }
         }
-        if (isGrounded && jumpInputBuffered && timeSinceLastJump > 0.1f)
+
+        if (isGrounded && jumpInputBuffered && timeSinceLastJump > 0.2f)
         {
             Debug.Log("start jump");
             animator.SetBool("isMoving", false);
@@ -80,6 +113,7 @@ public class JumpAddedController : MonoBehaviour
             isGrounded = false;
             isJumping = true;
 
+            hasPlayerReleaseJump = false;
             timeSinceLastJump = 0;
         }
 
@@ -102,17 +136,11 @@ public class JumpAddedController : MonoBehaviour
             }
         }
 
-        // Check if grounded, because sometimes it still think that the character is jumping
-        RaycastHit hitInfo;
-        bool hit = Physics.Raycast(transform.position, Vector3.down, out hitInfo, 2f);
-        Debug.DrawRay(transform.position, Vector3.down, Color.red, 2f);
-
-        // Update the grounded flag
-        isGrounded = hit;
     }
 
     void Update()
     {
+        // Debug.Log(" isGrounded " + isGrounded + " is Jumping " + isJumping);
         timeSinceLastJump += Time.deltaTime;
         if (jumpInputBuffered)
         {
@@ -143,7 +171,6 @@ public class JumpAddedController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // Debug.Log("Player collided with " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Ground"))
         {
             StopJumping();
