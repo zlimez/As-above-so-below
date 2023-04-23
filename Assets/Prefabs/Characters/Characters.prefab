@@ -408,6 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalController: {fileID: 5133774794777117165}
   swimController: {fileID: 8500794978352617112}
+  ghost: {fileID: 0}
 --- !u!1 &6055043721940153013
 GameObject:
   m_ObjectHideFlags: 0
