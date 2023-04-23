@@ -16,6 +16,9 @@ public class JumpAddedController : MonoBehaviour
     private Animator animator;
     private bool isGrounded = false;
     private bool isJumping = false;
+    public float jumpInputBufferTime = 0.1f;
+    private bool jumpInputBuffered = false;
+    private float jumpInputBufferTimer = 0f;
 
     void OnEnable()
     {
@@ -50,20 +53,38 @@ public class JumpAddedController : MonoBehaviour
             vel.x = hInput * moveSpeed;
         }
         rb.velocity = vel;
-        if (hInput == 0)
+
+        if (isJumping)
         {
             animator.SetBool("isMoving", false);
         }
         else
         {
-            bool isRight = hInput > 0;
-            playerSprite.flipX = !isRight;
-            animator.SetBool("isMoving", true);
+            if (hInput == 0)
+            {
+                animator.SetBool("isMoving", false);
+            }
+            else
+            {
+                bool isRight = hInput > 0;
+                playerSprite.flipX = !isRight;
+                animator.SetBool("isMoving", true);
+            }
         }
     }
 
     void Update()
     {
+        if (jumpInputBuffered)
+        {
+            jumpInputBufferTimer -= Time.fixedDeltaTime;
+
+            if (jumpInputBufferTimer <= 0f)
+            {
+                jumpInputBuffered = false;
+            }
+        }
+
         // This is to prevent the player being stuck when
         // performign jumping too close to a collider
         if (isJumping)
@@ -81,7 +102,11 @@ public class JumpAddedController : MonoBehaviour
             }
         }
 
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpInputBuffered = true;
+        }
+        if (isGrounded && jumpInputBuffered)
         {
             Debug.Log("start jump");
             animator.SetBool("isMoving", false);
