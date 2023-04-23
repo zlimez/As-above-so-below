@@ -92,7 +92,7 @@ public class JumpAddedController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Player collided with " + collision.gameObject.name);
+        // Debug.Log("Player collided with " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Ground"))
         {
             StopJumping();

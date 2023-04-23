@@ -49,6 +49,7 @@ public class SwimController : MonoBehaviour
             if (Mathf.Abs(horizontalInput) > 0) {
                 bool isRight = Mathf.Sign(horizontalInput) == 1;
                 playerSprite.flipX = !isRight;
+                if (lastFacingRight != isRight) EventManager.InvokeEvent(StaticEvent.Common_PlayerChangeDirection, playerSprite.flipX);
                 lastFacingRight = isRight;
             }
         } else if (currDirection.sqrMagnitude == 0 && rb.velocity.sqrMagnitude < 0.0025) {

@@ -52,12 +52,12 @@ namespace Chronellium.SceneSystem
         /// </summary>
         private void RecordPlayerPosition()
         {
-            GameObject player = GameObject.FindWithTag("Player");
-            if (player != null)
-            {
-                GameManager.Instance.LastPosition = player.transform.position;
-                GameManager.Instance.LastPositionFlipX = player.GetComponent<PlayerCharacterController>().PlayerSprite.GetComponent<SpriteRenderer>().flipX;
-            }
+            //GameObject player = GameObject.FindWithTag("Player");
+            //if (player != null)
+            //{
+            //GameManager.Instance.LastPosition = player.transform.position;
+            //GameManager.Instance.LastPositionFlipX = player.GetComponent<PlayerCharacterController>().PlayerSprite.GetComponent<SpriteRenderer>().flipX;
+            //}
         }
 
         /// <summary>

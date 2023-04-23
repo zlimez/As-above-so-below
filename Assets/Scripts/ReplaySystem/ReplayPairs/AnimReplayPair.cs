@@ -1,12 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Tuples;
 
 namespace DeepBreath.ReplaySystem {
-    public struct ActionReplayRecord {
-    public Vector3 deltaPosition;
-
-    public Quaternion rotation;
-}
-
+    public class AnimReplayPair : ActionReplayPair<AnimRecorder, AnimReplayer, Pair<string, string>> {}
 }

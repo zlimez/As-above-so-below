@@ -12,6 +12,7 @@ public class Grabber : MonoBehaviour
         if (interactedObject == GrabbedObject) {
             // Let go
             animator.SetBool("isHolding", false);
+            EventManager.InvokeEvent(StaticEvent.Common_GrabStateChanged, false);
             GrabbedObject = null;
             return true;
         }
@@ -20,6 +21,7 @@ public class Grabber : MonoBehaviour
             // Grab
             GrabbedObject = interactedObject;
             animator.SetBool("isHolding", true);
+            EventManager.InvokeEvent(StaticEvent.Common_GrabStateChanged, true);
             return true;
         }
 
