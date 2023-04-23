@@ -3,37 +3,44 @@ using UnityEngine;
 using Cinemachine;
 using DigitalRuby.Tween;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using Chronellium.EventSystem;
 
 public class ExitAttemptLogic : MonoBehaviour
 {
-    public CinemachineBasicMultiChannelPerlin noise;
+    public CinemachineVirtualCamera vcam;
+
+    private CinemachineBasicMultiChannelPerlin noise;
     public GameObject player;
+    public GameObject finalExit;
     public Transform UnderWaterStartPos;
     public PlayableDirector timeline;
     public CinemachineVirtualCamera virtualCam;
     [SerializeField] Conversation inquiry1;
     private void Start()
     {
-        StartChase();
         EventManager.StartListening(StaticEvent.Core_ResetPuzzle, ResetPuzzle);
     }
 
     private void ResetPuzzle(object input = null)
     {
         Debug.Log("Reseting puzzle");
-        player.transform.position = UnderWaterStartPos.position;
 
-        System.Action<ITween<float>> BandInCallBack = (t) =>
-        {
-            noise.m_AmplitudeGain = t.CurrentValue;
-        };
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // player.transform.position = UnderWaterStartPos.position;
 
-        // // completion defaults to null if not passed in
-        gameObject.Tween("Remove camera shake", noise.m_AmplitudeGain, 0.0f, 2.0f, TweenScaleFunctions.CubicEaseInOut, BandInCallBack);
+        // noise = vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        // System.Action<ITween<float>> BandInCallBack = (t) =>
+        // {
+        //     noise.m_AmplitudeGain = t.CurrentValue;
+        // };
+        // BreathTimer.Instance.gameObject.SetActive(false);
+        // // // completion defaults to null if not passed in
+        // gameObject.Tween("Remove camera shake", noise.m_AmplitudeGain, 0.0f, 2.0f, TweenScaleFunctions.CubicEaseInOut, BandInCallBack);
     }
     public void StartChase()
     {
+        finalExit.SetActive(true);
         EventManager.InvokeEvent(StaticEvent.Core_LowBreath);
 
     }

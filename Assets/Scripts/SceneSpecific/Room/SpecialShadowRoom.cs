@@ -8,7 +8,7 @@ using UnityEngine;
 public class SpecialShadowRoom : MonoBehaviour
 {
     public AIPath aiPath;
-    public GameObject shadowSprite;
+    // public GameObject shadowSprite;
     public GameObject shadowInitialPosition;
     private bool isIdle = true;
 
@@ -25,19 +25,19 @@ public class SpecialShadowRoom : MonoBehaviour
             aiPath.canMove = true;
         }
 
-        if (aiPath.desiredVelocity.x >= 0.01f)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        else if (aiPath.desiredVelocity.x <= -0.01f)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
+        // if (aiPath.desiredVelocity.x >= 0.01f)
+        // {
+        //     transform.localScale = new Vector3(1f, 1f, 1f);
+        // }
+        // else if (aiPath.desiredVelocity.x <= -0.01f)
+        // {
+        //     transform.localScale = new Vector3(-1f, 1f, 1f);
+        // }
     }
 
     private void Start()
     {
-        shadowSprite.SetActive(false);
+        // shadowSprite.SetActive(false);
         isIdle = true;
         aiPath = GetComponent<AIPath>();
         EventManager.StartListening(StaticEvent.Core_LowBreath, ShadowsAppear);
@@ -48,20 +48,20 @@ public class SpecialShadowRoom : MonoBehaviour
     private void ShadowsAppear(object input = null)
     {
         Debug.Log("Shadow appears");
-        shadowSprite.SetActive(true);
+        // shadowSprite.SetActive(true);
         isIdle = false;
     }
 
     private void HideShadow(object input = null)
     {
-        shadowSprite.SetActive(false);
+        // shadowSprite.SetActive(false);
         isIdle = true;
     }
 
     private void ResetShadow(object input = null)
     {
         transform.position = shadowInitialPosition.transform.position;
-        shadowSprite.SetActive(false);
+        // shadowSprite.SetActive(false);
         isIdle = true;
     }
 
