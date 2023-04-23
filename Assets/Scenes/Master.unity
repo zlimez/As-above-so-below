@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.0028
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0003564873, g: 0.00037561165, b: 0.00033901952, a: 0.0028}
+  m_IndirectSpecularColor: {r: 0.00035648895, g: 0.0003756132, b: 0.00033902033, a: 0.0028}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -343,11 +343,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 143556580, guid: d2b81830dc8bc1f428b2ddea2dcbf38e, type: 3}
       propertyPath: TotalDuration
-      value: 60
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 143556580, guid: d2b81830dc8bc1f428b2ddea2dcbf38e, type: 3}
       propertyPath: lowBreathLevel
-      value: 20
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 520976704168777716, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -2661,66 +2661,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1382945105}
     m_Modifications:
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closedInterval
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: fadeInDuration
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: fadeOutDuration
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: openTriggers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closeTriggers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: openTriggers.Array.data[0].eventName
-      value: Scene change with master completed
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closeTriggers.Array.data[0].eventName
-      value: Changing Scene With Master
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: openTriggers.Array.data[0].RelatedStaticEvent
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: closeTriggers.Array.data[0].RelatedStaticEvent
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5772835821656790281, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5964294634262947567, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7588282633848576129, guid: 851869269d9a64ea3ac5b0c04db0447e,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
     - target: {fileID: 1388479890615246717, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3440,6 +3380,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closedInterval
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: fadeInDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: fadeOutDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: openTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closeTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: openTriggers.Array.data[0].eventName
+      value: Scene change with master completed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closeTriggers.Array.data[0].eventName
+      value: Changing Scene With Master
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: openTriggers.Array.data[0].RelatedStaticEvent
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486560859115635324, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: closeTriggers.Array.data[0].RelatedStaticEvent
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772835821656790281, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964294634262947567, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588282633848576129, guid: 851869269d9a64ea3ac5b0c04db0447e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851869269d9a64ea3ac5b0c04db0447e, type: 3}
