@@ -7,8 +7,12 @@ public class JumpAddedController : MonoBehaviour
     public MainCamera mainCamera;
     public Transform cameraFollowPoint;
     public SpriteRenderer playerSprite;
+    public Vector3 goalVelocity;
     public float moveSpeed = 5f;
-    private float jumpForce = 0.7f;
+    [SerializeField]
+    private float continiousJumpForce = 0.7f;
+    [SerializeField]
+    private float initialJumpForce = 5f;
     private float totalJumpForce = 0f;
     private float maxJumpForce = 7f;
 
@@ -16,7 +20,8 @@ public class JumpAddedController : MonoBehaviour
     private Animator animator;
     private bool isGrounded = false;
     private bool isJumping = false;
-    public float jumpInputBufferTime = 0.1f;
+    private bool isHittingWall = false;
+    public float jumpInputBufferTime = 0.15f;
     private bool jumpInputBuffered = false;
     private float jumpInputBufferTimer = 0f;
 
@@ -43,16 +48,41 @@ public class JumpAddedController : MonoBehaviour
 
         float hInput = Input.GetAxis("Horizontal");
         Vector2 vel = rb.velocity;
-        if (isJumping)
+
+        if (!isHittingWall)
         {
-            // restrict the horizontal velocity when jumping
-            vel.x = 0.4f * hInput * moveSpeed;
-        }
-        else
-        {
-            vel.x = hInput * moveSpeed;
+            if (isJumping)
+            {
+                // restrict the horizontal velocity when jumping
+                // vel.x = 0.4f * hInput * moveSpeed;
+            }
+            else
+            {
+                vel.x = hInput * moveSpeed;
+            }
         }
         rb.velocity = vel;
+
+        // increase the jump impulse with longer hold 
+        if (isJumping && Input.GetKey(KeyCode.Space))
+        {
+            if (totalJumpForce < maxJumpForce)
+            {
+                totalJumpForce += continiousJumpForce;
+                rb.AddForce(Vector2.up * continiousJumpForce, ForceMode.Impulse);
+            }
+        }
+        if (isGrounded && jumpInputBuffered)
+        {
+            Debug.Log("start jump");
+            animator.SetBool("isMoving", false);
+            animator.SetBool("isJumping", true);
+            totalJumpForce += initialJumpForce;
+            rb.AddForce(Vector2.up * initialJumpForce, ForceMode.Impulse);
+            isGrounded = false;
+            isJumping = true;
+        }
+
 
         if (isJumping)
         {
@@ -71,6 +101,14 @@ public class JumpAddedController : MonoBehaviour
                 animator.SetBool("isMoving", true);
             }
         }
+
+        // Check if grounded, because sometimes it still think that the character is jumping
+        RaycastHit hitInfo;
+        bool hit = Physics.Raycast(transform.position, Vector3.down, out hitInfo, 2f);
+        Debug.DrawRay(transform.position, Vector3.down, Color.red, 2f);
+
+        // Update the grounded flag
+        isGrounded = hit;
     }
 
     void Update()
@@ -89,42 +127,37 @@ public class JumpAddedController : MonoBehaviour
         // performign jumping too close to a collider
         if (isJumping)
         {
+            //
             StartCoroutine(CheckForStuck());
         }
 
-        // increase the jump impulse with longer hold 
-        if (isJumping && Input.GetKey(KeyCode.Space))
-        {
-            if (totalJumpForce < maxJumpForce)
-            {
-                totalJumpForce += jumpForce;
-                rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
-            }
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpInputBuffered = true;
         }
-        if (isGrounded && jumpInputBuffered)
-        {
-            Debug.Log("start jump");
-            animator.SetBool("isMoving", false);
-            animator.SetBool("isJumping", true);
-            totalJumpForce += jumpForce;
-            rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-            isJumping = true;
-        }
 
     }
 
+
+    void OnCollisionExit(Collision collision)
+    {
+        // Debug.Log("Player collided with " + collision.gameObject.name);
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isHittingWall = false;
+        }
+    }
     void OnCollisionEnter(Collision collision)
     {
         // Debug.Log("Player collided with " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Ground"))
         {
             StopJumping();
+        }
+        else
+        {
+            isHittingWall = true;
         }
     }
 
