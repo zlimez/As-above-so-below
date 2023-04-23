@@ -9,6 +9,7 @@ public class CableSeats : Interactable
     private float playerMoveSpeed = 0.4f;
 
     public bool isSeated;
+    public AudioSource SitDown;
 
     public override void Interact()
     {
@@ -20,6 +21,7 @@ public class CableSeats : Interactable
         }
         else
         {
+            SitDown.Play();
             isSeated = true;
             normPlayer.GetComponent<Rigidbody>().useGravity = false;
         }
