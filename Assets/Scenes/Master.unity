@@ -343,11 +343,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 143556580, guid: d2b81830dc8bc1f428b2ddea2dcbf38e, type: 3}
       propertyPath: TotalDuration
-      value: 60
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 143556580, guid: d2b81830dc8bc1f428b2ddea2dcbf38e, type: 3}
       propertyPath: lowBreathLevel
-      value: 20
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 520976704168777716, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
