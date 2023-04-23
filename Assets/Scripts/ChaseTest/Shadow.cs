@@ -11,6 +11,7 @@ public class Shadow : MonoBehaviour
     public GameObject shadowSprite;
     public GameObject shadowInitialPosition;
     private bool isIdle = true;
+    private BoxCollider cd;
 
     // Update is called once per frame
     void Update()
@@ -18,10 +19,12 @@ public class Shadow : MonoBehaviour
         if (isIdle)
         {
             aiPath.canMove = false;
+            cd.enabled = false;
             return;
         }
         else
         {
+            cd.enabled = true;
             aiPath.canMove = true;
         }
 
@@ -39,6 +42,7 @@ public class Shadow : MonoBehaviour
     {
         shadowSprite.SetActive(false);
         isIdle = true;
+        cd = GetComponent<BoxCollider>();
         aiPath = GetComponent<AIPath>();
         EventManager.StartListening(StaticEvent.Core_LowBreath, ShadowsAppear);
         EventManager.StartListening(StaticEvent.Core_SwitchToRealWorld, HideShadow);
