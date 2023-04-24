@@ -5,6 +5,7 @@ using UnityEngine;
 public class JumpAddedController : MonoBehaviour
 {
     public MainCamera mainCamera;
+    public bool jumpEnabled = true;
     public Transform cameraFollowPoint;
     public SpriteRenderer playerSprite;
     public Vector3 goalVelocity;
@@ -14,7 +15,6 @@ public class JumpAddedController : MonoBehaviour
     [SerializeField]
     private float initialJumpForce = 5f;
     private float totalJumpForce = 0f;
-    private float initialJumpForce = 3f;
     private float maxJumpForce = 8f;
 
     private Rigidbody rb;
@@ -106,6 +106,7 @@ public class JumpAddedController : MonoBehaviour
 
         if (isGrounded && jumpInputBuffered && timeSinceLastJump > 0.2f)
         {
+            if (!jumpEnabled) return;
             Debug.Log("start jump");
             animator.SetBool("isMoving", false);
             animator.SetBool("isJumping", true);
