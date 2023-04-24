@@ -30,6 +30,7 @@ public class Grabbable : Interactable
 
     public void Released()
     {
+        isGrabbed = false;
         follower.enabled = false;
     }
 }

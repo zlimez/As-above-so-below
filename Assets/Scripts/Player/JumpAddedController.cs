@@ -188,8 +188,6 @@ public class JumpAddedController : MonoBehaviour
             // Get the direction of the collision by multiplying the contact normal with -1
             Vector3 collisionDirection = -1 * contactNormal;
 
-            // Do something with the collision direction
-            Debug.Log("Collision direction: " + collisionDirection);
             if (Mathf.Abs(collisionDirection.x) > 0.8)
             {
                 hasTouchedWall = true;

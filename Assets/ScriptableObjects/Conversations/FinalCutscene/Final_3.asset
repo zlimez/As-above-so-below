@@ -36,7 +36,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: Sorry Miss, we can't have you spoiling the fun!
+    dialogue: Sorry MIss and Mrs, we can't have you spoiling the fun!
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -46,7 +46,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: Timeout for you!
+    dialogue: Timeout for you and you!
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 

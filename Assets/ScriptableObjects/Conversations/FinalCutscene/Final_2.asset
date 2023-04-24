@@ -26,7 +26,7 @@ MonoBehaviour:
     isCentered: 0
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: '"Wait No Jonas! Stop!"'
+    dialogue: Jonas, stop!
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -36,7 +36,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: Leai, Wha- why?
+    dialogue: Wha- why?
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -46,7 +46,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: I've been tricked.
+    dialogue: Turn back! I don't have time to explain.
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -56,7 +56,28 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: This was a plan to -
+    dialogue: He is coming, I must protect our daughter.
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 0126e8d1217e3462ca7765dff31529af, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: Let me help, you brought me here let me make things right for you,
+      for you and for Alice.
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: ae01491f33bac4ccf970918dad6b181f, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: 'Leave please! '
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
