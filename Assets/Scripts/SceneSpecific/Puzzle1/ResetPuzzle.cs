@@ -17,7 +17,7 @@ public class ResetPuzzle : MonoBehaviour
     public CableSeatsOW cableSeatsOW;
     public CableSeats cableSeats;
     public GameObject windmillBlades;
-    public Windmill windmill;
+    public WindmillRotator millRotator;
     public Worm worm;
 
     private void Start()
@@ -31,8 +31,7 @@ public class ResetPuzzle : MonoBehaviour
         //StopAllCoroutines();
         windmillActionReplayPair.ResetReplayRecords();
         windmillBlades.transform.eulerAngles = Vector3.zero;
-        windmill.prevRotationZ = 0;
-        windmill.isRotating = false;
+        millRotator.Reset();
         cableSeatsActionReplayPair.ResetReplayRecords();
         cableSeatsOW.StopAllCoroutines();
         cableSeatsOW.isMoving = false;
