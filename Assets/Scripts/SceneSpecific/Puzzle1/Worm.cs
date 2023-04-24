@@ -24,15 +24,15 @@ public class Worm : MonoBehaviour
 
     private void Update()
     {
-        if (attackFinished)
-        {
-            wormSprite.enabled = false;
-        }
+        // if (attackFinished)
+        // {
+        //     wormSprite.enabled = false;
+        // }
 
-        if (isAttacking)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, attackFinalWormPosition.transform.position, attackSpeed);
-        }
+        // if (isAttacking)
+        // {
+        //     transform.position = Vector3.MoveTowards(transform.position, attackFinalWormPosition.transform.position, attackSpeed);
+        // }
     }
 
     public void Attack()
@@ -44,15 +44,15 @@ public class Worm : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (IsCableSeats(collision.gameObject))
-        {
-            // Apply force to cable car to make it shake
+        // if (IsCableSeats(collision.gameObject))
+        // {
+        //     // Apply force to cable car to make it shake
 
-            if (cableSeats.isSeated)
-            {
-                StartCoroutine(WaitBeforeReset());
-            }
-        }
+        //     if (cableSeats.isSeated)
+        //     {
+        //         StartCoroutine(WaitBeforeReset());
+        //     }
+        // }
     }
 
     public void ResetAttack(object input = null)
