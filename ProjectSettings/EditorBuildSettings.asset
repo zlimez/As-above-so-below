@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RoomPostChase.unity
     guid: 7760ad35500c93f488c9312bb9f53df9
+  - enabled: 1
+    path: Assets/Scenes/FinalCutscene.unity
+    guid: 790649fe780025a438d78a3a021f99a8
   m_configObjects: {}

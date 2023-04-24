@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fd9bf9ca7674ccf9fbb58cbe9468e4, type: 3}
+  m_Name: Final_4
+  m_EditorClassIdentifier: 
+  endWithChoice: 0
+  isBlackBackground: 0
+  textSpeed: 1
+  startingLeftSpeaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6,
+    type: 2}
+  startingRightSpeaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6,
+    type: 2}
+  allLines:
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: Hahahaha!
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: That was pretty funny right?
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: What did you do to them!
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: I brought them back to my circus of course!
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: Who am I?
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: I'm glad I asked.
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: I'm Chuckles Clown of course!
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: I run my own circus in the spirit world.
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: Eh
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: You wouldn't mind i borrow your family for a few years?
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: Wha-
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: Why thank you! Also  I kinda of have to go back now.
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: I have  a show to catch.
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: You should come visit sometime!
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
+  - isLeft: 1
+    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    name: 
+    isCentered: 1
+    textSpeed: 0
+    audio: {fileID: 0}
+    dialogue: Wai-
+    onLineStart:
+      RelatedStaticEvent: 0
+      _eventName: 
