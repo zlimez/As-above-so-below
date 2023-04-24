@@ -13,6 +13,7 @@ public class CableSeats : Interactable
 
     public override void Interact()
     {
+        JumpAddedController playerJumpController = normPlayer.GetComponent<JumpAddedController>();
         Debug.Log("Interacting");
         if (isSeated)
         {
@@ -25,6 +26,7 @@ public class CableSeats : Interactable
             isSeated = true;
             normPlayer.GetComponent<Rigidbody>().useGravity = false;
         }
+        playerJumpController.jumpEnabled = !isSeated;
     }
 
     private void FixedUpdate()
