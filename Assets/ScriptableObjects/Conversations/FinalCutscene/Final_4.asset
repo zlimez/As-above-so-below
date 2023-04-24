@@ -15,13 +15,13 @@ MonoBehaviour:
   endWithChoice: 0
   isBlackBackground: 0
   textSpeed: 1
-  startingLeftSpeaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6,
+  startingLeftSpeaker: {fileID: 11400000, guid: cf32e5e506b754884a156496ffd9ca58,
     type: 2}
   startingRightSpeaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6,
     type: 2}
   allLines:
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e0284ce36a9404c50be75d9638aa298b, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -30,8 +30,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e0284ce36a9404c50be75d9638aa298b, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
       RelatedStaticEvent: 0
       _eventName: 
   - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    speaker: {fileID: 11400000, guid: 0126e8d1217e3462ca7765dff31529af, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e057f53d8e99249bb96197968216cbd2, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -60,8 +60,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e057f53d8e99249bb96197968216cbd2, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -70,8 +70,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e0284ce36a9404c50be75d9638aa298b, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e057f53d8e99249bb96197968216cbd2, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -90,8 +90,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e057f53d8e99249bb96197968216cbd2, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e057f53d8e99249bb96197968216cbd2, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e0284ce36a9404c50be75d9638aa298b, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
       RelatedStaticEvent: 0
       _eventName: 
   - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    speaker: {fileID: 11400000, guid: 0126e8d1217e3462ca7765dff31529af, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -130,8 +130,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e057f53d8e99249bb96197968216cbd2, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -140,8 +140,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e057f53d8e99249bb96197968216cbd2, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -150,8 +150,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e0284ce36a9404c50be75d9638aa298b, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
       RelatedStaticEvent: 0
       _eventName: 
   - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    speaker: {fileID: 11400000, guid: 2626430c0095f41afafde5f93ea7d7ef, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
