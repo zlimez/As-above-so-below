@@ -33,10 +33,10 @@ public class WindmillRotator : MonoBehaviour
     {
         if (isPowerOffSeq) return;
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)) {
             IsClockwise = false;
             isStopped = false;
-        } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+        } else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W)) {
             IsClockwise = true;
             isStopped = false;
         } else if (Input.GetKeyDown(KeyCode.Space)) {
