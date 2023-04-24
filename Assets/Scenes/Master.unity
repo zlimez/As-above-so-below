@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.0028
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0003564873, g: 0.00037561165, b: 0.00033901952, a: 0.0028}
+  m_IndirectSpecularColor: {r: 0.00035648895, g: 0.0003756132, b: 0.00033902033, a: 0.0028}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -343,11 +343,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 143556580, guid: d2b81830dc8bc1f428b2ddea2dcbf38e, type: 3}
       propertyPath: TotalDuration
-      value: 60
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 143556580, guid: d2b81830dc8bc1f428b2ddea2dcbf38e, type: 3}
       propertyPath: lowBreathLevel
-      value: 20
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 520976704168777716, guid: d2b81830dc8bc1f428b2ddea2dcbf38e,
         type: 3}
@@ -3152,7 +3152,7 @@ RectTransform:
   m_Children:
   - {fileID: 624376782785032579}
   m_Father: {fileID: 7831476319313924685}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
