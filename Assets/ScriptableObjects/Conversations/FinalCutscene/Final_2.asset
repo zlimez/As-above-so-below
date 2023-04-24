@@ -20,10 +20,10 @@ MonoBehaviour:
   startingRightSpeaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6,
     type: 2}
   allLines:
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e0d244ba8096e4f5684b857e3cbfbd55, type: 2}
     name: 
-    isCentered: 1
+    isCentered: 0
     textSpeed: 0
     audio: {fileID: 0}
     dialogue: '"Wait No Jonas! Stop!"'
@@ -31,7 +31,7 @@ MonoBehaviour:
       RelatedStaticEvent: 0
       _eventName: 
   - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    speaker: {fileID: 11400000, guid: 2626430c0095f41afafde5f93ea7d7ef, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -40,8 +40,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: e0d244ba8096e4f5684b857e3cbfbd55, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
-  - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+  - isLeft: 0
+    speaker: {fileID: 11400000, guid: ae01491f33bac4ccf970918dad6b181f, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0

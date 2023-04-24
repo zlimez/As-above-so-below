@@ -21,7 +21,7 @@ MonoBehaviour:
     type: 2}
   allLines:
   - isLeft: 1
-    speaker: {fileID: 0}
+    speaker: {fileID: 11400000, guid: cf32e5e506b754884a156496ffd9ca58, type: 2}
     name: 
     isCentered: 0
     textSpeed: 0

@@ -21,7 +21,7 @@ MonoBehaviour:
     type: 2}
   allLines:
   - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    speaker: {fileID: 11400000, guid: cf32e5e506b754884a156496ffd9ca58, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
@@ -31,7 +31,7 @@ MonoBehaviour:
       RelatedStaticEvent: 0
       _eventName: 
   - isLeft: 1
-    speaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6, type: 2}
+    speaker: {fileID: 11400000, guid: cf32e5e506b754884a156496ffd9ca58, type: 2}
     name: 
     isCentered: 1
     textSpeed: 0
