@@ -7,6 +7,7 @@ public class JumpAddedController : MonoBehaviour
     public MainCamera mainCamera;
     public Transform cameraFollowPoint;
     public SpriteRenderer playerSprite;
+    public bool jumpEnabled = true;
     public float moveSpeed = 5f;
     private float jumpForce = 0.2f;
     private float totalJumpForce = 0f;
@@ -61,6 +62,16 @@ public class JumpAddedController : MonoBehaviour
 
     void Update() 
     {
+
+        // This is to prevent the player being stuck when
+        // performign jumping too close to a collider
+        if (isJumping)
+        {
+            StartCoroutine(CheckForStuck());
+        }
+
+        if (!jumpEnabled) return;
+
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetBool("isMoving", false);
@@ -69,13 +80,6 @@ public class JumpAddedController : MonoBehaviour
             rb.AddForce(Vector2.up * initialJumpForce, ForceMode.Impulse);
             isGrounded = false;
             isJumping = true;
-        }
-
-        // This is to prevent the player being stuck when
-        // performign jumping too close to a collider
-        if (isJumping)
-        {
-            StartCoroutine(CheckForStuck());
         }
 
         // increase the jump impulse with longer hold 
