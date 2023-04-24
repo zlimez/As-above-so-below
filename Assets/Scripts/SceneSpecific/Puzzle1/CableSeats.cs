@@ -12,7 +12,7 @@ public class CableSeats : Interactable
 
     public override void Interact()
     {
-        Debug.Log("Interacting");
+        Debug.Log("Interacting with cable seat");
         if (isSeated)
         {
             isSeated = false;

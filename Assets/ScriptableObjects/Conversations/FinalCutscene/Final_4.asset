@@ -26,7 +26,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: Hahahaha!
+    dialogue: Heeheehee!
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -36,7 +36,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: That was pretty funny right?
+    dialogue: That was a neat piece of trick right?
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -56,7 +56,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: I brought them back to my circus of course!
+    dialogue: I enlisted them in my circus show of course!
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -76,7 +76,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: I'm glad I asked.
+    dialogue: I'm glad you asked.
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -86,7 +86,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: I'm Chuckles Clown of course!
+    dialogue: I'm Chuckle the Clown, the greatest showman of all!
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -96,7 +96,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: I run my own circus in the spirit world.
+    dialogue: Consider yourself lucky to catch me in bones and flesh. Not many do.
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -106,7 +106,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: Eh
+    dialogue: Hmm.
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -116,7 +116,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: You wouldn't mind i borrow your family for a few years?
+    dialogue: You wouldn't mind if I borrow your family for a while right?
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -136,17 +136,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: Why thank you! Also  I kinda of have to go back now.
-    onLineStart:
-      RelatedStaticEvent: 0
-      _eventName: 
-  - isLeft: 0
-    speaker: {fileID: 11400000, guid: e057f53d8e99249bb96197968216cbd2, type: 2}
-    name: 
-    isCentered: 1
-    textSpeed: 0
-    audio: {fileID: 0}
-    dialogue: I have  a show to catch.
+    dialogue: Well thank you! Gotta head back, the show can't start without its lead.
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -156,7 +146,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: You should come visit sometime!
+    dialogue: Come visit sometime, a family of the crew gets a free ticket!
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -166,7 +156,7 @@ MonoBehaviour:
     isCentered: 1
     textSpeed: 0
     audio: {fileID: 0}
-    dialogue: Wai-
+    dialogue: Wait!
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 

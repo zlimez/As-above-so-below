@@ -44,6 +44,10 @@ public class SwimController : MonoBehaviour
         playerSprite.gameObject.transform.rotation = Quaternion.Slerp(playerSprite.gameObject.transform.rotation, Quaternion.Euler(0, 0, zAngle), 1 - Mathf.Exp(-RotationSharpness * Time.fixedDeltaTime));
     }
 
+    void OnCollisionEnter(Collision other) {
+        Debug.Log("Swim collided with " + other.gameObject.name);
+    }
+
     void FixedUpdate()
     {
         // TODO: Add animator

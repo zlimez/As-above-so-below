@@ -36,6 +36,7 @@ public class Grabber : MonoBehaviour
     public void Release()
     {
         animator.SetBool("isHolding", false);
+        GetComponent<SwimController>().IsRotationFrozen = false;
         EventManager.InvokeEvent(StaticEvent.Common_GrabStateChanged, false);
         GrabbedObject.Released();
         GrabbedObject = null;
