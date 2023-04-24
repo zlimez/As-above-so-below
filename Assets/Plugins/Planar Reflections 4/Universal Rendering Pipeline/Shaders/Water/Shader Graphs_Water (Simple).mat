@@ -56,7 +56,7 @@ Material:
     - _FoamWidth: 0.195
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.916
+    - _Smoothness: 0.144
     - _WaterBottom: 3.74
     - _WaterClarity: -1.4
     m_Colors:
@@ -64,7 +64,7 @@ Material:
     - _FoamData: {r: 1, g: 1, b: 0.05, a: 0.15}
     - _WaterColor: {r: 0.18218228, g: 0.4077506, b: 0.4339623, a: 0}
     - _WaveData0: {r: 0.66, g: 0.66, b: 0.15, a: -0.15}
-    - _WaveData1: {r: 0.33, g: 0.33, b: -0.05, a: 0}
+    - _WaveData1: {r: 1.03, g: 0.33, b: 0.5, a: 1.7}
   m_BuildTextureStacks: []
 --- !u!114 &4342772977640753918
 MonoBehaviour:
