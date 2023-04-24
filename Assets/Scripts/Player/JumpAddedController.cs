@@ -8,13 +8,14 @@ public class JumpAddedController : MonoBehaviour
     public Transform cameraFollowPoint;
     public SpriteRenderer playerSprite;
     public float moveSpeed = 5f;
-    private float jumpForce = 0.7f;
+    private float jumpForce = 0.2f;
     private float totalJumpForce = 0f;
-    private float maxJumpForce = 7f;
+    private float initialJumpForce = 3f;
+    private float maxJumpForce = 8f;
 
     private Rigidbody rb;
     private Animator animator;
-    private bool isGrounded = false;
+    public bool isGrounded = false;
     private bool isJumping = false;
 
     void OnEnable() {
@@ -41,7 +42,7 @@ public class JumpAddedController : MonoBehaviour
         if (isJumping)
         {
             // restrict the horizontal velocity when jumping
-            vel.x = 0.4f * hInput * moveSpeed;
+            vel.x = 0.3f * hInput * moveSpeed;
         }
         else
         {
@@ -56,20 +57,20 @@ public class JumpAddedController : MonoBehaviour
             animator.SetBool("isMoving", true);
         }
 
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            animator.SetBool("isMoving", false);
-            animator.SetBool("isJumping", true);
-            totalJumpForce += jumpForce;
-            rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-            isJumping = true;
-        }
-
     }
 
     void Update() 
     {
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetBool("isMoving", false);
+            animator.SetBool("isJumping", true);
+            totalJumpForce += initialJumpForce;
+            rb.AddForce(Vector2.up * initialJumpForce, ForceMode.Impulse);
+            isGrounded = false;
+            isJumping = true;
+        }
+
         // This is to prevent the player being stuck when
         // performign jumping too close to a collider
         if (isJumping)
