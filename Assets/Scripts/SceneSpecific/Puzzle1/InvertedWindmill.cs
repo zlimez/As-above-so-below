@@ -17,6 +17,7 @@ public class InvertedWindmill : Interactable
     private IEnumerator turnClockwise;
     private IEnumerator turnAntiClockwise;
     private float rotationZ;
+    public AudioSource WindmillClank;
 
 
     void Awake()
@@ -47,9 +48,7 @@ public class InvertedWindmill : Interactable
         StopCoroutine(turnClockwise);
         StopCoroutine(turnAntiClockwise);
         StartCoroutine(turnClockwise);
-        EventManager.InvokeEvent(DynamicEvent.EngagedWindmill);
-        playerFollowPoint = mainCamera.FollowTransform;
-        mainCamera.SetFollowTransform(cameraFollowPoint, zoomOutDistance);
+        WindmillClank.Play();
     }
 
     public void Choice2(object o = null)
@@ -58,9 +57,7 @@ public class InvertedWindmill : Interactable
         StopCoroutine(turnClockwise);
         StopCoroutine(turnAntiClockwise);
         StartCoroutine(turnAntiClockwise);
-        EventManager.InvokeEvent(DynamicEvent.EngagedWindmill);
-        playerFollowPoint = mainCamera.FollowTransform;
-        mainCamera.SetFollowTransform(cameraFollowPoint, zoomOutDistance);
+        WindmillClank.Play();
     }
 
     public IEnumerator TurnClockwise()

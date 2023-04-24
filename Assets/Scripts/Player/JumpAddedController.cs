@@ -14,11 +14,12 @@ public class JumpAddedController : MonoBehaviour
     [SerializeField]
     private float initialJumpForce = 5f;
     private float totalJumpForce = 0f;
-    private float maxJumpForce = 7f;
+    private float initialJumpForce = 3f;
+    private float maxJumpForce = 8f;
 
     private Rigidbody rb;
     private Animator animator;
-    private bool isGrounded = false;
+    public bool isGrounded = false;
     private bool isJumping = false;
     public float jumpInputBufferTime = 0.15f;
     private bool jumpInputBuffered = false;
