@@ -12,7 +12,6 @@ public class Worm : MonoBehaviour
     public GameObject initialWormPosition;
     public GameObject attackFinalWormPosition;
     public float attackSpeed = 0.4f;
-    public AudioSource WormSound;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +40,6 @@ public class Worm : MonoBehaviour
         wormSprite.enabled = true;
         // Move worm towards left in Update
         isAttacking = true;
-        WormSound.Play();
     }
 
     private void OnTriggerEnter(Collider collision)

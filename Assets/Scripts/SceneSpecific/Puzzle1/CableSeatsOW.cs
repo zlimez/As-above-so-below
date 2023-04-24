@@ -4,92 +4,72 @@ using UnityEngine;
 
 public class CableSeatsOW : MonoBehaviour
 {
-    public Windmill windmillOW;
+    public WindmillRotator windmillOW;
     public bool isMoving;
     public bool isMovingRight;
     public Waypoints waypoints;
 
     private IEnumerator moveRight;
     private IEnumerator moveLeft;
-    public float moveSpeed = 0.3f;
+    public float moveSpeed = 4f;
 
-    private void Start()
-    {
+    void OnEnable() {
         moveRight = MoveRight();
         moveLeft = MoveLeft();
+
+        windmillOW.OnRotatingAnticlockwise += StartMoveLeft;
+        windmillOW.OnRotatingClockwise += StartMoveRight;
+        windmillOW.OnStopped += Stop;
     }
 
-    private void FixedUpdate()
-    {
-        if (windmillOW.isRotating)
-        {
-            Debug.Log("Windmill rotating");
-            isMoving = true;
-            if (windmillOW.isRotatingClockwise)
-            {
-                isMovingRight = true;
-            }
-            else
-            {
-                isMovingRight = false;
-            }
-        }
-        else
-        {
-            isMoving = false;
-        }
+    void OnDisable() {
+        moveRight = null;
+        moveLeft = null;
 
-        if (!isMoving)
-        {
-            return;
-        }
-        else
-        {
-            if (isMovingRight)
-            {
-                StopCoroutine(moveRight);
-                StopCoroutine(moveLeft);
-                StartCoroutine(moveRight);
-            }
-            else
-            {
-                StopCoroutine(moveRight);
-                StopCoroutine(moveLeft);
-                StartCoroutine(moveLeft);
-            }
-        }
+        windmillOW.OnRotatingAnticlockwise += StartMoveLeft;
+        windmillOW.OnRotatingClockwise += StartMoveRight;
+        windmillOW.OnStopped += Stop;
     }
 
-    public IEnumerator MoveRight()
+    private void StartMoveLeft() {
+        Debug.Log("Moving cable car to the left");
+        StopCoroutine(moveRight);
+        StartCoroutine(moveLeft);
+    }
+
+    private void StartMoveRight() {
+        Debug.Log("Moving cable car to the right");
+        StopCoroutine(moveLeft);
+        StartCoroutine(moveRight);
+    }
+
+    private void Stop() {
+        StopCoroutine(moveRight);
+        StopCoroutine(moveLeft);
+    }
+
+    IEnumerator MoveRight()
     {
         while (!waypoints.reachedEnd)
         {
-            if (transform.position != waypoints.currentWaypoint.position)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, waypoints.currentWaypoint.position, moveSpeed);
-            }
-            else
-            {
-                waypoints.GetNextWaypoint();
-                transform.position = Vector3.MoveTowards(transform.position, waypoints.currentWaypoint.position, moveSpeed);
-            }
+            Vector3 toWaypoint = waypoints.currentWaypoint.position - transform.position;
+            Vector3 direction = toWaypoint.normalized;
+            Vector3 deltaPosition = direction * moveSpeed * Mathf.Abs(windmillOW.CurrRotationVel) / windmillOW.PeakRotationSpeed * Time.deltaTime;
+            transform.position += deltaPosition;
+            if (deltaPosition.sqrMagnitude >= toWaypoint.sqrMagnitude) waypoints.GetNextWaypoint();
             yield return null;
         }
     }
 
-    public IEnumerator MoveLeft()
+    IEnumerator MoveLeft()
     {
         while (!waypoints.reachedStart)
         {
-            if (transform.position != waypoints.currentWaypoint.position)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, waypoints.currentWaypoint.position, moveSpeed);
-            }
-            else
-            {
-                waypoints.GetPrevWaypoint();
-                transform.position = Vector3.MoveTowards(transform.position, waypoints.currentWaypoint.position, moveSpeed);
-            }
+            Vector3 toWaypoint = waypoints.currentWaypoint.position - transform.position;
+            Vector3 direction = toWaypoint.normalized;
+            Vector3 deltaPosition = direction * moveSpeed * Mathf.Abs(windmillOW.CurrRotationVel) / windmillOW.PeakRotationSpeed * Time.deltaTime;
+            transform.position += deltaPosition;
+            if (deltaPosition.sqrMagnitude >= toWaypoint.sqrMagnitude) waypoints.GetPrevWaypoint();
             yield return null;
         }
     }
