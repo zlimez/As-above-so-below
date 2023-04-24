@@ -26,7 +26,7 @@ MonoBehaviour:
     isCentered: 0
     textSpeed: 1
     audio: {fileID: 0}
-    dialogue: Leia..
+    dialogue: Wait i hear a faint voice across the cliff
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -36,7 +36,7 @@ MonoBehaviour:
     isCentered: 0
     textSpeed: 1
     audio: {fileID: 0}
-    dialogue: She went in this direction.
+    dialogue: ...Leia?
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 
@@ -46,7 +46,7 @@ MonoBehaviour:
     isCentered: 0
     textSpeed: 1
     audio: {fileID: 0}
-    dialogue: Where is she going?
+    dialogue: I might have to take the cable car across the cliff.
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 

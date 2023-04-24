@@ -11,7 +11,7 @@ public class ScreenShaker : MonoBehaviour
     private Vector3 initialPosition;
     private bool isScreenShaking = false;
 
-    //Code adapted from Camera Vibration in Canvas Based Unity Game · Yuno's Wonderland
+    //Code adapted from Camera Vibration in Canvas Based Unity Game ï¿½ Yuno's Wonderland
 
     // Update is called once per frame
     void Update()
