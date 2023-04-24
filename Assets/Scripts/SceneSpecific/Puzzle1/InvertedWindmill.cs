@@ -6,6 +6,10 @@ using UnityEngine;
 public class InvertedWindmill : Interactable
 {
     public GameObject windmillBlades;
+    [SerializeField] private MainCamera mainCamera;
+    [SerializeField] private float zoomOutDistance;
+    [SerializeField] private Transform cameraFollowPoint;
+    private Transform playerFollowPoint;
     public string choiceText1, choiceText2;
     private Choice choice1, choice2;
     private bool choice1Activated = true;
@@ -74,6 +78,12 @@ public class InvertedWindmill : Interactable
             windmillBlades.transform.eulerAngles = new Vector3(windmillBlades.transform.eulerAngles.x, windmillBlades.transform.eulerAngles.y, rotationZ);
             yield return null;
         }
+    }
+
+    protected override void OnTriggerExit(Collider collision)
+    {
+        base.OnTriggerExit(collision);
+        mainCamera.SetFollowTransform(playerFollowPoint, mainCamera.DefaultDistance);
     }
 
     private void ResetBlades(object input = null)

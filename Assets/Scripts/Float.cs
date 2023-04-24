@@ -10,13 +10,13 @@ public class Float : MonoBehaviour
 
     private void Start()
     {
-        originalPosition = transform.position;
+        originalPosition = transform.localPosition;
     }
 
     private void Update()
     {
         Vector3 newPosition = originalPosition;
         newPosition.y += Mathf.Sin(Time.time * frequency) * amplitude;
-        transform.position = newPosition;
+        transform.localPosition = newPosition;
     }
 }

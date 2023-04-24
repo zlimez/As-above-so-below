@@ -13,10 +13,15 @@ public class SwimController : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private float RotationSharpness = 10f;
     [SerializeField] private Transform cameraFollowPoint;
+    public Transform Grabpoint;
     private Animator animator;
+    public Animator SwimmerAnimator { get {return animator;} }
+    public SpriteRenderer SwimmerRenderer { get {return playerSprite;} }
     private Rigidbody rb;
     private Vector3 currDirection;
     private bool lastFacingRight = true;
+    // When movement is automated
+    public bool Automated = false;
     public bool IsRotationFrozen = false;
 
     void Awake()

@@ -17,4 +17,8 @@ public class VectorUtils {
         float clampedT = Mathf.Clamp(t, 0, 1);
         return Mathf.Pow(t, 2) * (end - start) + start;
     }
+
+    public static float EaseOutSquare(float start, float end, float t) {
+        return -(end - start) * t * (t - 2) + start;
+    }
 }

@@ -12,7 +12,7 @@ namespace Chronellium.EventSystem
         void OnTriggerEnter(Collider other)
         {
             if (hasTriggered) return;
-            if (optionalInvokeEvent != null) EventManager.InvokeEvent(optionalInvokeEvent);
+            if (optionalInvokeEvent != null && optionalInvokeEvent.RelatedStaticEvent != StaticEvent.NoEvent) EventManager.InvokeEvent(optionalInvokeEvent);
             DialogueManager.Instance.StartConversation(convo);
             hasTriggered = true;
 

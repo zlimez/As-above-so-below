@@ -10,7 +10,6 @@ namespace Chronellium.TimeManagers
     /// </summary>
     public class CountdownTimer : MonoBehaviour
     {
-        public static CountdownTimer Instance;
         public float TimeLeft;
 
         /// <summary>

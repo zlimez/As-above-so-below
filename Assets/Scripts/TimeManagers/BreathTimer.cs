@@ -10,15 +10,7 @@ public class BreathTimer : CountdownTimer
     public static BreathTimer Instance;
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        Instance = this;
     }
 
     [SerializeField] private float lowBreathLevel = 20f;

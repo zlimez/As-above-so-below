@@ -11,6 +11,8 @@ public class Waypoints : MonoBehaviour
     public Transform initialWaypoint;
     public int currentIndex;
     public Transform currentWaypoint;
+    [SerializeField] private string ownerObjectName;
+    public static readonly string ReachedEndSuffix = " reached end";
 
     private void Start()
     {
@@ -27,13 +29,14 @@ public class Waypoints : MonoBehaviour
 
     public Transform GetNextWaypoint()
     {
-        Debug.Log("Current waypoint: " + currentIndex);
+        // Debug.Log("Current waypoint: " + currentIndex);
         currentIndex += 1;
         reachedStart = false;
         if (currentIndex >= transform.childCount)
         {
             currentIndex = transform.childCount - 1;
             reachedEnd = true;
+            EventManager.InvokeEvent(new GameEvent(ownerObjectName + ReachedEndSuffix));
         }
         currentWaypoint = transform.GetChild(currentIndex);
         return currentWaypoint;

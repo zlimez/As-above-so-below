@@ -15,7 +15,8 @@ MonoBehaviour:
   endWithChoice: 0
   isBlackBackground: 0
   textSpeed: 1
-  startingLeftSpeaker: {fileID: 0}
+  startingLeftSpeaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6,
+    type: 2}
   startingRightSpeaker: {fileID: 11400000, guid: 7539a0c7a54415340a520c4d7aa459e6,
     type: 2}
   allLines:

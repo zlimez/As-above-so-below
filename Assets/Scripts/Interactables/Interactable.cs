@@ -111,7 +111,7 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void Interact();
 
-    protected void OnTriggerEnter(Collider collision)
+    protected virtual void OnTriggerEnter(Collider collision)
     {
         if (IsPlayer(collision.gameObject))
         {
@@ -119,17 +119,15 @@ public abstract class Interactable : MonoBehaviour
             Player = collision.gameObject;
             SpawnHint();
         }
-
     }
 
-    protected void OnTriggerExit(Collider collision)
+    protected virtual void OnTriggerExit(Collider collision)
     {
         if (IsPlayer(collision.gameObject))
         {
             playerInRange = false;
             DestroyHint();
         }
-
     }
 
     private bool IsPlayer(GameObject otherObject)
