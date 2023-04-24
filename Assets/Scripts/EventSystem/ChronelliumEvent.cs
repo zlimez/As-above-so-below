@@ -38,6 +38,7 @@ namespace Chronellium.EventSystem
         public readonly static string ReplayCompleteEventPrefix = "Replay completed for ";
         public readonly static GameEvent GhostReplayCompleted = new GameEvent(ReplayCompleteEventPrefix + "SwimCharacter (Ghost)");
         public readonly static GameEvent EngagedWindmill = new GameEvent("Engaged windmill");
+        public readonly static GameEvent DisengagedWindmill = new GameEvent("Disengaged windmill");
         public readonly static GameEvent CableReached = new GameEvent("Cable seat reached end");
     }
 }
