@@ -35,7 +35,7 @@ public class EnterOtherWorldLogic : MonoBehaviour
                 EventManager.InvokeEvent(StaticEvent.Core_SwitchToOtherWorld);
 
 
-                Vector3 dir = new Vector3(0, 300, 0);
+                Vector3 dir = new Vector3(0, 310, 0);
                 playerSwimControllerRB.AddForce(dir);
                 System.Action<ITween<float>> BandInCallBack = (t) =>
                {

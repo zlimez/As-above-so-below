@@ -56,7 +56,7 @@ public class ExitAttemptLogic : MonoBehaviour
     // Update is called once per frame
     public void StartBreathTimer()
     {
-        BreathTimer.Instance.gameObject.SetActive(true);
+        // BreathTimer.Instance.gameObject.SetActive(true);
     }
 
     public void startOhShtDialog()
