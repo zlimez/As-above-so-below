@@ -2,6 +2,7 @@ using Chronellium.EventSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Beautify.Universal;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -11,6 +12,8 @@ public class ChangeProfileOnWorldSwap : MonoBehaviour
     public VolumeProfile spiritProfile;
     private VolumeProfile realWorldProfile;
 
+    public Transform realWorldDOFTarget;
+    public Transform otherWorldDOFTarget;
     void OnEnable()
     {
         EventManager.StartListening(StaticEvent.Core_SwitchToRealWorld, TurnOnRealWorld);
@@ -27,10 +30,12 @@ public class ChangeProfileOnWorldSwap : MonoBehaviour
     {
         realWorldProfile = volumeComponent.profile;
         volumeComponent.profile = spiritProfile;
+        gameObject.GetComponent<BeautifySettings>().depthOfFieldTarget = otherWorldDOFTarget;
     }
 
     private void TurnOnRealWorld(object input = null)
     {
         volumeComponent.profile = realWorldProfile;
+        gameObject.GetComponent<BeautifySettings>().depthOfFieldTarget = realWorldDOFTarget;
     }
 }

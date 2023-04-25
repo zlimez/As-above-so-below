@@ -1,6 +1,8 @@
 using UnityEngine;
 using Chronellium.EventSystem;
 using UnityEngine.SceneManagement;
+using DeepBreath.Environment;
+using Pathfinding;
 
 public class Puzzle1 : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class Puzzle1 : MonoBehaviour
 
     private void ResetPuzzle(object input = null)
     {
+        StateManager.realm = Realm.realWorld;
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
     }
