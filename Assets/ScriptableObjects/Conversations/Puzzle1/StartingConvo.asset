@@ -25,8 +25,8 @@ MonoBehaviour:
     name: 
     isCentered: 0
     textSpeed: 1
-    audio: {fileID: 8300000, guid: e592fd120b489bf478c6a40ff9edc6bd, type: 3}
-    dialogue: Wait i hear a faint voice across the cliff
+    audio: {fileID: 0}
+    dialogue: Wait, I hear a faint voice across the cliff
     onLineStart:
       RelatedStaticEvent: 0
       _eventName: 

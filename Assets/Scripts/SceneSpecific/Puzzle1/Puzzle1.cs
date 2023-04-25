@@ -1,12 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Chronellium.EventSystem;
+using UnityEngine.SceneManagement;
 
 public class Puzzle1 : MonoBehaviour
 {
-    public Conversation startingConvo;
     private void Start()
     {
-        DialogueManager.Instance.StartConversation(startingConvo);
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetPuzzle();
+        }
+        EventManager.StartListening(StaticEvent.Core_ResetPuzzle, ResetPuzzle);
+    }
+
+    private void ResetPuzzle(object input = null)
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }
