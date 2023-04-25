@@ -45,7 +45,6 @@ public class ResetPuzzle : MonoBehaviour
         Rigidbody rb = normPlayer.GetComponent<Rigidbody>();
         rb.useGravity = true;
         rb.velocity = Vector3.zero;
-        worm.wormSprite.enabled = false;
         worm.ResetAttack();
     }
 }

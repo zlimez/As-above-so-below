@@ -17,11 +17,13 @@ public class CableSeats : Interactable
         {
             isSeated = false;
             normPlayer.GetComponent<Rigidbody>().useGravity = true;
+            normPlayer.GetComponent<JumpAddedController>().jumpEnabled = true;
         }
         else
         {
             isSeated = true;
             normPlayer.GetComponent<Rigidbody>().useGravity = false;
+            normPlayer.GetComponent<JumpAddedController>().jumpEnabled = false;
         }
     }
 

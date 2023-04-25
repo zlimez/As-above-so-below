@@ -6,7 +6,7 @@ using System;
 public class WindmillRotator : MonoBehaviour
 {
     [SerializeField] private float peakRotationSpeed;
-    public float PeakRotationSpeed { get {return peakRotationSpeed; } }
+    public float PeakRotationSpeed { get { return peakRotationSpeed; } }
     [SerializeField] private float rotationAcceleration;
     // + for anticlockwise - for clockwise
     public float CurrRotationVel { get; private set; }
@@ -20,7 +20,8 @@ public class WindmillRotator : MonoBehaviour
     public event Action OnRotatingAnticlockwise;
     public event Action OnStopped;
 
-    public void PowerOn() {
+    public void PowerOn()
+    {
         this.enabled = true;
         if (powerDownRoutine != null) StopCoroutine(powerDownRoutine);
         powerDownRoutine = PowerDown();
@@ -33,39 +34,55 @@ public class WindmillRotator : MonoBehaviour
     {
         if (isPowerOffSeq) return;
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)) {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        {
             IsClockwise = false;
             isStopped = false;
-        } else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W)) {
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        {
+
             IsClockwise = true;
             isStopped = false;
-        } else if (Input.GetKeyDown(KeyCode.Space)) {
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
             isStopped = true;
         }
 
-        if (isStopped) {
+        if (isStopped)
+        {
             if (CurrRotationVel == 0) return;
             CurrRotationVel = Mathf.Sign(CurrRotationVel) * Mathf.Max(0, Mathf.Abs(CurrRotationVel) - rotationAcceleration * Time.deltaTime);
             if (CurrRotationVel == 0) OnStopped?.Invoke();
-        } else {
-            if (IsClockwise) {
+        }
+        else
+        {
+            if (IsClockwise)
+            {
                 bool WasClockwise = IsRotatingClockwise && CurrRotationVel != 0;
                 CurrRotationVel -= rotationAcceleration * Time.deltaTime;
-                if (Mathf.Abs(CurrRotationVel) <= 0.5) {
+                if (Mathf.Abs(CurrRotationVel) <= 0.5)
+                {
                     Debug.Log("Small rotation velocity " + CurrRotationVel);
                 }
-                if (!WasClockwise && IsRotatingClockwise) {
-                    OnRotatingClockwise?.Invoke(); 
+                if (!WasClockwise && IsRotatingClockwise)
+                {
+                    OnRotatingClockwise?.Invoke();
                     Debug.Log("Starting anticlockwise rotation");
                 }
-            } else {
+            }
+            else
+            {
                 bool WasRotatingAnticlockwise = !IsRotatingClockwise && CurrRotationVel != 0;
                 CurrRotationVel += rotationAcceleration * Time.deltaTime;
-                if (Mathf.Abs(CurrRotationVel) <= 0.5) {
+                if (Mathf.Abs(CurrRotationVel) <= 0.5)
+                {
                     Debug.Log("Small rotation velocity " + CurrRotationVel);
                 }
                 bool IsRotatingAntiClockwise = !IsRotatingClockwise && CurrRotationVel != 0;
-                if (!WasRotatingAnticlockwise && !IsRotatingClockwise) {
+                if (!WasRotatingAnticlockwise && !IsRotatingClockwise)
+                {
                     OnRotatingAnticlockwise?.Invoke();
                     Debug.Log("Starting anticlockwise rotation");
                 }
@@ -76,22 +93,26 @@ public class WindmillRotator : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.rotation.eulerAngles.z + CurrRotationVel * Time.deltaTime);
     }
 
-    public void Reset() {
+    public void Reset()
+    {
         isStopped = true;
         CurrRotationVel = 0;
         isPowerOffSeq = false;
         if (powerDownRoutine != null) StopCoroutine(powerDownRoutine);
     }
 
-    public void StartPowerDown() {
+    public void StartPowerDown()
+    {
         isPowerOffSeq = true;
         isStopped = true;
         StartCoroutine(powerDownRoutine);
     }
 
     // When disengaged
-    IEnumerator PowerDown() {
-        while (Mathf.Abs(CurrRotationVel) > 0) {
+    IEnumerator PowerDown()
+    {
+        while (Mathf.Abs(CurrRotationVel) > 0)
+        {
             CurrRotationVel = Mathf.Sign(CurrRotationVel) * Mathf.Max(0, Mathf.Abs(CurrRotationVel) - rotationAcceleration * Time.deltaTime);
             transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.rotation.eulerAngles.z + CurrRotationVel * Time.deltaTime);
             yield return null;

@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Puzzle2.unity
     guid: 07741dd17f80b9948b15402debcea209
   - enabled: 1
-    path: Assets/Scenes/CityFloor.unity
-    guid: 204389aaa415c40a0847492ed940847f
-  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 0bb7047206a9bb044b77fbc16c6a06ed
   - enabled: 1

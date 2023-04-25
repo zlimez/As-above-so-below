@@ -96,6 +96,7 @@ public class JumpAddedController : MonoBehaviour
         // increase the jump impulse with longer hold 
         if (!hasPlayerReleaseJump && isJumping && Input.GetKey(KeyCode.Space))
         {
+            if (!jumpEnabled) return;
             Debug.Log("Retry jump");
             if (totalJumpForce < maxJumpForce)
             {
