@@ -41,6 +41,7 @@ public class WindmillRotator : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
+
             IsClockwise = true;
             isStopped = false;
         }
