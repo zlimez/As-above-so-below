@@ -13,7 +13,8 @@ public class CableSeatsOW : MonoBehaviour
     private IEnumerator moveLeft;
     public float moveSpeed = 4f;
 
-    void OnEnable() {
+    void OnEnable()
+    {
         moveRight = MoveRight();
         moveLeft = MoveLeft();
 
@@ -22,7 +23,8 @@ public class CableSeatsOW : MonoBehaviour
         windmillOW.OnStopped += Stop;
     }
 
-    void OnDisable() {
+    void OnDisable()
+    {
         moveRight = null;
         moveLeft = null;
 
@@ -31,19 +33,22 @@ public class CableSeatsOW : MonoBehaviour
         windmillOW.OnStopped += Stop;
     }
 
-    private void StartMoveLeft() {
+    private void StartMoveLeft()
+    {
         Debug.Log("Moving cable car to the left");
         StopCoroutine(moveRight);
         StartCoroutine(moveLeft);
     }
 
-    private void StartMoveRight() {
+    private void StartMoveRight()
+    {
         Debug.Log("Moving cable car to the right");
         StopCoroutine(moveLeft);
         StartCoroutine(moveRight);
     }
 
-    private void Stop() {
+    private void Stop()
+    {
         StopCoroutine(moveRight);
         StopCoroutine(moveLeft);
     }
