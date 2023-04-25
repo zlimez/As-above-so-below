@@ -8,6 +8,7 @@ public class WormHint : MonoBehaviour
 {
     public CinemachineVirtualCamera vcam;
     public Animator wormAnimator;
+    public AudioSource rumbleBGM;
     public bool DEBUG = true;
     public bool hasPlayedOnce = false;
 
@@ -29,6 +30,8 @@ public class WormHint : MonoBehaviour
 
             // Start worm animation
             wormAnimator.SetTrigger("startHint");
+            rumbleBGM.Play();
+
         }
     }
 }

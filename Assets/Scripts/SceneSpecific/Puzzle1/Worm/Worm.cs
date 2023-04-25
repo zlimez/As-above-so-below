@@ -6,6 +6,7 @@ using UnityEngine;
 public class Worm : MonoBehaviour
 {
     public GameObject hitBox;
+    public AudioSource audio;
     private bool isAttacking;
 
     void Start()
@@ -24,6 +25,10 @@ public class Worm : MonoBehaviour
         }
     }
 
+    public void PlayChomp()
+    {
+        audio.Play();
+    }
     // Called by the animation as an animation event
     public void Attack()
     {

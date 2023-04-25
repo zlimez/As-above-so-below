@@ -25,7 +25,7 @@ MonoBehaviour:
     name: 
     isCentered: 0
     textSpeed: 1
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: ff75a5990cc6f7945ba2eab5767a0529, type: 3}
     dialogue: What was that.
     onLineStart:
       RelatedStaticEvent: 0
